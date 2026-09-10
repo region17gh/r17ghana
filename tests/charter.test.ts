@@ -176,6 +176,24 @@ describe("default locale at root", () => {
     }
   });
 
+  test("every retired legacy address has a documented redirect rule", () => {
+    // These are the exact addresses the deleted src/lib/charter/legacyPaths.ts
+    // used to serve, plus the locale root. Under D-078 the router serves none of
+    // them: /register and /join/en match $region and $region/$district and fail
+    // the region guard, and /en does the same. So the redirect doc is the ONLY
+    // thing keeping them alive, and /join/en is the address that was printed on
+    // launch material.
+    //
+    // This shipped incomplete once: the first version of the doc covered the
+    // three prefix shapes and missed both exact-match paths, which 404'd from
+    // the moment the cutover merged. The check exists so the next rename cannot
+    // drop one silently.
+    const doc = readFileSync("docs/d078-redirects.md", "utf8");
+    for (const address of ["/join/en", "/register", "/en/regions/", "/regions/", "/en/"]) {
+      expect(doc).toContain(address);
+    }
+  });
+
   test("canonical is the unprefixed URL, and x-default agrees with it", () => {
     const links = canonicalLinks(DEFAULT_LOCALE, "/volta");
     const canonical = links.find((l) => l.rel === "canonical");

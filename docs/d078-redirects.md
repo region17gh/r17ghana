@@ -3,14 +3,36 @@
 English is now served unprefixed and place slugs are flat, so three older URL
 shapes have to keep resolving:
 
-| Old shape | Example | Now |
-| --- | --- | --- |
-| locale-first, with the collection segment | `/en/regions/volta` | `/volta` |
-| locale-first, bare place path | `/en/volta` | `/volta` |
-| locale-less, with the collection segment | `/regions/volta` | `/volta` |
+| Old shape | Example | Now | Without a rule |
+| --- | --- | --- | --- |
+| locale-first, with the collection segment | `/en/regions/volta` | `/volta` | **404** |
+| locale-first, bare place path | `/en/volta` | `/volta` | **404** |
+| locale-less, with the collection segment | `/regions/volta` | `/volta` | **404** |
+| locale-suffix form | `/join/en` | `/join` | **404** |
+| locale-less registration | `/register` | `/join/register` | **404** |
+| locale root | `/en` | `/` | **404** |
+| locale-first static page | `/en/join` | `/join` | serves, non-canonically |
 
-Plus every non-place page that carried the prefix: `/en/join`, `/en/signin`,
-`/en/verify`, `/en/home`, `/en/declare`, `/en/join/register`, and `/en` itself.
+The last row differs from the rest and the difference is worth knowing. `/en/join`
+still resolves, because `join` is a static segment so the optional locale segment
+absorbs `en` and the page renders as `locale: "en"`. It serves **duplicate content
+at a non-canonical URL** rather than 404ing. The canonical tag limits the SEO
+damage, but rule 3 below is what actually fixes it.
+
+Every other row 404s until its rule exists, which is why these are not optional
+cleanup. Two of them are addresses that were in active circulation:
+
+- **`/join/en` is the address printed on launch material.** The retired
+  `src/lib/charter/legacyPaths.ts` said so explicitly: "This is the address
+  printed on launch material, so it is the one that most needs to keep
+  resolving." Its route stub was deleted with the rest of the locale-first
+  redirect table, so it now matches `$region/$district` as
+  `{region: "join", district: "en"}` and fails the region guard.
+- **`/register`** was the locale-less registration path. It now matches
+  `$region` as `{region: "register"}` and fails the same guard.
+
+Neither is covered by a wildcard rule, because neither is a prefix shape. They
+need the two exact-match rules in the second table below.
 
 These 301 at the edge, never in client code. There is no custom Worker entry in
 `wrangler.jsonc` and D-078's routing change does not add one.
@@ -32,14 +54,21 @@ Order matters and rule 1 must come first. With rule 3 evaluated first,
 rule 2. Two 301s in a chain still resolve, but they halve the link equity that
 survives and they show up as a redirect chain in every audit tool.
 
-Also add, as its own rule because it has no path to substitute:
+Then these three exact-match rules, which have no path to substitute and are
+**not** covered by any wildcard above:
 
-| Match | Target | Status |
-| --- | --- | --- |
-| `/en` | `/` | 301 |
+| Match | Target | Status | Why |
+| --- | --- | --- | --- |
+| `/en` | `/` | 301 | locale root |
+| `/join/en` | `/join` | 301 | **printed on launch material** |
+| `/register` | `/join/register` | 301 | locale-less registration path |
 
-That is the whole set. It covers the static pages as well as the places,
-because `/en/join` and `/en/volta` are the same shape to rule 3.
+That is the whole set: three wildcards plus three exact matches. The wildcards
+cover the static pages as well as the places, because `/en/join` and `/en/volta`
+are the same shape to rule 3.
+
+`/join/en` is the one to create first. It is the only address here that appears
+on material already in people's hands, and it is 404ing now.
 
 ## Alternative: the exhaustive list
 
@@ -67,6 +96,8 @@ curl -sSI https://r17gh.com/regions/volta    | grep -i '^location'   # -> /volta
 curl -sSI https://r17gh.com/en/volta         | grep -i '^location'   # -> /volta
 curl -sSI https://r17gh.com/en/join          | grep -i '^location'   # -> /join
 curl -sSI https://r17gh.com/en               | grep -i '^location'   # -> /
+curl -sSI https://r17gh.com/join/en          | grep -i '^location'   # -> /join
+curl -sSI https://r17gh.com/register         | grep -i '^location'   # -> /join/register
 ```
 
 If any of them returns two `Location` hops, the rule order is wrong.
@@ -81,3 +112,8 @@ an optional one, so `/en/volta` matches `$region/$district` as
 That fails safe: without these redirects a legacy URL 404s rather than serving
 the wrong page. But it does mean the redirects are the only thing making those
 addresses work, so they are not optional cleanup.
+
+The one exception is a locale prefix in front of a STATIC segment. `/en/join`
+does reach the locale route as `{locale: "en"}`, because a static sibling does
+not shadow the optional segment the way `$region` does. So `/en/...` place paths
+404 while `/en/...` static pages serve duplicate content. Rule 3 covers both.
