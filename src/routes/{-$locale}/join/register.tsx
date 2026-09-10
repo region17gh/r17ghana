@@ -67,7 +67,7 @@ function parseStage(raw: unknown): StageValue {
   return raw === "code" || raw === "details" ? raw : "identity";
 }
 
-export const Route = createFileRoute("/$locale/join/register")({
+export const Route = createFileRoute("/{-$locale}/join/register")({
   // The step lives in the URL so the browser back button moves between steps
   // instead of leaving the flow. Nothing personal is ever put here.
   validateSearch: (search: Record<string, unknown>): JoinSearch => {

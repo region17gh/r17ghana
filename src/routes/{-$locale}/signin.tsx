@@ -6,7 +6,7 @@ import { TAP_CONTROL } from "@/components/join/steps/shared";
 import { localePath, useI18n } from "@/i18n";
 import { supabase } from "@/integrations/supabase/client";
 
-export const Route = createFileRoute("/$locale/signin")({
+export const Route = createFileRoute("/{-$locale}/signin")({
   head: () => ({ meta: [{ title: "Sign in | Region 17" }] }),
   component: SignInPage,
 });

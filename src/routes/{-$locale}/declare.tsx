@@ -15,7 +15,7 @@ import {
 import { localePath, useI18n } from "@/i18n";
 import { supabase } from "@/integrations/supabase/client";
 
-export const Route = createFileRoute("/$locale/declare")({
+export const Route = createFileRoute("/{-$locale}/declare")({
   head: () => ({ meta: [{ title: "What brings you | Region 17" }] }),
   component: DeclarePage,
 });

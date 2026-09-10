@@ -11,7 +11,7 @@ import { checkHandle, normaliseHandle, type HandleProblem } from "@/lib/join/han
 import { commitVerification, fetchCurrentMember, type MemberRow } from "@/lib/member/membership";
 import { sendWelcomeEmail } from "@/server/welcome";
 
-export const Route = createFileRoute("/$locale/verify")({
+export const Route = createFileRoute("/{-$locale}/verify")({
   head: () => ({ meta: [{ title: "Confirm your address | Region 17" }] }),
   component: VerifyPage,
 });
