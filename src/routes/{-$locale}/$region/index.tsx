@@ -13,7 +13,8 @@ import {
   SectionHeader,
   Statistic,
 } from "@/design-system/region-17-ghana-design-system-e3e62f";
-import { useI18n } from "@/i18n";
+import { DEFAULT_LOCALE, localePath, resolveLocale, useI18n } from "@/i18n";
+import { absoluteUrl, canonicalLinks } from "@/lib/seo/canonical";
 import { toDistrictViews } from "@/lib/region/districtView";
 import { confidenceLevel, fetchRegionPayload, type RegionPayload } from "@/lib/region/payload";
 import {
@@ -28,8 +29,9 @@ import {
  * The Volta region page.
  *
  * SCOPE. Volta only. The route takes a `$region` param so the URL is the shape
- * every region page will use — `/{locale}/regions/{slug}`, matching
- * `src/lib/places/path.ts` — but anything other than `volta` is a 404. The page
+ * every region page will use — `/{slug}` flat at the top level under D-078,
+ * matching `src/lib/places/path.ts` — but anything other than `volta` is a 404.
+ * The page
  * is not a template yet: its feed, needs, registry figures and story bodies are
  * Volta-specific mock content. Generalising it is a later pass, and turning
  * this guard off without doing that work would ship fifteen pages of invented
@@ -49,11 +51,11 @@ import {
 
 const SUPPORTED_REGIONS = new Set(["volta"]);
 
-export const Route = createFileRoute("/$locale/regions/$region")({
+export const Route = createFileRoute("/{-$locale}/$region/")({
   beforeLoad: ({ params }) => {
     if (!SUPPORTED_REGIONS.has(params.region)) throw notFound();
   },
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
       { title: "Volta | Region 17 Ghana" },
       {
@@ -63,7 +65,12 @@ export const Route = createFileRoute("/$locale/regions/$region")({
       },
       { property: "og:title", content: "Volta | Region 17 Ghana" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: absoluteUrl(DEFAULT_LOCALE, `/${params.region}`) },
     ],
+    // D-078: canonical is the unprefixed flat path. Built from the matched
+    // param rather than hardcoded, so it stays right when the page stops being
+    // Volta-only.
+    links: canonicalLinks(resolveLocale(params.locale) ?? DEFAULT_LOCALE, `/${params.region}`),
   }),
   component: RegionPage,
 });
@@ -914,7 +921,7 @@ function RegionPage() {
           >
             {t("region.join.heading", { region: region.name })}
           </h2>
-          <Button variant="gold" size="lg" iconAfter="arrow-right" href={`/${locale}/join`}>
+          <Button variant="gold" size="lg" iconAfter="arrow-right" href={localePath(locale, "/join")}>
             {t("region.join.action")}
           </Button>
           {/* Safety control, not decoration. Its wording is fixed. */}

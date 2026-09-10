@@ -6,7 +6,7 @@ import { Button, PanBand } from "@/design-system/region-17-ghana-design-system-e
 import { localePath, useI18n } from "@/i18n";
 import { clearLinkError, currentLinkError, type LinkProblem } from "@/lib/auth/linkError";
 
-export const Route = createFileRoute("/$locale/")({
+export const Route = createFileRoute("/{-$locale}/")({
   head: () => ({
     meta: [
       { title: "Region 17 Ghana | Membership register" },
@@ -41,14 +41,19 @@ function LocaleHome() {
   // reason in the fragment. Unread, it shows a member the home page and no
   // explanation at all, so it is read here and answered.
   //
-  // Absent that, the locale root goes to the join story. Until the marketing
-  // home page exists, nobody should land on this placeholder. The redirect is
-  // done here rather than in beforeLoad so a dead link's fragment, which the
-  // browser never sends to the server, still gets read and answered first.
+  // Absent that, the root goes to the join story. Until the marketing home
+  // page exists, nobody should land on this placeholder. The redirect is done
+  // here rather than in beforeLoad so a dead link's fragment, which the browser
+  // never sends to the server, still gets read and answered first.
+  //
+  // D-078 collapsed `/en` and `/` into one address, so this route now serves
+  // the site root. That is why the old server-side 307 at `src/routes/index.tsx`
+  // is gone rather than moved: a redirect there could not preserve the fragment,
+  // which is the whole reason the recovery above works.
   useEffect(() => {
     const failure = currentLinkError();
     if (!failure) {
-      void navigate({ to: "/$locale/join", params: { locale }, replace: true });
+      void navigate({ to: localePath(locale, "/join"), replace: true });
       return;
     }
     setLinkProblem(failure.problem);

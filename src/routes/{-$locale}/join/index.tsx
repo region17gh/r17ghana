@@ -43,7 +43,7 @@ import { translator } from "@/i18n/translate";
  * right aspect ratio, carrying its real alternative text. See lib/charter/assets.
  */
 
-export const Route = createFileRoute("/$locale/join/")({
+export const Route = createFileRoute("/{-$locale}/join/")({
   // `head` runs before the provider exists, so it translates directly. The
   // share card is the WhatsApp forward surface, and it is how most readers
   // arrive: these four lines are the page for anyone who never scrolls.

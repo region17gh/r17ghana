@@ -10,7 +10,7 @@
  * the redirect table.
  */
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 
 import {
   CHARTER_IMAGES,
@@ -20,9 +20,22 @@ import {
   unlicensedImages,
 } from "../src/lib/charter/assets";
 import { CHARTER_REGIONS, codesAreComplete } from "../src/lib/charter/regions";
-import { DEFERRED_REDIRECTS, LEGACY_REDIRECTS } from "../src/lib/charter/legacyPaths";
+import { DEFAULT_LOCALE, LOCALES, localePath } from "../src/i18n";
+import { placePath, regionPath } from "../src/lib/places/path";
+import { canonicalLinks } from "../src/lib/seo/canonical";
 import { cutoffDateTime, formatCutoff } from "../src/lib/foundingWindow";
 import en from "../src/i18n/locales/en.json";
+
+/** Every TypeScript source file under a directory, as repo-relative paths. */
+function sourceFiles(root: string): string[] {
+  const found: string[] = [];
+  for (const entry of readdirSync(root, { withFileTypes: true })) {
+    const relative = `${root}/${entry.name}`;
+    if (entry.isDirectory()) found.push(...sourceFiles(relative));
+    else if (/\.tsx?$/.test(entry.name)) found.push(relative);
+  }
+  return found.sort();
+}
 
 const dictionary = en as Record<string, never> & {
   charter: Record<string, Record<string, string> & string>;
@@ -113,34 +126,68 @@ describe("photography gates", () => {
   });
 });
 
-describe("legacy paths", () => {
-  test("every legacy path lands on a locale-first address", () => {
-    for (const entry of LEGACY_REDIRECTS) {
-      expect(entry.to).toStartWith("/en/");
-      expect(entry.why.length).toBeGreaterThan(10);
+// D-078 replaced the locale-first redirect table with default-locale-at-root.
+// These cases are the inverse of the four they succeed: where those asserted
+// every legacy path landed on `/en/...`, these assert nothing produces an `/en/`
+// prefix at all. Legacy `/regions/*` and `/en/*` addresses now 301 at Cloudflare
+// (see docs/d078-redirects.md), not in client code, so there is no redirect
+// table left in the bundle to test.
+describe("default locale at root", () => {
+  test("the default locale is served unprefixed and others are prefixed", () => {
+    expect(localePath(DEFAULT_LOCALE, "/join")).toBe("/join");
+    expect(localePath(DEFAULT_LOCALE, "/join/register")).toBe("/join/register");
+    expect(localePath(DEFAULT_LOCALE, "/")).toBe("/");
+    // Not a live locale yet, but the branch that will carry one.
+    expect(localePath("fr" as never, "/join")).toBe("/fr/join");
+  });
+
+  test("place paths are flat, with no /regions/ collection segment", () => {
+    expect(regionPath(DEFAULT_LOCALE, "volta")).toBe("/volta");
+    expect(placePath(DEFAULT_LOCALE, "volta/adaklu")).toBe("/volta/adaklu");
+    // A community three levels deep needs no change to the helper.
+    expect(placePath(DEFAULT_LOCALE, "volta/agotime-ziope/kpetoe")).toBe(
+      "/volta/agotime-ziope/kpetoe",
+    );
+    expect(regionPath(DEFAULT_LOCALE, "volta")).not.toContain("/regions/");
+  });
+
+  test("no source file concatenates a locale segment by hand", () => {
+    // The discipline that keeps `/en/` out of every href. One helper owns the
+    // prefix; an inline template literal would reintroduce the redirect-on-every-
+    // navigation bug that D-078 was written to avoid.
+    const offenders: string[] = [];
+    for (const file of sourceFiles("src")) {
+      if (file.endsWith("src/i18n/index.tsx")) continue; // localePath itself
+      const source = readFileSync(file, "utf8");
+      if (/`\/\$\{locale\}/.test(source)) offenders.push(file);
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  test("the retired locale-first redirect stubs are gone", () => {
+    for (const path of [
+      "src/routes/index.tsx",
+      "src/routes/join/index.tsx",
+      "src/routes/join/en.tsx",
+      "src/routes/register.tsx",
+      "src/lib/charter/legacyPaths.ts",
+    ]) {
+      expect(existsSync(path)).toBe(false);
     }
   });
 
-  test("the story and the form keep separate addresses", () => {
-    const story = LEGACY_REDIRECTS.find((entry) => entry.from === "/join");
-    const form = LEGACY_REDIRECTS.find((entry) => entry.from === "/register");
-    expect(story?.to).toBe("/en/join");
-    expect(form?.to).toBe("/en/join/register");
-    expect(story?.to).not.toBe(form?.to);
-  });
+  test("canonical is the unprefixed URL, and x-default agrees with it", () => {
+    const links = canonicalLinks(DEFAULT_LOCALE, "/volta");
+    const canonical = links.find((l) => l.rel === "canonical");
+    expect(canonical?.href).toEndWith("/volta");
+    expect(canonical?.href).not.toContain("/en/");
 
-  test("/en is deferred rather than silently dropped, with its reason recorded", () => {
-    const deferred = DEFERRED_REDIRECTS.find((entry) => entry.from === "/en");
-    expect(deferred).toBeTruthy();
-    expect(deferred?.blockedBy).toContain("fragment");
-  });
+    const xDefault = links.find((l) => l.hrefLang === "x-default");
+    expect(xDefault?.href).toBe(canonical?.href);
 
-  test("no route file redirects /en", () => {
-    // A redirect here would bounce a dead sign-in link away from the screen
-    // that explains it. See legacyPaths.ts.
-    for (const path of ["src/routes/join/index.tsx", "src/routes/join/en.tsx", "src/routes/register.tsx"]) {
-      const source = readFileSync(path, "utf8");
-      expect(source).toContain("statusCode: 301");
+    // One alternate per locale, so adding a language cannot silently skip this.
+    for (const code of LOCALES) {
+      expect(links.some((l) => l.hrefLang === code)).toBe(true);
     }
   });
 });
@@ -251,7 +298,7 @@ describe("copy rules", () => {
     expect(dictionary.legal.notAGovernmentDocument).toBe(
       "Region 17 membership is a standing in a community. It is not a government document and confers no citizenship, residence, visa, or right of entry.",
     );
-    const page = readFileSync("src/routes/$locale/join/index.tsx", "utf8");
+    const page = readFileSync("src/routes/{-$locale}/join/index.tsx", "utf8");
     expect(page).toContain("legal.notAGovernmentDocument");
   });
 
@@ -267,7 +314,7 @@ describe("copy rules", () => {
      * whether the component itself should change is a design-system question,
      * not a per-page one.
      */
-    const page = readFileSync("src/routes/$locale/join/index.tsx", "utf8");
+    const page = readFileSync("src/routes/{-$locale}/join/index.tsx", "utf8");
     expect(page).not.toMatch(/<PanBand/);
     expect(page).not.toMatch(/^import \{ PanBand/m);
   });
@@ -283,7 +330,7 @@ describe("copy rules", () => {
 
   test("no traditional motif is used as decoration", () => {
     const css = readFileSync("src/styles/charter.css", "utf8");
-    const page = readFileSync("src/routes/$locale/join/index.tsx", "utf8");
+    const page = readFileSync("src/routes/{-$locale}/join/index.tsx", "utf8");
     // Named only in comments that explain the omission, never in a rule.
     expect(css).not.toMatch(/background[^;]*adinkra/i);
     expect(css).not.toMatch(/^\s*\.kente/m);
@@ -347,7 +394,7 @@ describe("every string the page asks for exists", () => {
    * point. This walks the source instead of waiting for someone to notice.
    */
   const sources = [
-    "src/routes/$locale/join/index.tsx",
+    "src/routes/{-$locale}/join/index.tsx",
     "src/components/charter/Ledger.tsx",
     "src/components/charter/RegionIndex.tsx",
     "src/components/charter/Coda.tsx",

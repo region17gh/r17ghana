@@ -691,6 +691,14 @@
     "join": {
       "heading": "{region} has put its needs on the page. Put your name next to one.",
       "action": "Become a member"
+    },
+    "loading": "Loading this region."
+  },
+  "district": {
+    "notBuilt": {
+      "heading": "This district page is not built yet",
+      "lede": "The district is in the register, but its own page has not been written. Nothing is missing from the region page.",
+      "backToRegion": "Back to the region"
     }
   }
 }

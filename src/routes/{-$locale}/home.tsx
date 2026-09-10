@@ -18,7 +18,7 @@ import {
   type MemberRow,
 } from "@/lib/member/membership";
 
-export const Route = createFileRoute("/$locale/home")({
+export const Route = createFileRoute("/{-$locale}/home")({
   head: () => ({ meta: [{ title: "Your membership | Region 17" }] }),
   component: HomePage,
 });
