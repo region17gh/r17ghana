@@ -16,8 +16,6 @@
 }
 img.landing-photo {
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
   border-radius: var(--radius-card);
   height: auto;
   display: block;
@@ -68,6 +66,15 @@ img.landing-photo {
 .landing-panel-body a { display: block; }
 .landing-panel-body a > * { width: 100%; }
 
+/* Phone first: tighter padding and a smaller display size. */
+.landing-section { padding: var(--space-8) var(--space-5); }
+.landing-title { font: var(--weight-regular) var(--text-display-3) / var(--lh-display) var(--font-display); }
+@media (min-width: 600px) {
+  .landing-section { padding: var(--space-12) var(--space-8); }
+  .landing-title { font-size: var(--text-display-2); }
+}
 @media (min-width: 860px) {
+  .landing-section { padding: var(--space-16) var(--space-10); }
+  .landing-title { font-size: var(--text-display-1); }
   .landing-event { grid-template-columns: 2fr 3fr; grid-template-areas: "photo details" "partners details"; align-items: start; gap: var(--space-12); }
 }

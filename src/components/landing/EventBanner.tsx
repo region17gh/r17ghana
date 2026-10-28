@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 import { Button, Icon } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import logo from "@/assets/region17-logo-white-gold.png.asset.json";
-import { useT } from "@/i18n";
+import { Link } from "@tanstack/react-router";
+import { localePath, useI18n } from "@/i18n";
 import { FEATURED_EVENT, eventPhase, timeUntil } from "@/lib/event";
 import { EventCover } from "./EventCover";
 
@@ -10,7 +11,7 @@ const m0 = { margin: "var(--space-0)" };
 
 /** Event promotion laid out like an event listing. Phase is computed after load so SSR markup stays stable. */
 export function EventBanner() {
-  const t = useT();
+  const { locale, t } = useI18n();
   const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
     setNow(Date.now());
@@ -21,7 +22,7 @@ export function EventBanner() {
   const left = now === null ? null : timeUntil(now);
 
   return (
-    <section style={{ background: "var(--navy-700)", color: "var(--text-on-inverse)", paddingBlock: "var(--space-12)", paddingInline: "var(--space-6)" }}>
+    <section className="landing-section" style={{ background: "var(--navy-700)", color: "var(--text-on-inverse)" }}>
       <div style={{ maxWidth: "var(--page-max)", marginInline: "auto", marginBottom: "var(--space-10)" }}>
         <img src={logo.url} alt="Region 17, Ghana's 17th region" width={1628} height={380} style={{ height: "var(--space-10)", width: "auto" }} />
       </div>
@@ -29,7 +30,7 @@ export function EventBanner() {
         <EventCover />
         <div className="landing-details">
           <p className="r17-eyebrow" style={{ ...m0, color: "var(--gold-400)" }}>{t("landing.eventEyebrow")}</p>
-          <h1 style={{ ...m0, font: "var(--type-hero)" }}>{t("landing.eventTitle")}</h1>
+          <h1 className="landing-title" style={m0}>{t("landing.eventTitle")}</h1>
 
           <div className="landing-row">
             <div className="landing-tile" aria-hidden="true">
@@ -62,6 +63,12 @@ export function EventBanner() {
                   ) : null}
                   <Button variant="gold" size="lg" href={FEATURED_EVENT.rsvpUrl}>{t("landing.rsvp")}</Button>
                 </>
+              )}
+              <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.joinPrompt")}</p>
+              <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
+                <Button variant="secondary" size="lg" inverse>{t("landing.joinLink")}</Button>
+              </Link>
+              {null}
               )}
             </div>
           </div>
