@@ -53,9 +53,13 @@ const SUPPORTED_REGIONS = new Set(["volta"]);
 
 export const Route = createFileRoute("/{-$locale}/$region/")({
   beforeLoad: ({ params }) => {
-    // `/en` resolves here as region="en" because D-078 retired the visible
-    // locale prefix. A locale typed as an address means the homepage.
-    if (resolveLocale(params.region) !== null) throw redirect({ href: "/" });
+    // Single-segment addresses land here with the slug in `region`, so retired
+    // paths turn back at this guard. `/en` arrives as region="en" because D-078
+    // retired the visible locale prefix; `/index` was the homepage's address
+    // before the same decision.
+    if (resolveLocale(params.region) !== null || params.region === "index") {
+      throw redirect({ href: "/" });
+    }
     if (!SUPPORTED_REGIONS.has(params.region)) throw notFound();
   },
   head: ({ params }) => ({

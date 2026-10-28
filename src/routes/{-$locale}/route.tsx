@@ -1,4 +1,4 @@
-import { Outlet, createFileRoute, notFound, redirect } from "@tanstack/react-router";
+import { Outlet, createFileRoute, notFound } from "@tanstack/react-router";
 
 import { I18nProvider, resolveLocale } from "@/i18n";
 
@@ -35,13 +35,7 @@ import { I18nProvider, resolveLocale } from "@/i18n";
 export const Route = createFileRoute("/{-$locale}")({
   beforeLoad: ({ params }) => {
     const locale = resolveLocale(params.locale);
-    if (locale === null) {
-      // `/index` is where the homepage lived before D-078 moved it under the
-      // optional locale segment. It still resolves to this route, so send it
-      // home rather than to a 404.
-      if (params.locale === "index") throw redirect({ href: "/" });
-      throw notFound();
-    }
+    if (locale === null) throw notFound();
     return { locale };
   },
   component: LocaleLayout,
