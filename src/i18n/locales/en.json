@@ -700,5 +700,20 @@
       "lede": "The district is in the register, but its own page has not been written. Nothing is missing from the region page.",
       "backToRegion": "Back to the region"
     }
+  },
+  "landing": {
+    "eventEyebrow": "UPCOMING EVENT",
+    "eventTitle": "Invest Ghana Business Roundtable",
+    "eventLede": "The Embassy of Ghana in the U.S., in partnership with Region 17 and the Ghana National Council of Metropolitan Chicago, is convening a business roundtable to drive bilateral economic relations between Ghana and Chicago.",
+    "eventWhen": "Thursday, 12 November 2026, 9:00 AM to 1:00 PM CST",
+    "eventWhere": "mHUB, 1623 W Fulton St, Chicago, IL 60612",
+    "rsvp": "RSVP on Luma",
+    "live": "The roundtable is taking place now.",
+    "past": "Thank you to everyone who joined the Invest Ghana Business Roundtable.",
+    "countdown": "{days} days, {hours} hours to go",
+    "partnersLabel": "Convened with",
+    "joinEyebrow": "MEMBERSHIP",
+    "joinTitle": "Join Ghana's seventeenth region",
+    "joinLede": "Membership is free and permanent. Ghanaians abroad, Ghanaians at home, the African diaspora, continental Africans, and allies hold the same standing."
   }
 }
