@@ -6,7 +6,6 @@ import { Coda } from "@/components/charter/Coda";
 import { DeadlineBar } from "@/components/charter/DeadlineBar";
 import { Ledger } from "@/components/charter/Ledger";
 import { Media, Plate } from "@/components/charter/Plate";
-import { RegionIndex } from "@/components/charter/RegionIndex";
 import { Line, Reveal } from "@/components/charter/Reveal";
 import { usePrefersReducedMotion } from "@/components/charter/motion";
 import { useCharterStage } from "@/components/charter/useCharterStage";
@@ -283,7 +282,6 @@ function JoinStory() {
                   {t("charter.index.body")}
                 </p>
               </div>
-              <RegionIndex />
             </div>
 
             <Plate image={CHARTER_IMAGES.gate} index={3} />
