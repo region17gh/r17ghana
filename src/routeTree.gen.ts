@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SplatRouteImport } from './routes/$'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
@@ -30,11 +29,6 @@ import { Route as Char123LocaleChar125JoinIndexRouteImport } from './routes/{-$l
 import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{-$locale}/join/register'
 import { Route as Char123LocaleChar125RegionsRegionRouteImport } from './routes/{-$locale}/regions.$region'
 
-const SplatRoute = SplatRouteImport.update({
-  id: '/$',
-  path: '/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
@@ -149,7 +143,6 @@ const Char123LocaleChar125RegionsRegionRoute =
 
 export interface FileRoutesByFullPath {
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
-  '/$': typeof SplatRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -170,7 +163,6 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
 }
 export interface FileRoutesByTo {
-  '/$': typeof SplatRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -193,7 +185,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
-  '/$': typeof SplatRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -217,7 +208,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/{-$locale}'
-    | '/$'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -238,7 +228,6 @@ export interface FileRouteTypes {
     | '/{-$locale}/join/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/$'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -260,7 +249,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/{-$locale}'
-    | '/$'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -283,7 +271,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   Char123LocaleChar125RouteRoute: typeof Char123LocaleChar125RouteRouteWithChildren
-  SplatRoute: typeof SplatRoute
   McpRoute: typeof McpRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -296,13 +283,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/$': {
-      id: '/$'
-      path: '/$'
-      fullPath: '/$'
-      preLoaderRoute: typeof SplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/mcp': {
       id: '/mcp'
       path: '/mcp'
@@ -476,7 +456,6 @@ const Char123LocaleChar125RouteRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   Char123LocaleChar125RouteRoute: Char123LocaleChar125RouteRouteWithChildren,
-  SplatRoute: SplatRoute,
   McpRoute: McpRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
