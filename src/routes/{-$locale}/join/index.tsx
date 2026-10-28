@@ -1,6 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { Fragment, useRef, type CSSProperties } from "react";
 
+import logo from "@/assets/region17-logo-white-gold.png.asset.json";
+
 import { Atlas } from "@/components/charter/Atlas";
 import { Coda } from "@/components/charter/Coda";
 import { DeadlineBar } from "@/components/charter/DeadlineBar";
