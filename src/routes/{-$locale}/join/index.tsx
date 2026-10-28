@@ -1,7 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { Fragment, useRef, type CSSProperties } from "react";
 
-import logo from "@/assets/region17-logo-white-gold.png.asset.json";
+import logoInverse from "@/assets/region17-logo-white-gold-512.png.asset.json";
+import logoPaper from "@/assets/region17-logo-navy-gold-512.png.asset.json";
 
 import { Atlas } from "@/components/charter/Atlas";
 import { Coda } from "@/components/charter/Coda";
@@ -11,6 +12,7 @@ import { Media, Plate } from "@/components/charter/Plate";
 import { Line, Reveal } from "@/components/charter/Reveal";
 import { usePrefersReducedMotion } from "@/components/charter/motion";
 import { useCharterStage } from "@/components/charter/useCharterStage";
+import { useMastheadGround } from "@/components/charter/useMastheadGround";
 import { localePath, useI18n } from "@/i18n";
 import { CHARTER_IMAGES, fallbackSrc } from "@/lib/charter/assets";
 import { CHARTER_REGIONS } from "@/lib/charter/regions";
@@ -72,6 +74,7 @@ function JoinStory() {
   const still = usePrefersReducedMotion();
 
   useCharterStage(stage, still);
+  const onDark = useMastheadGround(stage);
 
   const register = localePath(locale, "/join/register");
 
@@ -84,9 +87,28 @@ function JoinStory() {
       {/* The golden thread holds the top edge. See the note above on PanBand. */}
       <div className="charter-thread" aria-hidden="true" />
 
-      <header className="charter-masthead">
-        <Link className="charter-masthead-brand" to={localePath(locale, "/")}>
-          <img src={logo.url} alt={t("charter.masthead.brandAlt")} width={1628} height={380} />
+      <header className="charter-masthead" data-ground={onDark ? "dark" : "paper"}>
+        <Link
+          className="charter-masthead-brand"
+          to={localePath(locale, "/")}
+          aria-label={t("charter.masthead.brandAlt")}
+        >
+          <img
+            className="charter-masthead-mark charter-masthead-mark-paper"
+            src={logoPaper.url}
+            alt=""
+            width={512}
+            height={120}
+            aria-hidden="true"
+          />
+          <img
+            className="charter-masthead-mark charter-masthead-mark-inverse"
+            src={logoInverse.url}
+            alt=""
+            width={512}
+            height={120}
+            aria-hidden="true"
+          />
         </Link>
         <Link className="charter-masthead-join" to={register}>
           {t("charter.masthead.join")}
