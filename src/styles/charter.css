@@ -249,8 +249,11 @@
 @media (max-width: 1100px) {
   .charter-portrait {
     width: 100%;
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 46%);
-    mask-image: linear-gradient(to bottom, transparent, black 46%);
+    /* Phones and tablets: the portrait holds the top of the frame and fades out
+       before the stanza, which sits at the bottom on plain paper. */
+    height: 62%;
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent);
+    mask-image: linear-gradient(to bottom, black 55%, transparent);
   }
 }
 
@@ -884,6 +887,14 @@
   line-height: var(--lh-body);
   color: var(--charter-ink-soft);
 }
+.charter-soon {
+  display: block;
+  margin-top: var(--space-2);
+  font: var(--type-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
 .charter-go {
   display: inline-block;
   margin-top: var(--space-2);
@@ -1064,11 +1075,26 @@
   .charter-ledger {
     height: 160vh;
   }
+  /* The full ledger has to fit one phone screen, or its headline is cut off
+     under the section above. Four narrow columns, start under the masthead. */
+  .charter-ledger-stage {
+    justify-content: flex-start;
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-6);
+  }
+  .charter-ledger-head {
+    margin-bottom: var(--space-5);
+  }
   .charter-grid16 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .charter-cell {
-    padding: var(--space-3);
+    padding: var(--space-2);
+    opacity: 0.4;
+  }
+  .charter-cell-name {
+    font-size: var(--text-meta);
+    line-height: var(--lh-tight);
   }
   .charter-seventeenth {
     flex-wrap: wrap;
