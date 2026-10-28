@@ -812,7 +812,7 @@
 .charter-region-grid li:nth-child(4n) {
   border-right: 0;
 }
-.charter-region-grid a {
+.charter-region-grid :is(a, .charter-region-row) {
   display: flex;
   align-items: center;
   min-height: var(--control-lg);
@@ -1131,7 +1131,7 @@
   .charter-region-grid li {
     border-right: 0;
   }
-  .charter-region-grid a {
+  .charter-region-grid :is(a, .charter-region-row) {
     display: block;
     padding: var(--space-4) var(--space-4) var(--space-5);
   }
