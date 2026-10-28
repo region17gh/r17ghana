@@ -130,6 +130,9 @@
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
+  /* One line, always: a label that wrapped would make the bar taller than the
+     mark beside it, and the two would stop reading as a pair. */
+  white-space: nowrap;
   min-height: var(--control-md);
   font: var(--type-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
@@ -149,20 +152,35 @@
   border-color: color-mix(in srgb, var(--charter-brass) 40%, transparent);
 }
 
-/* The brand chip carries the wordmark rather than the words. The mark ships
-   white and gold on transparency, so it needs an inverse ground to read on
-   paper: navy-900 with the gold hairline the dark bands already use. The chip
-   keeps the pill, the blur and the focus ring of the masthead link it
-   replaces; only the ground and the content change. */
+/* The brand is the wordmark itself, not a button: no ground, no border, no
+   padding, so it carries no colour of its own. It holds exactly the height of
+   the join pill beside it, which is what makes the two read as one pair.
+
+   The mark ships in two colourways. Navy and gold sits on the paper ground;
+   white and gold sits on the navy bands. The bar is fixed, so it passes over
+   both as the page scrolls, and the scroll observer says which one is showing.
+   Both files are cut to the size the bar actually draws, so carrying the pair
+   costs less than the single full-size file did. */
 .charter-masthead .charter-masthead-brand {
-  background: color-mix(in srgb, var(--navy-900) 92%, transparent);
-  border-color: var(--border-inverse);
-  padding: var(--space-2) var(--space-4);
+  background: none;
+  border-width: 0;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
-.charter-masthead-brand img {
-  display: block;
-  height: var(--space-8);
+.charter-masthead-mark {
+  display: none;
+  height: var(--control-md);
   width: auto;
+}
+.charter-masthead-mark-paper {
+  display: block;
+}
+.charter-masthead[data-ground="dark"] .charter-masthead-mark-paper {
+  display: none;
+}
+.charter-masthead[data-ground="dark"] .charter-masthead-mark-inverse {
+  display: block;
 }
 
 /* The slow colour field behind everything. */

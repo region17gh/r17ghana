@@ -117,6 +117,18 @@ export function Atlas({ still }: { still: boolean }) {
       const wide = canvas.clientWidth > 1100;
       // The map sits inside the same centred 1440 frame as the type column.
       const frameWidth = Math.min(canvas.clientWidth, 1440);
+      // The masthead is fixed, so the map and its sixteen labels start below it
+      // rather than sliding behind the wordmark and the join button. The strip
+      // it takes is measured rather than guessed, so the clearance stays right
+      // if the bar grows, and the map gives up at the bottom exactly what it
+      // gains at the top: the constellation keeps its shape, it just sits lower.
+      const masthead = canvas.closest(".charter")?.querySelector<HTMLElement>(".charter-masthead");
+      const gap = parseFloat(getComputedStyle(canvas).getPropertyValue("--space-3")) || 0;
+      const clear = masthead
+        ? (masthead.getBoundingClientRect().bottom + gap) / canvas.clientHeight
+        : 0;
+      const base = wide ? 0.07 : 0.045;
+      const y0 = Math.max(base, clear);
       return {
         dpr,
         clientHeight: canvas.clientHeight,
@@ -125,8 +137,8 @@ export function Atlas({ still }: { still: boolean }) {
         // Wide: the map takes the right half. Stacked: it takes the upper band.
         x0: wide ? 0.47 : 0.04,
         xScale: wide ? 0.5 : 0.92,
-        y0: wide ? 0.07 : 0.045,
-        yScale: wide ? 0.86 : 0.4,
+        y0,
+        yScale: (wide ? 0.86 : 0.4) - (y0 - base),
       };
     }
 
