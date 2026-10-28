@@ -66,7 +66,7 @@ export function EventBanner() {
               )}
               <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.joinPrompt")}</p>
               <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
-                <Button variant="secondary" size="lg" inverse>{t("landing.joinLink")}</Button>
+                <Button variant="inverse" size="lg">{t("landing.joinLink")}</Button>
               </Link>
               {null}
               )}
