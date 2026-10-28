@@ -1079,7 +1079,7 @@
      under the section above. Four narrow columns, start under the masthead. */
   .charter-ledger-stage {
     justify-content: flex-start;
-    padding-top: var(--space-20);
+    padding-top: var(--space-24);
     padding-bottom: var(--space-6);
   }
   .charter-ledger-head {
