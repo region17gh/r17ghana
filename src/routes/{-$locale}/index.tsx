@@ -2,7 +2,8 @@ import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { LinkRecovery } from "@/components/auth/LinkRecovery";
-import { Button, PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { EventBanner } from "@/components/landing/EventBanner";
+import { Button, PanBand, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
 import { clearLinkError, currentLinkError, type LinkProblem } from "@/lib/auth/linkError";
 
