@@ -124,6 +124,7 @@
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-3) var(--charter-gutter);
+  background: var(--charter-navy-deep);
   pointer-events: none;
 }
 .charter-masthead a {
@@ -152,15 +153,8 @@
   border-color: color-mix(in srgb, var(--charter-brass) 40%, transparent);
 }
 
-/* The brand is the wordmark itself, not a button: no ground, no border, no
-   padding, so it carries no colour of its own. It holds exactly the height of
-   the join pill beside it, which is what makes the two read as one pair.
-
-   The mark ships in two colourways. Navy and gold sits on the paper ground;
-   white and gold sits on the navy bands. The bar is fixed, so it passes over
-   both as the page scrolls, and the scroll observer says which one is showing.
-   Both files are cut to the size the bar actually draws, so carrying the pair
-   costs less than the single full-size file did. */
+/* A permanent navy header carries the inverse wordmark on every section.
+   The logo has no separate chip and matches the join control's height. */
 .charter-masthead .charter-masthead-brand {
   background: none;
   border-width: 0;
@@ -169,18 +163,9 @@
   -webkit-backdrop-filter: none;
 }
 .charter-masthead-mark {
-  display: none;
+  display: block;
   height: var(--control-md);
   width: auto;
-}
-.charter-masthead-mark-paper {
-  display: block;
-}
-.charter-masthead[data-ground="dark"] .charter-masthead-mark-paper {
-  display: none;
-}
-.charter-masthead[data-ground="dark"] .charter-masthead-mark-inverse {
-  display: block;
 }
 
 /* The slow colour field behind everything. */
