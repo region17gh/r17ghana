@@ -15,6 +15,7 @@ const RETIRED: Record<string, string> = {
 
 export const Route = createFileRoute("/$")({
   beforeLoad: ({ location }) => {
+    console.log("DBG SPLAT", location.pathname);
     const target = RETIRED[location.pathname];
     if (target) throw redirect({ href: target });
     throw notFound();

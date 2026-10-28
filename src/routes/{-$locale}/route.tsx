@@ -34,6 +34,7 @@ import { I18nProvider, resolveLocale } from "@/i18n";
  */
 export const Route = createFileRoute("/{-$locale}")({
   beforeLoad: ({ params }) => {
+    console.log("DBG LAYOUT", JSON.stringify(params));
     const locale = resolveLocale(params.locale);
     if (locale === null) {
       // `/index` is where the homepage lived before D-078 moved it under the
