@@ -722,6 +722,9 @@
     "eventAddress": "1623 W Fulton St, Chicago, IL 60612",
     "registrationHead": "Registration",
     "registrationBody": "Seats are limited. Register on Luma to reserve your place.",
-    "aboutHead": "About the event"
+    "aboutHead": "About the event",
+    "flyerAlt": "Invest Ghana Business Roundtable flyer: H.E. Victor Emmanuel Smith, Ambassador of Ghana to the United States. Thursday 12 November 2026, 9am to 1pm, mHUB, 1623 W Fulton St, Chicago. Presented by the Embassy of Ghana, Ghana National Council of Metropolitan Chicago and mHUB.",
+    "joinPrompt": "Not a member yet? Membership is free.",
+    "joinLink": "Join Region 17"
   }
 }
