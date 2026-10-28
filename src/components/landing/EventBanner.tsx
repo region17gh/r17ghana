@@ -68,8 +68,6 @@ export function EventBanner() {
               <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
                 <Button variant="inverse" size="lg">{t("landing.joinLink")}</Button>
               </Link>
-              {null}
-              )}
             </div>
           </div>
 
