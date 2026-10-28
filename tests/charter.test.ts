@@ -395,7 +395,7 @@ describe("the stylesheet consumes tokens rather than redefining them", () => {
   });
 
   test("every control a member taps clears the 48px floor", () => {
-    for (const control of [".charter-cta", ".charter-deadline a", ".charter-region-grid a"]) {
+    for (const control of [".charter-cta", ".charter-deadline a", ".charter-region-grid :is(a, .charter-region-row)"]) {
       const start = css.indexOf(`${control} {`);
       expect(start, `${control} not found`).toBeGreaterThan(-1);
       const rule = css.slice(start, css.indexOf("}", start));

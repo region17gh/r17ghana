@@ -38,6 +38,8 @@ export interface CharterRegion extends Region {
   factKey: string;
   /** Public region page. Absolute, because these pages are not in this app. */
   href: string;
+  /** Whether the region's public page is built yet. Only live pages are linked. */
+  live: boolean;
   /** The region's ink, for type, codes and strokes. Never a wash behind text. */
   ink: string;
 }
@@ -49,11 +51,15 @@ export interface CharterRegion extends Region {
  * A region mark never travels without its name or code, so colour is never the
  * only thing carrying the identity.
  */
+/** Region pages that exist today. Add a slug when its page ships. */
+const LIVE_REGION_PAGES = new Set(["volta"]);
+
 export const CHARTER_REGIONS: readonly CharterRegion[] = REGIONS_ALPHABETICAL.map((region) => ({
   ...region,
   code: REGION_CODES[region.slug] ?? region.slug.slice(0, 3).toUpperCase(),
   factKey: `charter.regions.${region.slug}`,
   href: `https://r17gh.com/${region.slug}`,
+  live: LIVE_REGION_PAGES.has(region.slug),
   ink: `var(${region.token})`,
 }));
 

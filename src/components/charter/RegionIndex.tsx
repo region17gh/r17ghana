@@ -1,5 +1,5 @@
 import { useI18n } from "@/i18n";
-import { CHARTER_REGIONS } from "@/lib/charter/regions";
+import { CHARTER_REGIONS, type CharterRegion } from "@/lib/charter/regions";
 
 /**
  * The other door: the sixteen regions, each with a fact and its own page.
@@ -27,20 +27,33 @@ export function RegionIndex() {
     >
       {CHARTER_REGIONS.map((region) => (
         <li key={region.slug} style={{ "--charter-region-ink": region.ink } as React.CSSProperties}>
-          <a href={region.href} target="_blank" rel="noreferrer">
-            <span className="charter-region-name">{region.name}</span>
-            <span className="charter-pop">
-              <span className="charter-pop-title" aria-hidden="true">
-                {region.name} <i>{region.code}</i>
-              </span>
-              <span className="charter-pop-fact">{t(region.factKey)}</span>
-              <span className="charter-go" aria-hidden="true">
-                {t("charter.index.go", { url: `r17gh.com/${region.slug}` })}
-              </span>
-            </span>
-          </a>
+          {region.live ? (
+            <a href={region.href} target="_blank" rel="noreferrer">
+              <RegionBody region={region} note={t("charter.index.go", { url: `r17gh.com/${region.slug}` })} goClass="charter-go" />
+            </a>
+          ) : (
+            <div className="charter-region-row" tabIndex={0}>
+              <RegionBody region={region} note={t("charter.index.soon")} goClass="charter-soon" />
+            </div>
+          )}
         </li>
       ))}
     </ul>
+  );
+}
+
+function RegionBody({ region, note, goClass }: { region: CharterRegion; note: string; goClass: string }) {
+  const { t } = useI18n();
+  return (
+    <>
+      <span className="charter-region-name">{region.name}</span>
+      <span className="charter-pop">
+        <span className="charter-pop-title" aria-hidden="true">
+          {region.name} <i>{region.code}</i>
+        </span>
+        <span className="charter-pop-fact">{t(region.factKey)}</span>
+        <span className={goClass}>{note}</span>
+      </span>
+    </>
   );
 }
