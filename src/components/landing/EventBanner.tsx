@@ -43,7 +43,7 @@ export function EventBanner() {
               ) : null}
             </div>
             <div>
-              <Button variant="gold" size="lg" href={FEATURED_EVENT.rsvpUrl} iconAfter="arrow-up-right">
+              <Button variant="gold" size="lg" href={FEATURED_EVENT.rsvpUrl}>
                 {t("landing.rsvp")}
               </Button>
             </div>
