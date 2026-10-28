@@ -27,6 +27,7 @@ import { Route as Char123LocaleChar125RegionIndexRouteImport } from './routes/{-
 import { Route as Char123LocaleChar125RegionDistrictRouteImport } from './routes/{-$locale}/$region/$district'
 import { Route as Char123LocaleChar125JoinIndexRouteImport } from './routes/{-$locale}/join/index'
 import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{-$locale}/join/register'
+import { Route as Char123LocaleChar125RegionsRegionRouteImport } from './routes/{-$locale}/regions.$region'
 
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
@@ -133,6 +134,12 @@ const Char123LocaleChar125JoinRegisterRoute =
     path: '/join/register',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
+const Char123LocaleChar125RegionsRegionRoute =
+  Char123LocaleChar125RegionsRegionRouteImport.update({
+    id: '/regions/$region',
+    path: '/regions/$region',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
@@ -151,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
 }
@@ -170,6 +178,7 @@ export interface FileRoutesByTo {
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join': typeof Char123LocaleChar125JoinIndexRoute
 }
@@ -191,6 +200,7 @@ export interface FileRoutesById {
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
 }
@@ -213,6 +223,7 @@ export interface FileRouteTypes {
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/join/'
   fileRoutesByTo: FileRoutesByTo
@@ -232,6 +243,7 @@ export interface FileRouteTypes {
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region'
     | '/{-$locale}/join'
   id:
@@ -252,6 +264,7 @@ export interface FileRouteTypes {
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/join/'
   fileRoutesById: FileRoutesById
@@ -396,6 +409,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125JoinRegisterRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/regions/$region': {
+      id: '/{-$locale}/regions/$region'
+      path: '/regions/$region'
+      fullPath: '/{-$locale}/regions/$region'
+      preLoaderRoute: typeof Char123LocaleChar125RegionsRegionRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
   }
 }
 
@@ -407,6 +427,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   Char123LocaleChar125RegionDistrictRoute: typeof Char123LocaleChar125RegionDistrictRoute
   Char123LocaleChar125JoinRegisterRoute: typeof Char123LocaleChar125JoinRegisterRoute
+  Char123LocaleChar125RegionsRegionRoute: typeof Char123LocaleChar125RegionsRegionRoute
   Char123LocaleChar125RegionIndexRoute: typeof Char123LocaleChar125RegionIndexRoute
   Char123LocaleChar125JoinIndexRoute: typeof Char123LocaleChar125JoinIndexRoute
 }
@@ -422,6 +443,8 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
       Char123LocaleChar125RegionDistrictRoute,
     Char123LocaleChar125JoinRegisterRoute:
       Char123LocaleChar125JoinRegisterRoute,
+    Char123LocaleChar125RegionsRegionRoute:
+      Char123LocaleChar125RegionsRegionRoute,
     Char123LocaleChar125RegionIndexRoute: Char123LocaleChar125RegionIndexRoute,
     Char123LocaleChar125JoinIndexRoute: Char123LocaleChar125JoinIndexRoute,
   }

@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 
 import { DistrictExplorer } from "@/components/region/DistrictExplorer";
@@ -53,6 +53,9 @@ const SUPPORTED_REGIONS = new Set(["volta"]);
 
 export const Route = createFileRoute("/{-$locale}/$region/")({
   beforeLoad: ({ params }) => {
+    // `/en` resolves here as region="en" because D-078 retired the visible
+    // locale prefix. A locale typed as an address means the homepage.
+    if (resolveLocale(params.region) !== null) throw redirect({ href: "/" });
     if (!SUPPORTED_REGIONS.has(params.region)) throw notFound();
   },
   head: ({ params }) => ({
