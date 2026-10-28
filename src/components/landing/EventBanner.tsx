@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Button, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import logo from "@/assets/region17-logo-white-gold.png.asset.json";
 import { useT } from "@/i18n";
 import { FEATURED_EVENT, eventPhase, timeUntil } from "@/lib/event";
 
@@ -26,6 +27,7 @@ export function EventBanner() {
       }}
     >
       <div style={{ maxWidth: "var(--page-max)", marginInline: "auto", display: "grid", gap: "var(--space-6)" }}>
+        <img src={logo.url} alt="Region 17, Ghana's 17th region" width={1628} height={380} style={{ height: "var(--space-12)", width: "auto" }} />
         <SectionHeader inverse eyebrow={t("landing.eventEyebrow")} title={t("landing.eventTitle")} lede={t("landing.eventLede")} />
         {phase === "past" ? (
           <p style={{ margin: "var(--space-0)" }}>{t("landing.past")}</p>
