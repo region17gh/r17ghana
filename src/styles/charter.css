@@ -163,7 +163,7 @@
    costs less than the single full-size file did. */
 .charter-masthead .charter-masthead-brand {
   background: none;
-  border-color: transparent;
+  border-width: 0;
   padding: 0;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
