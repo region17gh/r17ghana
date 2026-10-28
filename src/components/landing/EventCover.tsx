@@ -7,7 +7,7 @@ export function EventCover() {
   const t = useT();
   const img = CHARTER_IMAGES.gate;
   return (
-    <div className="landing-cover">
+    <>
       <img
         className="landing-photo"
         src={fallbackSrc(img)}
@@ -18,7 +18,7 @@ export function EventCover() {
         height={1024}
         style={{ objectPosition: img.focus }}
       />
-      <div style={{ display: "grid", gap: "var(--space-3)" }}>
+      <div className="landing-partners" style={{ display: "grid", gap: "var(--space-3)" }}>
         <p className="r17-eyebrow" style={{ margin: "var(--space-0)" }}>{t("landing.partnersLabel")}</p>
         <ul style={{ display: "grid", gap: "var(--space-2)", listStyle: "none", margin: "var(--space-0)", padding: "var(--space-0)", borderTop: "var(--border-width) solid var(--border-inverse)", paddingTop: "var(--space-3)" }}>
           {FEATURED_EVENT.partners.map((name) => (
@@ -26,6 +26,6 @@ export function EventCover() {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
 }

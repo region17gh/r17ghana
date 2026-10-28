@@ -4,19 +4,25 @@
   gap: var(--space-8);
   max-width: var(--page-max);
   margin-inline: auto;
+  grid-template-areas: "photo" "details" "partners";
 }
+.landing-photo { grid-area: photo; }
+.landing-partners { grid-area: partners; }
+.landing-details { grid-area: details; }
 .landing-cover {
   display: grid;
   gap: var(--space-6);
   align-content: start;
 }
-.landing-cover img.landing-photo {
+img.landing-photo {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: var(--radius-card);
+  height: auto;
   display: block;
 }
+.landing-details h1 { color: inherit; }
 .landing-details {
   display: grid;
   gap: var(--space-6);
@@ -63,5 +69,5 @@
 .landing-panel-body a > * { width: 100%; }
 
 @media (min-width: 860px) {
-  .landing-event { grid-template-columns: 2fr 3fr; gap: var(--space-12); }
+  .landing-event { grid-template-columns: 2fr 3fr; grid-template-areas: "photo details" "partners details"; align-items: start; gap: var(--space-12); }
 }
