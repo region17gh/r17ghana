@@ -52,10 +52,7 @@ function LocaleHome() {
   // which is the whole reason the recovery above works.
   useEffect(() => {
     const failure = currentLinkError();
-    if (!failure) {
-      void navigate({ to: localePath(locale, "/join"), replace: true });
-      return;
-    }
+    if (!failure) return;
     setLinkProblem(failure.problem);
     clearLinkError();
   }, [locale, navigate]);
@@ -63,46 +60,39 @@ function LocaleHome() {
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <PanBand />
+      {linkProblem ? null : <EventBanner />}
       <main
         style={{
           flexGrow: 1,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
-          gap: "var(--space-4)",
-          padding: "var(--space-8)",
+          gap: "var(--space-6)",
+          paddingBlock: "var(--space-16)",
+          paddingInline: "var(--space-6)",
           textAlign: "center",
         }}
       >
-        <h1
-          style={{
-            font: "var(--type-hero)",
-            letterSpacing: "var(--tracking-display)",
-            margin: "var(--space-0)",
-          }}
-        >
-          {t("meta.siteName")}
-        </h1>
         {linkProblem ? (
-          <LinkRecovery problem={linkProblem} />
+          <>
+            <h1 style={{ font: "var(--type-hero)", margin: "var(--space-0)" }}>{t("meta.siteName")}</h1>
+            <LinkRecovery problem={linkProblem} />
+          </>
         ) : (
           <>
-            <p style={{ maxWidth: "var(--measure-prose)", margin: "var(--space-0)" }}>
-              {t("meta.tagline")}
-            </p>
-            {/* size="lg" is --control-lg, the 48px tap-target floor for anything a
-                member taps. Link keeps the navigation client-side. */}
+            <SectionHeader
+              align="center"
+              eyebrow={t("landing.joinEyebrow")}
+              title={t("landing.joinTitle")}
+              lede={t("landing.joinLede")}
+            />
             <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
               <Button size="lg">{t("nav.joinCta")}</Button>
             </Link>
           </>
         )}
         {/* Safety control, not decoration. Its wording is fixed. */}
-        <p
-          className="r17-cite"
-          style={{ maxWidth: "var(--measure-prose)", margin: "var(--space-0)" }}
-        >
+        <p className="r17-cite" style={{ maxWidth: "var(--measure-prose)", margin: "var(--space-0)" }}>
           {t("legal.notAGovernmentDocument")}
         </p>
       </main>
