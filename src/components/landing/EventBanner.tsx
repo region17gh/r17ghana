@@ -42,7 +42,7 @@ export function EventBanner() {
             </div>
           </div>
           <div className="landing-row">
-            <div className="landing-tile" aria-hidden="true"><Icon name="map-pin" size={20} /></div>
+            <div className="landing-tile" aria-hidden="true"><Icon name="map-pin" /></div>
             <div>
               <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventVenue")}</p>
               <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.eventAddress")}</p>
