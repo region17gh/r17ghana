@@ -1,6 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { Fragment, useRef, type CSSProperties } from "react";
 
+import logo from "@/assets/region17-logo-white-gold.png.asset.json";
+
 import { Atlas } from "@/components/charter/Atlas";
 import { Coda } from "@/components/charter/Coda";
 import { DeadlineBar } from "@/components/charter/DeadlineBar";
@@ -83,7 +85,9 @@ function JoinStory() {
       <div className="charter-thread" aria-hidden="true" />
 
       <header className="charter-masthead">
-        <Link to={localePath(locale, "/")}>{t("charter.masthead.home")}</Link>
+        <Link className="charter-masthead-brand" to={localePath(locale, "/")}>
+          <img src={logo.url} alt={t("charter.masthead.brandAlt")} width={1628} height={380} />
+        </Link>
         <Link className="charter-masthead-join" to={register}>
           {t("charter.masthead.join")}
         </Link>

@@ -149,6 +149,22 @@
   border-color: color-mix(in srgb, var(--charter-brass) 40%, transparent);
 }
 
+/* The brand chip carries the wordmark rather than the words. The mark ships
+   white and gold on transparency, so it needs an inverse ground to read on
+   paper: navy-900 with the gold hairline the dark bands already use. The chip
+   keeps the pill, the blur and the focus ring of the masthead link it
+   replaces; only the ground and the content change. */
+.charter-masthead .charter-masthead-brand {
+  background: color-mix(in srgb, var(--navy-900) 92%, transparent);
+  border-color: var(--border-inverse);
+  padding: var(--space-2) var(--space-4);
+}
+.charter-masthead-brand img {
+  display: block;
+  height: var(--space-8);
+  width: auto;
+}
+
 /* The slow colour field behind everything. */
 .charter-field {
   position: fixed;
