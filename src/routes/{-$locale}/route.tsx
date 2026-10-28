@@ -1,4 +1,4 @@
-import { Outlet, createFileRoute, notFound } from "@tanstack/react-router";
+import { Outlet, createFileRoute, notFound, redirect } from "@tanstack/react-router";
 
 import { I18nProvider, resolveLocale } from "@/i18n";
 
