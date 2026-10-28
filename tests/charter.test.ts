@@ -250,7 +250,7 @@ describe("copy rules", () => {
 
   test("the seventeenth is addressed with the rule, not labelled with a colon", () => {
     expect(dictionary.charter.ledger.seventeenthName).toBe("The seventeenth");
-    expect(dictionary.charter.ledger.seventeenthYou).toBe("— you");
+    expect(dictionary.charter.ledger.seventeenthYou).toBe("is you.");
     // The rule travels inside the gold italic, as the approved setting has it.
     const ledger = readFileSync("src/components/charter/Ledger.tsx", "utf8");
     expect(ledger).toContain("<em>{t(\"charter.ledger.seventeenthYou\")}</em>");
