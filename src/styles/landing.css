@@ -1,0 +1,67 @@
+/* Event page layout, modelled on an event listing: cover left, details right. */
+.landing-event {
+  display: grid;
+  gap: var(--space-8);
+  max-width: var(--page-max);
+  margin-inline: auto;
+}
+.landing-cover {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+}
+.landing-cover img.landing-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  display: block;
+}
+.landing-details {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+}
+.landing-row {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+.landing-tile {
+  flex-shrink: 0;
+  width: var(--control-lg);
+  height: var(--control-lg);
+  border: var(--border-width) solid var(--border-inverse);
+  border-radius: var(--radius-lg);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.landing-tile-month {
+  font: var(--type-cite);
+  letter-spacing: var(--tracking-eyebrow);
+  width: 100%;
+  text-align: center;
+  background: var(--overlay-glass-inverse);
+}
+.landing-panel {
+  border: var(--border-width) solid var(--border-inverse);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+.landing-panel-head {
+  padding: var(--space-3) var(--space-5);
+  background: var(--overlay-glass-inverse);
+  font: var(--type-meta);
+}
+.landing-panel-body {
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+}
+.landing-panel-body a { display: block; }
+.landing-panel-body a > * { width: 100%; }
+
+@media (min-width: 860px) {
+  .landing-event { grid-template-columns: 2fr 3fr; gap: var(--space-12); }
+}

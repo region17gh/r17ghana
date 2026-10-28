@@ -711,9 +711,17 @@
     "live": "The roundtable is taking place now.",
     "past": "Thank you to everyone who joined the Invest Ghana Business Roundtable.",
     "countdown": "{days} days, {hours} hours to go",
-    "partnersLabel": "Convened with",
+    "partnersLabel": "Presented by",
     "joinEyebrow": "MEMBERSHIP",
     "joinTitle": "Join Ghana's seventeenth region",
-    "joinLede": "Membership is free and permanent. Ghanaians abroad, Ghanaians at home, the African diaspora, continental Africans, and allies hold the same standing."
+    "joinLede": "Membership is free and permanent. Ghanaians abroad, Ghanaians at home, the African diaspora, continental Africans, and allies hold the same standing.",
+    "tileMonth": "NOV",
+    "eventDay": "Thursday, 12 November 2026",
+    "eventTime": "9:00 AM to 1:00 PM CST",
+    "eventVenue": "mHUB Chicago",
+    "eventAddress": "1623 W Fulton St, Chicago, IL 60612",
+    "registrationHead": "Registration",
+    "registrationBody": "Seats are limited. Register on Luma to reserve your place.",
+    "aboutHead": "About the event"
   }
 }
