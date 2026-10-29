@@ -19,6 +19,7 @@ img.landing-photo {
   border-radius: var(--radius-card);
   height: auto;
   display: block;
+  box-shadow: var(--shadow-lift);
 }
 .landing-details h1 { color: inherit; }
 .landing-details {
