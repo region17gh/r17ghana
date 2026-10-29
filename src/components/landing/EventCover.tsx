@@ -1,4 +1,4 @@
-import flyer from "@/assets/invest-ghana-flyer.jpg.asset.json";
+import flyer from "@/assets/ghana-chicago-roundtable-flyer.jpg.asset.json";
 import { useT } from "@/i18n";
 import { FEATURED_EVENT } from "@/lib/event";
 import { Reveal } from "@/components/charter/Reveal";
@@ -9,12 +9,15 @@ export function EventCover() {
   return (
     <>
       <Reveal className="landing-reveal">
+        {/* width/height are the source file's intrinsic pixels so the browser
+            can reserve the slot before the image arrives. The rendered size
+            comes from img.landing-photo in landing.css (width 100%, height auto). */}
         <img
           className="landing-photo"
           src={flyer.url}
           alt={t("landing.flyerAlt")}
-          width={1206}
-          height={1243}
+          width={1145}
+          height={1374}
         />
       </Reveal>
       <Reveal className="landing-reveal landing-partners">
