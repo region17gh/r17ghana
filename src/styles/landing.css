@@ -102,24 +102,16 @@ img.landing-photo {
   transform: none;
 }
 
-/* The venue pin carries a slow gold pulse so the map link reads as a place. */
-.landing-pin { position: relative; }
-.landing-pin::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-lg);
-  border: var(--border-width-emphasis) solid var(--gold-400);
-  pointer-events: none;
-  animation: landing-pin-pulse calc(var(--dur-slow) * 4) var(--ease-out) infinite;
+/* The venue pin icon itself breathes gently so the map link reads as a place. */
+.landing-pin [data-icon] {
+  animation: landing-pin-pulse calc(var(--dur-slow) * 4) var(--ease-standard) infinite;
 }
 @keyframes landing-pin-pulse {
-  0% { opacity: 0.9; transform: scale(1); }
-  70% { opacity: 0; transform: scale(1.35); }
-  100% { opacity: 0; transform: scale(1.35); }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.75; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .landing-reveal { opacity: 1; transform: none; transition: none; }
-  .landing-pin::after { animation: none; opacity: 0; }
+  .landing-pin [data-icon] { animation: none; }
 }
