@@ -1,0 +1,26 @@
+/* Project elevation layer, loaded last so it composes the design system
+   rather than racing it.
+
+   The design system's own shadows are tinted with Sovereign Navy (#10233F),
+   which is the very colour of the navy hero bands. Laid over a navy band they
+   composite to an identical colour and vanish, so depth on those bands has to
+   come from something darker than the surface it rests on. Both tokens below
+   use --overlay-modal (navy-900 at 44%), the darkest translucent token the
+   system ships, with geometry taken from the spacing scale. */
+:root {
+  --shadow-lift: 0 var(--space-6) var(--space-16) var(--overlay-modal);
+  --shadow-control: 0 var(--space-1) var(--space-4) var(--overlay-modal);
+}
+
+/* Action controls lift a little off the page at rest. The keyboard focus ring
+   is itself a box-shadow, so the lift steps aside while a control is focused
+   and the ring stays the only thing drawn around it. */
+.r17-lift:not(:focus-visible) {
+  box-shadow: var(--shadow-control);
+}
+
+/* On a navy band the quiet control shadow is too soft to see, so controls
+   inside the event band carry the deeper lift. */
+.landing-section .r17-lift:not(:focus-visible) {
+  box-shadow: var(--shadow-lift);
+}
