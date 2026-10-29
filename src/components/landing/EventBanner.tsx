@@ -38,30 +38,34 @@ export function EventBanner() {
           <p className="r17-eyebrow" style={{ ...m0, color: "var(--gold-400)" }}>{t("landing.eventEyebrow")}</p>
           <h1 className="landing-title" style={m0}>{t("landing.eventTitle")}</h1>
 
-          <div className="landing-row">
-            <div className="landing-tile" aria-hidden="true">
-              <span className="landing-tile-month">{t("landing.tileMonth")}</span>
-              <span style={{ font: "var(--type-title)", fontFamily: "var(--font-mono)" }}>12</span>
+          <Reveal className="landing-reveal">
+            <div className="landing-row">
+              <div className="landing-tile" aria-hidden="true">
+                <span className="landing-tile-month">{t("landing.tileMonth")}</span>
+                <span style={{ font: "var(--type-title)", fontFamily: "var(--font-mono)" }}>12</span>
+              </div>
+              <div>
+                <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventDay")}</p>
+                <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.eventTime")}</p>
+              </div>
             </div>
-            <div>
-              <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventDay")}</p>
-              <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.eventTime")}</p>
+          </Reveal>
+          <Reveal className="landing-reveal">
+            <div className="landing-row">
+              <div className="landing-tile landing-pin" aria-hidden="true"><Icon name="map-pin" /></div>
+              <div>
+                <a
+                  href={FEATURED_EVENT.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: "inherit", textDecorationColor: "var(--gold-400)" }}
+                >
+                  <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventVenue")}</p>
+                  <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.eventAddress")}</p>
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="landing-row">
-            <div className="landing-tile" aria-hidden="true"><Icon name="map-pin" /></div>
-            <div>
-              <a
-                href={FEATURED_EVENT.mapUrl}
-                target="_blank"
-                rel="noreferrer"
-                style={{ color: "inherit", textDecorationColor: "var(--gold-400)" }}
-              >
-                <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventVenue")}</p>
-                <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.eventAddress")}</p>
-              </a>
-            </div>
-          </div>
+          </Reveal>
 
           <div className="landing-panel">
             <div className="landing-panel-head">{t("landing.registrationHead")}</div>
