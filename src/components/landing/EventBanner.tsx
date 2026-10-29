@@ -6,6 +6,7 @@ import seal from "@/design-system/region-17-ghana-design-system-e3e62f/assets/lo
 import { Link } from "@tanstack/react-router";
 import { localePath, useI18n } from "@/i18n";
 import { FEATURED_EVENT, eventPhase, timeUntil } from "@/lib/event";
+import { Reveal } from "@/components/charter/Reveal";
 import { EventCover } from "./EventCover";
 
 const m0 = { margin: "var(--space-0)" };
