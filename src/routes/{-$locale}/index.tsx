@@ -93,7 +93,15 @@ function LocaleHome() {
           </>
         )}
         {/* Safety control, not decoration. Its wording is fixed. */}
-        <p className="r17-cite" style={{ maxWidth: "var(--measure-prose)", margin: "var(--space-0)" }}>
+        <p
+          className="r17-cite"
+          style={{
+            maxWidth: "var(--measure-narrow)",
+            margin: "var(--space-0)",
+            marginInline: "auto",
+            textAlign: "center",
+          }}
+        >
           {t("legal.notAGovernmentDocument")}
         </p>
       </main>
