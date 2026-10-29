@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Button, Icon } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import logo from "@/assets/region17-logo-white-gold.png.asset.json";
+import seal from "@/design-system/region-17-ghana-design-system-e3e62f/assets/logos/region17-seal.png";
 import { Link } from "@tanstack/react-router";
 import { localePath, useI18n } from "@/i18n";
 import { FEATURED_EVENT, eventPhase, timeUntil } from "@/lib/event";
@@ -23,8 +24,12 @@ export function EventBanner() {
 
   return (
     <section className="landing-section" style={{ background: "var(--navy-700)", color: "var(--text-on-inverse)" }}>
-      <div style={{ maxWidth: "var(--page-max)", marginInline: "auto", marginBottom: "var(--space-10)" }}>
+      <div
+        className="landing-masthead"
+        style={{ maxWidth: "var(--page-max)", marginInline: "auto", marginBottom: "var(--space-10)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "var(--space-4)" }}
+      >
         <img src={logo.url} alt="Region 17, Ghana's 17th region" width={1628} height={380} style={{ height: "var(--space-10)", width: "auto" }} />
+        <img className="landing-seal" src={seal} alt={t("landing.sealAlt")} />
       </div>
       <div className="landing-event">
         <EventCover />

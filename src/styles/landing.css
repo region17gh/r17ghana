@@ -66,6 +66,16 @@ img.landing-photo {
 .landing-panel-body a { display: block; }
 .landing-panel-body a > * { width: 100%; }
 
+/* The seal sits in the corner of the navy hero, opposite the wordmark. */
+.landing-seal {
+  height: var(--space-16);
+  width: auto;
+  display: block;
+}
+@media (min-width: 860px) {
+  .landing-seal { height: var(--space-24); }
+}
+
 /* Phone first: tighter padding and a smaller display size. */
 .landing-section { padding: var(--space-8) var(--space-5); }
 .landing-title { font: var(--weight-regular) var(--text-display-3) / var(--lh-display) var(--font-display); }
