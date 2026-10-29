@@ -1,6 +1,7 @@
 /** The event promoted on the homepage. Times are absolute instants (CST is UTC-6). */
 export const FEATURED_EVENT = {
   rsvpUrl: "https://luma.com/j9k2s0o3",
+  mapUrl: "https://maps.app.goo.gl/MfpYfeHzbKAf1yFWA",
   startsAt: Date.parse("2026-11-12T15:00:00Z"),
   endsAt: Date.parse("2026-11-12T19:00:00Z"),
   partners: [

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { LinkRecovery } from "@/components/auth/LinkRecovery";
 import { EventBanner } from "@/components/landing/EventBanner";
-import { Button, PanBand, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button, PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
 import { clearLinkError, currentLinkError, type LinkProblem } from "@/lib/auth/linkError";
 
@@ -81,12 +81,31 @@ function LocaleHome() {
           </>
         ) : (
           <>
-            <SectionHeader
-              align="center"
-              eyebrow={t("landing.joinEyebrow")}
-              title={t("landing.joinTitle")}
-              lede={t("landing.joinLede")}
-            />
+            {/* SectionHeader keeps its title in a full-width row even when
+                centred, which reads off-centre here, so this section composes
+                the same tokens directly: eyebrow, serif title, lede. */}
+            <header style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", alignItems: "center", textAlign: "center" }}>
+              <span
+                style={{
+                  font: "var(--type-eyebrow)",
+                  letterSpacing: "var(--tracking-eyebrow)",
+                  textTransform: "uppercase",
+                  color: "var(--gold-700)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "var(--space-2)",
+                }}
+              >
+                <span aria-hidden="true" style={{ width: 18, height: 1, background: "currentColor", opacity: 0.6 }} />
+                {t("landing.joinEyebrow")}
+              </span>
+              <h2 style={{ font: "var(--type-section)", color: "var(--text-strong)", maxWidth: "22ch", margin: "var(--space-0)" }}>
+                {t("landing.joinTitle")}
+              </h2>
+              <p style={{ font: "var(--type-body-lg)", maxWidth: "var(--measure-prose)", color: "var(--text-body)", margin: "var(--space-0)" }}>
+                {t("landing.joinLede")}
+              </p>
+            </header>
             <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
               <Button size="lg">{t("nav.joinCta")}</Button>
             </Link>
