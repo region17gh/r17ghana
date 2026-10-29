@@ -23,7 +23,7 @@ export function EventCover() {
                 href={partner.url}
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: "var(--text-on-inverse)", textDecorationColor: "var(--gold-400)", textUnderlineOffset: "var(--space-1)" }}
+                style={{ color: "var(--text-on-inverse)", textDecorationColor: "var(--gold-400)" }}
               >
                 {partner.name}
               </a>
