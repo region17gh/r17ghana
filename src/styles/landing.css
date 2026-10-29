@@ -103,7 +103,7 @@ img.landing-photo {
 }
 
 /* The venue pin icon itself breathes gently so the map link reads as a place. */
-.landing-pin svg {
+.landing-pin [data-icon] {
   animation: landing-pin-pulse calc(var(--dur-slow) * 4) var(--ease-standard) infinite;
 }
 @keyframes landing-pin-pulse {
@@ -113,5 +113,5 @@ img.landing-photo {
 
 @media (prefers-reduced-motion: reduce) {
   .landing-reveal { opacity: 1; transform: none; transition: none; }
-  .landing-pin svg { animation: none; }
+  .landing-pin [data-icon] { animation: none; }
 }
