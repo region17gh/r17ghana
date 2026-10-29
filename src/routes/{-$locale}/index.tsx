@@ -98,7 +98,7 @@ function LocaleHome() {
                     gap: "var(--space-2)",
                   }}
                 >
-                  <span aria-hidden="true" style={{ width: 18, height: 1, background: "currentColor", opacity: 0.6 }} />
+                  <span aria-hidden="true" style={{ width: "var(--space-5)", height: "var(--border-width)", background: "currentColor", opacity: 0.6 }} />
                   {t("landing.joinEyebrow")}
                 </span>
                 <h2 style={{ font: "var(--type-section)", color: "var(--text-strong)", maxWidth: "22ch", margin: "var(--space-0)" }}>
