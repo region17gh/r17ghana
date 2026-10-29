@@ -9,13 +9,13 @@ export function EventCover() {
   return (
     <>
       <Reveal className="landing-reveal">
+        {/* width/height are the source file's intrinsic pixels so the browser
+            can reserve the slot before the image arrives. The rendered size
+            comes from img.landing-photo in landing.css (width 100%, height auto). */}
         <img
           className="landing-photo"
           src={flyer.url}
           alt={t("landing.flyerAlt")}
-          {/* Intrinsic pixel size of the source file only, so the browser can
-              reserve the slot before the image arrives. Rendering size comes
-              from img.landing-photo in landing.css (width 100%, height auto). */}
           width={1145}
           height={1374}
         />
