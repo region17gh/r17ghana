@@ -88,3 +88,38 @@ img.landing-photo {
   .landing-title { font-size: var(--text-display-1); }
   .landing-event { grid-template-columns: 2fr 3fr; grid-template-areas: "photo details" "partners details"; align-items: start; gap: var(--space-12); }
 }
+
+/* Subtle scroll reveal: blocks lift into place once, then stay. */
+.landing-reveal {
+  opacity: 0;
+  transform: translateY(var(--space-4));
+  transition:
+    opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
+}
+.landing-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* The venue pin carries a slow gold pulse so the map link reads as a place. */
+.landing-pin { position: relative; }
+.landing-pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  border: var(--border-width-emphasis) solid var(--gold-400);
+  pointer-events: none;
+  animation: landing-pin-pulse calc(var(--dur-slow) * 4) var(--ease-out) infinite;
+}
+@keyframes landing-pin-pulse {
+  0% { opacity: 0.9; transform: scale(1); }
+  70% { opacity: 0; transform: scale(1.35); }
+  100% { opacity: 0; transform: scale(1.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-reveal { opacity: 1; transform: none; transition: none; }
+  .landing-pin::after { animation: none; opacity: 0; }
+}
