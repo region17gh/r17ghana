@@ -1,4 +1,5 @@
-import { Button, Field, Input, Select } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Field, Input, Select } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { useT } from "@/i18n";
 import { subdivisionConfig } from "@/lib/join/subdivisions";
 

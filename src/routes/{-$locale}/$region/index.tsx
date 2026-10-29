@@ -4,15 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { DistrictExplorer } from "@/components/region/DistrictExplorer";
 import { PhotoSlot } from "@/components/region/PhotoSlot";
 import { RegionFeed } from "@/components/region/RegionFeed";
-import {
-  Badge,
-  Button,
-  ConfidenceFlag,
-  Icon,
-  Seal,
-  SectionHeader,
-  Statistic,
-} from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Badge, ConfidenceFlag, Icon, Seal, SectionHeader, Statistic } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { DEFAULT_LOCALE, localePath, resolveLocale, useI18n } from "@/i18n";
 import { absoluteUrl, canonicalLinks } from "@/lib/seo/canonical";
 import { toDistrictViews } from "@/lib/region/districtView";

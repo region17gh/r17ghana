@@ -1,4 +1,5 @@
-import { Button, PanBand, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { PanBand, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 
 /**
  * The page shown for any address that matches nothing.

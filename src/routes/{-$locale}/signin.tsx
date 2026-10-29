@@ -1,7 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-import { Button, Field, Input, PanBand, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Field, Input, PanBand, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { TAP_CONTROL } from "@/components/join/steps/shared";
 import { localePath, useI18n } from "@/i18n";
 import { supabase } from "@/integrations/supabase/client";
