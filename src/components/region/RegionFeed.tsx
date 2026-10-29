@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Badge, Button, Card, Field, Icon, Input, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Badge, Card, Field, Icon, Input, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { useI18n } from "@/i18n";
 import {
   MOCK_FEED,

@@ -1,4 +1,4 @@
-import { Button } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { regionColor } from "@/design-system/region-17-ghana-design-system-e3e62f/design-system/region17/data/regions";
 import { useT } from "@/i18n";
 import { CONNECTIONS, type ConnectionType } from "@/lib/join/options";

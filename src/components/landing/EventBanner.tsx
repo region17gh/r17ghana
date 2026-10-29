@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Button, Icon } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Icon } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import logo from "@/assets/region17-logo-white-gold.png.asset.json";
 import seal from "@/design-system/region-17-ghana-design-system-e3e62f/assets/logos/region17-seal.png";
 import { Link } from "@tanstack/react-router";

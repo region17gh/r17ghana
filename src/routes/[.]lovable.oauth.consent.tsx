@@ -2,7 +2,8 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useState } from "react";
 
 import { supabase } from "@/integrations/supabase/client";
-import { Button, Card, Field, Input, PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Card, Field, Input, PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 
 type OAuthResult = { redirect_url?: string; redirect_to?: string; client?: { name?: string } | null };
 type OAuthApi = {

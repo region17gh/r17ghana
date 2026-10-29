@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useId, useRef } from "react";
 
-import { Button, Card } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Card } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { localePath, useI18n } from "@/i18n";
 import type { LinkProblem } from "@/lib/auth/linkError";
 

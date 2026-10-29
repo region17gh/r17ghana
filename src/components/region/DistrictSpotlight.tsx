@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
-import { Badge, Button, ConfidenceFlag, Icon } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Badge, ConfidenceFlag, Icon } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { useI18n } from "@/i18n";
 import { placePath } from "@/lib/places/path";
 import { confidenceLevel } from "@/lib/region/payload";

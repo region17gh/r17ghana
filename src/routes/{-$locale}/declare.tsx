@@ -2,16 +2,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 
 import { TAP_CONTROL } from "@/components/join/steps/shared";
-import {
-  Button,
-  Field,
-  Input,
-  PanBand,
-  SectionHeader,
-  Select,
-  Switch,
-  Textarea,
-} from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Field, Input, PanBand, SectionHeader, Select, Switch, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { localePath, useI18n } from "@/i18n";
 import { supabase } from "@/integrations/supabase/client";
 

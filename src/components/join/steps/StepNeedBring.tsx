@@ -1,4 +1,5 @@
-import { Button, Field, Input, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Field, Input, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { useT } from "@/i18n";
 import { INTENT_MAX_LENGTH } from "@/lib/join/options";
 

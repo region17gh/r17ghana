@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Button, Field, Input, Select } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Field, Input, Select } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { localePath, useI18n } from "@/i18n";
 import { supabase } from "@/integrations/supabase/client";
 import { MONTHS, birthYears } from "@/lib/join/age";

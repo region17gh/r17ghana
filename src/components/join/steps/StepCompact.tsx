@@ -1,4 +1,5 @@
-import { Button, Checkbox } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Checkbox } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
 import { useT } from "@/i18n";
 import { normaliseHandle, type HandleProblem } from "@/lib/join/handle";
 import { CONSENTS, type ConsentType } from "@/lib/join/options";
