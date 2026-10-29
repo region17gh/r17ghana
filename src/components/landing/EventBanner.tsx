@@ -67,31 +67,35 @@ export function EventBanner() {
             </div>
           </Reveal>
 
-          <div className="landing-panel">
-            <div className="landing-panel-head">{t("landing.registrationHead")}</div>
-            <div className="landing-panel-body">
-              {phase === "past" ? (
-                <p style={m0}>{t("landing.past")}</p>
-              ) : (
-                <>
-                  <p style={m0}>{phase === "live" ? t("landing.live") : t("landing.registrationBody")}</p>
-                  {phase === "upcoming" && left ? (
-                    <p aria-live="polite" style={{ ...m0, fontFamily: "var(--font-mono)", color: "var(--gold-400)" }}>{t("landing.countdown", left)}</p>
-                  ) : null}
-                  <Button variant="gold" size="lg" href={FEATURED_EVENT.rsvpUrl}>{t("landing.rsvp")}</Button>
-                </>
-              )}
-              <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.joinPrompt")}</p>
-              <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
-                <Button variant="inverse" size="lg">{t("landing.joinLink")}</Button>
-              </Link>
+          <Reveal className="landing-reveal">
+            <div className="landing-panel">
+              <div className="landing-panel-head">{t("landing.registrationHead")}</div>
+              <div className="landing-panel-body">
+                {phase === "past" ? (
+                  <p style={m0}>{t("landing.past")}</p>
+                ) : (
+                  <>
+                    <p style={m0}>{phase === "live" ? t("landing.live") : t("landing.registrationBody")}</p>
+                    {phase === "upcoming" && left ? (
+                      <p aria-live="polite" style={{ ...m0, fontFamily: "var(--font-mono)", color: "var(--gold-400)" }}>{t("landing.countdown", left)}</p>
+                    ) : null}
+                    <Button variant="gold" size="lg" href={FEATURED_EVENT.rsvpUrl}>{t("landing.rsvp")}</Button>
+                  </>
+                )}
+                <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.joinPrompt")}</p>
+                <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
+                  <Button variant="inverse" size="lg">{t("landing.joinLink")}</Button>
+                </Link>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div style={{ display: "grid", gap: "var(--space-3)" }}>
-            <p className="r17-eyebrow" style={{ ...m0, borderBottom: "var(--border-width) solid var(--border-inverse)", paddingBottom: "var(--space-3)" }}>{t("landing.aboutHead")}</p>
-            <p style={{ ...m0, font: "var(--type-body)", maxWidth: "var(--measure-prose)" }}>{t("landing.eventLede")}</p>
-          </div>
+          <Reveal className="landing-reveal">
+            <div style={{ display: "grid", gap: "var(--space-3)" }}>
+              <p className="r17-eyebrow" style={{ ...m0, borderBottom: "var(--border-width) solid var(--border-inverse)", paddingBottom: "var(--space-3)" }}>{t("landing.aboutHead")}</p>
+              <p style={{ ...m0, font: "var(--type-body)", maxWidth: "var(--measure-prose)" }}>{t("landing.eventLede")}</p>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
