@@ -50,8 +50,15 @@ export function EventBanner() {
           <div className="landing-row">
             <div className="landing-tile" aria-hidden="true"><Icon name="map-pin" /></div>
             <div>
-              <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventVenue")}</p>
-              <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.eventAddress")}</p>
+              <a
+                href={FEATURED_EVENT.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "inherit", textDecorationColor: "var(--gold-400)" }}
+              >
+                <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventVenue")}</p>
+                <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.eventAddress")}</p>
+              </a>
             </div>
           </div>
 
