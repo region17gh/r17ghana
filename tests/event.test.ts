@@ -27,6 +27,7 @@ describe("featured event phase", () => {
   });
   test("the phase is past the next day, so the ticker stays removed", () => {
     expect(eventPhase(Date.parse("2026-11-13T15:00:00Z"))).toBe("past");
+  });
 });
 
 describe("homepage wording matches the flyer", () => {
