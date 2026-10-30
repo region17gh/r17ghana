@@ -25,15 +25,19 @@ export function EventCover() {
           <p className="r17-eyebrow" style={{ margin: "var(--space-0)" }}>{t("landing.partnersLabel")}</p>
           <ul style={{ display: "grid", gap: "var(--space-2)", listStyle: "none", margin: "var(--space-0)", padding: "var(--space-0)", borderTop: "var(--border-width) solid var(--border-inverse)", paddingTop: "var(--space-3)" }}>
             {FEATURED_EVENT.partners.map((partner) => (
-              <li key={partner.url} style={{ font: "var(--type-body)" }}>
-                <a
-                  href={partner.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ color: "var(--text-on-inverse)", textDecorationColor: "var(--gold-400)" }}
-                >
-                  {partner.name}
-                </a>
+              <li key={partner.name} style={{ font: "var(--type-body)" }}>
+                {partner.url ? (
+                  <a
+                    href={partner.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ color: "var(--text-on-inverse)", textDecorationColor: "var(--gold-400)" }}
+                  >
+                    {partner.name}
+                  </a>
+                ) : (
+                  <span style={{ color: "var(--text-on-inverse)" }}>{partner.name}</span>
+                )}
               </li>
             ))}
           </ul>
