@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 
-import { eventPhase, timeUntil } from "../src/lib/event";
+import { FEATURED_EVENT } from "../src/lib/event";
+import en from "../src/i18n/locales/en.json";
 
 describe("featured event phase", () => {
   test("before 9:00 AM CST on 12 November is upcoming", () => {
