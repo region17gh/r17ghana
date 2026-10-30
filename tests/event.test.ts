@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { FEATURED_EVENT } from "../src/lib/event";
+import { eventPhase, timeUntil, FEATURED_EVENT } from "../src/lib/event";
 import en from "../src/i18n/locales/en.json";
 
 describe("featured event phase", () => {
