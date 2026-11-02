@@ -740,6 +740,7 @@
     "pageTitle": "Watch the roundtable online",
     "howTo": "Choose a display name and select Join. Your browser may ask for permission to use audio. We do not store your name.",
     "notReady": "The online room is not open yet. Please come back at 8:45 AM Chicago time on 12 November.",
+    "notOpenYet": "The online room is not open yet. It opens at 8:45 AM Chicago time on 12 November. Stay on this page and select Join again.",
     "loading": "Opening the online room.",
     "failed": "The online room could not open in this browser.",
     "appLink": "Open in the Zoom app instead",
