@@ -17,6 +17,7 @@ import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } fr
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125DeclareRouteImport } from './routes/{-$locale}/declare'
 import { Route as Char123LocaleChar125HomeRouteImport } from './routes/{-$locale}/home'
+import { Route as Char123LocaleChar125LiveRouteImport } from './routes/{-$locale}/live'
 import { Route as Char123LocaleChar125SigninRouteImport } from './routes/{-$locale}/signin'
 import { Route as Char123LocaleChar125VerifyRouteImport } from './routes/{-$locale}/verify'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
@@ -73,6 +74,12 @@ const Char123LocaleChar125HomeRoute =
   Char123LocaleChar125HomeRouteImport.update({
     id: '/home',
     path: '/home',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125LiveRoute =
+  Char123LocaleChar125LiveRouteImport.update({
+    id: '/live',
+    path: '/live',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125SigninRoute =
@@ -149,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
+  '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
@@ -169,6 +177,7 @@ export interface FileRoutesByTo {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
+  '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
@@ -191,6 +200,7 @@ export interface FileRoutesById {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
+  '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
+    | '/{-$locale}/live'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}/'
@@ -234,6 +245,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
+    | '/{-$locale}/live'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}'
@@ -255,6 +267,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
+    | '/{-$locale}/live'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}/'
@@ -337,6 +350,13 @@ declare module '@tanstack/react-router' {
       path: '/home'
       fullPath: '/{-$locale}/home'
       preLoaderRoute: typeof Char123LocaleChar125HomeRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
+    '/{-$locale}/live': {
+      id: '/{-$locale}/live'
+      path: '/live'
+      fullPath: '/{-$locale}/live'
+      preLoaderRoute: typeof Char123LocaleChar125LiveRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/signin': {
@@ -422,6 +442,7 @@ declare module '@tanstack/react-router' {
 interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125DeclareRoute: typeof Char123LocaleChar125DeclareRoute
   Char123LocaleChar125HomeRoute: typeof Char123LocaleChar125HomeRoute
+  Char123LocaleChar125LiveRoute: typeof Char123LocaleChar125LiveRoute
   Char123LocaleChar125SigninRoute: typeof Char123LocaleChar125SigninRoute
   Char123LocaleChar125VerifyRoute: typeof Char123LocaleChar125VerifyRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
@@ -436,6 +457,7 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
   {
     Char123LocaleChar125DeclareRoute: Char123LocaleChar125DeclareRoute,
     Char123LocaleChar125HomeRoute: Char123LocaleChar125HomeRoute,
+    Char123LocaleChar125LiveRoute: Char123LocaleChar125LiveRoute,
     Char123LocaleChar125SigninRoute: Char123LocaleChar125SigninRoute,
     Char123LocaleChar125VerifyRoute: Char123LocaleChar125VerifyRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
