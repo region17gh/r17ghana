@@ -11,7 +11,9 @@ export const getZoomJoin = createServerFn({ method: "GET" }).handler(async (): P
   const sdkKey = process.env["ZOOM_SDK_KEY"];
   const secret = process.env["ZOOM_SDK_SECRET"];
   const meetingNumber = process.env["ZOOM_MEETING_NUMBER"]?.replace(/\D/g, "");
-  const passcode = process.env["ZOOM_MEETING_PASSCODE"] ?? "";
+  const rawPasscode = (process.env["ZOOM_MEETING_PASSCODE"] ?? "").trim();
+  // The setup instructions ask for "none" when the meeting has no passcode.
+  const passcode = rawPasscode.toLowerCase() === "none" ? "" : rawPasscode;
   if (!sdkKey || !secret || !meetingNumber) return { ready: false };
   const signature = await signMeetingSdkJwt(sdkKey, secret, meetingNumber, Math.floor(Date.now() / 1000));
   const appUrl = `https://zoom.us/j/${meetingNumber}${passcode ? `?pwd=${encodeURIComponent(passcode)}` : ""}`;
