@@ -4,7 +4,7 @@ const b64url = (bytes: Uint8Array) =>
 const enc = (v: unknown) => b64url(new TextEncoder().encode(JSON.stringify(v)));
 
 export const ATTENDEE_ROLE = 0;
-export const MAX_TOKEN_SECONDS = 2 * 60 * 60;
+export const MAX_TOKEN_SECONDS = 8 * 60 * 60; // longer than the 5h10m viewing window, so nobody is cut off
 
 export async function signMeetingSdkJwt(sdkKey: string, secret: string, meetingNumber: string, nowSec: number) {
   const iat = nowSec - 30;
