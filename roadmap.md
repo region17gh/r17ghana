@@ -7,5 +7,6 @@
 - [x] Join path verified against Zoom: the pass is accepted and the only reply is 3008 (meeting has not started), so credentials, passcode and browser join work
 - [x] Early and late arrivals on the watch page are told the room opens at 8:45 AM Chicago time, not that the browser failed
 - [x] Zoom meeting settings confirmed against the site: 8:45 AM to 1:15 PM on 12 Nov, participants may join anytime
+- [x] Online band shrunk on phones: two-line bar (80px on a 402px-wide screen) instead of 239px, serif title kept on desktop only
 - [ ] Not started: a join while the meeting is actually running (event is 12 Nov)
 - [ ] Not started: decide whether the ~100 MB player in public/zoom (mostly Zoom's audio/video engine) is acceptable, or find a lighter route
