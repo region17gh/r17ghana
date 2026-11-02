@@ -43,7 +43,7 @@ export function VirtualBand() {
         <p role="status" className="virtual-band-note">{t(`virtual.${phase}`)}</p>
         {phase === "past" ? (
           recording ? (
-            <a className="virtual-band-cta" href={recording} target="_blank" rel="noopener noreferrer" style={{ borderBottom: "none" }}>
+            <a className="virtual-band-cta" href={recording} target="_blank" rel="noopener noreferrer">
               <Button variant="gold" size="lg">{t("virtual.recording")}</Button>
             </a>
           ) : null
