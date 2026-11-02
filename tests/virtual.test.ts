@@ -7,7 +7,7 @@ describe("online band phase", () => {
   test("live during the event", () => expect(eventPhase(Date.parse("2026-11-12T17:00:00Z"))).toBe("live"));
   const v = FEATURED_EVENT.virtual;
   test("online opens 8:45 AM EST", () => { expect(eventPhase(Date.parse("2026-11-12T13:44:00Z"), v.opensAt, v.closesAt)).toBe("upcoming"); expect(eventPhase(Date.parse("2026-11-12T13:45:00Z"), v.opensAt, v.closesAt)).toBe("live"); });
-  test("online closes 1:55 PM EST", () => { expect(eventPhase(Date.parse("2026-11-12T18:54:00Z"), v.opensAt, v.closesAt)).toBe("live"); expect(eventPhase(Date.parse("2026-11-12T18:55:00Z"), v.opensAt, v.closesAt)).toBe("past"); });
+  test("online closes 1:15 PM EST", () => { expect(eventPhase(Date.parse("2026-11-12T18:14:00Z"), v.opensAt, v.closesAt)).toBe("live"); expect(eventPhase(Date.parse("2026-11-12T18:15:00Z"), v.opensAt, v.closesAt)).toBe("past"); });
   test("past after 1:00 PM Chicago", () => expect(eventPhase(Date.parse("2026-11-12T19:00:00Z"))).toBe("past"));
 });
 

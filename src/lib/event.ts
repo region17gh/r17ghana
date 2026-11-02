@@ -24,9 +24,9 @@ export const FEATURED_EVENT = {
   virtual: {
     enabled: true,
     recordingUrl: undefined as string | undefined,
-    /** Online viewing window: 8:45 AM to 1:55 PM Eastern (EST, UTC-5) on 12 Nov. */
+    /** Online viewing window: 8:45 AM to 1:15 PM Eastern (EST, UTC-5) on 12 Nov. */
     opensAt: Date.parse("2026-11-12T13:45:00Z"),
-    closesAt: Date.parse("2026-11-12T18:55:00Z"),
+    closesAt: Date.parse("2026-11-12T18:15:00Z"),
   },
 };
 
