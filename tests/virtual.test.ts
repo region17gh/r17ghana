@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from "node:fs";
+
 import { describe, expect, test } from "bun:test";
 import { eventPhase, FEATURED_EVENT } from "../src/lib/event";
 import { signMeetingSdkJwt, MAX_TOKEN_SECONDS } from "../src/lib/zoom.server";
