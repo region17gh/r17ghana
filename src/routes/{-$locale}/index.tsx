@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { LinkRecovery } from "@/components/auth/LinkRecovery";
 import { Reveal } from "@/components/charter/Reveal";
 import { EventBanner } from "@/components/landing/EventBanner";
+import { VirtualBand } from "@/components/landing/VirtualBand";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { Button } from "@/components/ui/Button";
 import { localePath, useI18n } from "@/i18n";
@@ -63,6 +64,7 @@ function LocaleHome() {
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <PanBand />
+      {linkProblem ? null : <VirtualBand />}
       {linkProblem ? null : <EventBanner />}
       <main
         style={{
