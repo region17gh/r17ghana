@@ -5,6 +5,7 @@
 - [x] Online viewing window set to 8:45 AM to 1:15 PM Chicago (Central) time on 12 Nov
 - [x] Banner wording names 8:45 AM Chicago time, and a test keeps copy and window in step
 - [x] Join path verified against Zoom: the pass is accepted and the only reply is 3008 (meeting has not started), so credentials, passcode and browser join work
+- [x] Early and late arrivals on the watch page are told the room opens at 8:45 AM Chicago time, not that the browser failed
+- [x] Zoom meeting settings confirmed against the site: 8:45 AM to 1:15 PM on 12 Nov, participants may join anytime
 - [ ] Not started: a join while the meeting is actually running (event is 12 Nov)
-- [ ] Not started: copy for "the room has not opened yet" when Zoom answers 3008, instead of the generic browser failure
 - [ ] Not started: decide whether the ~100 MB player in public/zoom (mostly Zoom's audio/video engine) is acceptable, or find a lighter route
