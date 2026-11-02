@@ -7,7 +7,7 @@
  */
 
 /** Where the SDK bundle and its sibling chunks are served from. */
-const BASE = "/node_modules/@zoom/meetingsdk/dist";
+const BASE = "/zoom";
 const SDK_SCRIPT = `${BASE}/zoom-meeting-embedded-6.10.0.min.js`;
 const REACT_PAIR = [`${BASE}/react-18.3.1.production.min.js`, `${BASE}/react-dom-18.3.1.production.min.js`];
 
