@@ -34,7 +34,7 @@ export function VirtualBand() {
       <div style={{ maxWidth: "var(--page-max)", marginInline: "auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "var(--space-4)" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
           <p className="r17-eyebrow" style={{ margin: "var(--space-0)", color: "var(--gold-400)" }}>{t("virtual.eyebrow")}</p>
-          <h2 id="virtual-title" style={{ margin: "var(--space-0)", font: "var(--type-title)" }}>{t("virtual.title")}</h2>
+          <h2 id="virtual-title" style={{ margin: "var(--space-0)", font: "var(--type-title)", color: "var(--text-on-inverse)" }}>{t("virtual.title")}</h2>
           <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)" }}>{t(`virtual.${phase}`)}</p>
         </div>
         {phase === "past" ? (
