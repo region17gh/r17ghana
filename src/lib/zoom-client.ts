@@ -48,3 +48,12 @@ export async function loadZoomClient(): Promise<ZoomClient> {
   if (!sdk) throw new Error("The Zoom SDK did not register itself");
   return sdk.createClient();
 }
+
+/** The code Zoom itself returned when it refused a join, or undefined when the
+ *  failure came from the browser instead (a script that never loaded, say).
+ *  Zoom answers 3008 while the host has not opened the meeting. */
+export function zoomJoinRefused(error: unknown): number | undefined {
+  if (typeof error !== "object" || error === null || !("errorCode" in error)) return undefined;
+  const code = (error as { errorCode: unknown }).errorCode;
+  return typeof code === "number" && Number.isFinite(code) ? code : undefined;
+}
