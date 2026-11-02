@@ -42,12 +42,8 @@ export default function ZoomRoom({ join }: { join: Ready }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
-      {state === "idle" && phase === "upcoming" && (
-        <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.notOpenYet")}</p>
-      )}
-      {state === "idle" && phase === "past" && (
-        <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.past")}</p>
-      )}
+      {state === "idle" && phase === "upcoming" && <p role="status">{t("virtual.notOpenYet")}</p>}
+      {state === "idle" && phase === "past" && <p role="status">{t("virtual.past")}</p>}
       {state !== "joined" && (
         <form onSubmit={(e) => { e.preventDefault(); void start(); }} style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", gap: "var(--space-3)" }}>
           <Field label={t("virtual.nameLabel")}>
@@ -56,9 +52,9 @@ export default function ZoomRoom({ join }: { join: Ready }) {
           <Button type="submit" variant="gold" size="lg" disabled={state === "loading" || !name.trim()}>{t("virtual.join")}</Button>
         </form>
       )}
-      {state === "loading" && <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-700)" }}>{t("virtual.loading")}</p>}
-      {state === "refused" && <p role="alert" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t(phase === "past" ? "virtual.past" : phase === "upcoming" ? "virtual.notOpenYet" : "virtual.failed")}</p>}
-      {state === "failed" && <p role="alert" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.failed")}</p>}
+      {state === "loading" && <p role="status">{t("virtual.loading")}</p>}
+      {state === "refused" && <p role="alert">{t(phase === "past" ? "virtual.past" : phase === "upcoming" ? "virtual.notOpenYet" : "virtual.failed")}</p>}
+      {state === "failed" && <p role="alert">{t("virtual.failed")}</p>}
       <div ref={root} style={{ width: "100%" }} />
     </div>
   );
