@@ -3,11 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Field, Input } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { useI18n } from "@/i18n";
+import { loadZoomClient } from "@/lib/zoom-client";
 import type { ZoomJoin } from "@/lib/zoom.functions";
 
 type Ready = Extract<ZoomJoin, { ready: true }>;
 
-/** Browser-only: loads the Zoom Meeting SDK (component view) on demand. */
+/** Browser-only: brings in the Zoom Meeting SDK on demand and joins as an attendee. */
 export default function ZoomRoom({ join }: { join: Ready }) {
   const { t } = useI18n();
   const root = useRef<HTMLDivElement>(null);
@@ -20,13 +21,13 @@ export default function ZoomRoom({ join }: { join: Ready }) {
     if (!root.current || !name.trim()) return;
     setState("loading");
     try {
-      const { default: ZoomMtgEmbedded } = await import("@zoom/meetingsdk/embedded");
-      const client = ZoomMtgEmbedded.createClient();
+      const client = await loadZoomClient();
       await client.init({ zoomAppRoot: root.current, language: "en-US", patchJsMedia: true });
       await client.join({ signature: join.signature, meetingNumber: join.meetingNumber, password: join.passcode, userName: name.trim() });
       setState("joined");
     } catch (e) {
-      console.error("R17_ZOOM_JOIN", JSON.stringify(e), e);
+      const reason = e && typeof e === "object" ? String(("errorCode" in e ? e.errorCode : "") + " " + ("errorMessage" in e ? e.errorMessage : e instanceof Error ? e.message : "")) : String(e);
+      console.error("R17_ZOOM_JOIN", reason.slice(0, 200));
       setState("failed");
     }
   }
