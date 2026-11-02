@@ -25,7 +25,8 @@ export default function ZoomRoom({ join }: { join: Ready }) {
       await client.init({ zoomAppRoot: root.current, language: "en-US", patchJsMedia: true });
       await client.join({ signature: join.signature, meetingNumber: join.meetingNumber, password: join.passcode, userName: name.trim() });
       setState("joined");
-    } catch {
+    } catch (e) {
+      console.error("R17_ZOOM_JOIN", JSON.stringify(e), e);
       setState("failed");
     }
   }
