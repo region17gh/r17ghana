@@ -42,10 +42,10 @@ export default function ZoomRoom({ join }: { join: Ready }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
-      {state !== "joined" && phase === "upcoming" && (
+      {state === "idle" && phase === "upcoming" && (
         <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.notOpenYet")}</p>
       )}
-      {state !== "joined" && phase === "past" && (
+      {state === "idle" && phase === "past" && (
         <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.past")}</p>
       )}
       {state !== "joined" && (
@@ -57,7 +57,7 @@ export default function ZoomRoom({ join }: { join: Ready }) {
         </form>
       )}
       {state === "loading" && <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-700)" }}>{t("virtual.loading")}</p>}
-      {state === "refused" && <p role="alert" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.notOpenYet")}</p>}
+      {state === "refused" && <p role="alert" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t(phase === "past" ? "virtual.past" : phase === "upcoming" ? "virtual.notOpenYet" : "virtual.failed")}</p>}
       {state === "failed" && <p role="alert" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.failed")}</p>}
       <div ref={root} style={{ width: "100%" }} />
     </div>
