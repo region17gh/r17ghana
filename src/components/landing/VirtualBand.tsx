@@ -26,7 +26,7 @@ export function VirtualBand() {
     return () => window.clearInterval(id);
   }, []);
   if (!FEATURED_EVENT.virtual.enabled) return null;
-  const phase = now === null ? "upcoming" : eventPhase(now);
+  const phase = now === null ? "upcoming" : eventPhase(now, FEATURED_EVENT.virtual.opensAt, FEATURED_EVENT.virtual.closesAt);
   const recording = FEATURED_EVENT.virtual.recordingUrl;
 
   return (
