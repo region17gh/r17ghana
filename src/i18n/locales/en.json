@@ -728,5 +728,23 @@
     "flyerAlt": "Ghana-Chicago Business Roundtable flyer: theme, Strengthening Ghana and Chicago Economic Partnerships, unlocking opportunities in trade, investment, innovation and diaspora engagement. Thursday 12 November 2026, 9:00 AM to 1:00 PM at mHUB. Hosted by the Embassy of Ghana to the United States in partnership with Region 17 and the Greater Englewood Chamber of Commerce. Partners: mHUB, Ghana National Council of Chicago, Chicago Diaspora Chamber.",
     "joinPrompt": "Not a member yet? Membership is free.",
     "joinLink": "Join Region 17"
+  },
+  "virtual": {
+    "eyebrow": "ATTEND ONLINE",
+    "title": "Watch the Ghana-Chicago Business Roundtable online",
+    "upcoming": "Online seats open on 12 November at 9:00 AM Chicago time.",
+    "live": "Live now. Join from your browser.",
+    "past": "Thank you to everyone who joined online.",
+    "recording": "Watch the recording",
+    "cta": "Watch online",
+    "pageTitle": "Watch the roundtable online",
+    "howTo": "Choose a display name and select Join. Your browser may ask for permission to use audio. We do not store your name.",
+    "notReady": "The online room is not open yet. Please come back at 9:00 AM Chicago time on 12 November.",
+    "loading": "Opening the online room.",
+    "failed": "The online room could not open in this browser.",
+    "appLink": "Open in the Zoom app instead",
+    "nameLabel": "Display name",
+    "join": "Join",
+    "back": "Back to the homepage"
   }
 }

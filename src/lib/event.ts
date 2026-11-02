@@ -20,6 +20,8 @@ export const FEATURED_EVENT = {
   startsAt: Date.parse("2026-11-12T15:00:00Z"),
   endsAt: Date.parse("2026-11-12T19:00:00Z"),
   partners,
+  /** Online attendance. Meeting credentials stay server-side; set a recording URL after the event. */
+  virtual: { enabled: true, recordingUrl: undefined as string | undefined },
 };
 
 export type EventPhase = "upcoming" | "live" | "past";
