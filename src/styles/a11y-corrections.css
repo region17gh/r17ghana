@@ -1,0 +1,15 @@
+/* Measured corrections to the attached design system. Loaded last, per the
+   workspace cascade, so it patches the theme instead of racing it.
+
+   The library declares --text-body twice with the same name: as a colour in
+   colors.css (`--text-body: var(--ink-700)`) and as a size in typography.css
+   (`--text-body: 16px`). typography.css is imported after colors.css, so the
+   size wins. Every `color: var(--text-body)` in the theme then computes to
+   `color: 16px`, which browsers discard, and body copy falls back to pure
+   black on warm paper. That breaks the system's own "no pure black" rule and
+   understates the warm ink the colour token was written to carry.
+
+   The name clash belongs to the library and has to be fixed there (the size
+   side wants a name like --size-body). Until it is, the body ground is pinned
+   to the ink value the colour token was meant to hold. */
+body { color: var(--ink-700) }
