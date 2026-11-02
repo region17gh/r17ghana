@@ -1,3 +1,5 @@
 - [x] Watch online: show 'link coming soon' popup until Zoom details are added
 - [x] Keep the Attend online band pinned at top while scrolling
-- [ ] Waiting on user: Zoom Client ID, secret, meeting number, passcode
+- [x] Zoom Client ID, secret, meeting number and passcode saved as project secrets; watch page verified
+- [ ] Waiting on user: online pass currently lasts two hours, but the program runs four, so a 9:00 viewer is cut off around 11:00. Confirm whether to stretch it to cover the whole event.
+- [ ] Not started: a real Zoom join test with the meeting actually running (only the page wiring is verified so far)
