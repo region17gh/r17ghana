@@ -2,7 +2,9 @@
 - [x] Keep the Attend online band pinned at top while scrolling
 - [x] Zoom Client ID, secret, meeting number and passcode saved as project secrets; watch page verified
 - [x] Online pass stretched to 8 hours so nobody is dropped mid-program
-- [x] Online viewing window set to 8:45 AM to 1:15 PM Eastern on 12 Nov
-- [ ] Waiting on user: confirm which time zone the Zoom meeting itself runs on (Central or Eastern); if Central, the site window shifts an hour later
-- [ ] Waiting on user: banner copy still says the online room opens at 9:00 AM Chicago time; rewrite it once the time zone is settled
-- [ ] Not started: a real Zoom join test with the meeting actually running (only the page wiring is verified so far)
+- [x] Online viewing window set to 8:45 AM to 1:15 PM Chicago (Central) time on 12 Nov
+- [x] Banner wording names 8:45 AM Chicago time, and a test keeps copy and window in step
+- [x] Join path verified against Zoom: the pass is accepted and the only reply is 3008 (meeting has not started), so credentials, passcode and browser join work
+- [ ] Not started: a join while the meeting is actually running (event is 12 Nov)
+- [ ] Not started: copy for "the room has not opened yet" when Zoom answers 3008, instead of the generic browser failure
+- [ ] Not started: decide whether the ~100 MB player in public/zoom (mostly Zoom's audio/video engine) is acceptable, or find a lighter route

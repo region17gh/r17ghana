@@ -732,14 +732,14 @@
   "virtual": {
     "eyebrow": "ATTEND ONLINE",
     "title": "Watch the Ghana-Chicago Business Roundtable online",
-    "upcoming": "Online seats open on 12 November at 9:00 AM Chicago time.",
+    "upcoming": "Online seats open on 12 November at 8:45 AM Chicago time.",
     "live": "Live now. Join from your browser.",
     "past": "Thank you to everyone who joined online.",
     "recording": "Watch the recording",
     "cta": "Watch online",
     "pageTitle": "Watch the roundtable online",
     "howTo": "Choose a display name and select Join. Your browser may ask for permission to use audio. We do not store your name.",
-    "notReady": "The online room is not open yet. Please come back at 9:00 AM Chicago time on 12 November.",
+    "notReady": "The online room is not open yet. Please come back at 8:45 AM Chicago time on 12 November.",
     "loading": "Opening the online room.",
     "failed": "The online room could not open in this browser.",
     "appLink": "Open in the Zoom app instead",
@@ -747,7 +747,7 @@
     "join": "Join",
     "back": "Back to the homepage",
     "soonTitle": "The online link is coming soon",
-    "soonBody": "We will post the link to watch online here before the roundtable begins on 12 November at 9:00 AM Chicago time. Please check back.",
+    "soonBody": "We will post the link to watch online here before the online room opens on 12 November at 8:45 AM Chicago time. Please check back.",
     "soonClose": "Close"
   }
 }
