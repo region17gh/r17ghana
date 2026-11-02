@@ -38,3 +38,12 @@ describe("zoom signature", () => {
     expect(MAX_TOKEN_SECONDS).toBeLessThanOrEqual(48 * 3600);
   });
 });
+
+describe("zoom player files", () => {
+  test("every file the loader asks for is served from public/zoom", () => {
+    const src = readFileSync("src/lib/zoom-client.ts", "utf8");
+    const files = [...src.matchAll(/`\$\{BASE\}\/([^`]+)`/g)].map((m) => m[1]);
+    expect(files.length).toBeGreaterThanOrEqual(3);
+    for (const f of files) expect(existsSync(`public/zoom/${f}`)).toBe(true);
+  });
+});
