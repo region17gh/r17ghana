@@ -2,7 +2,6 @@
 - [x] Keep the Attend online band pinned at top while scrolling
 - [x] Zoom Client ID, secret, meeting number and passcode saved as project secrets; watch page verified
 - [x] Online pass stretched to 8 hours so nobody is dropped mid-program
-- [x] Online viewing window set to 8:45 AM to 1:15 PM Eastern on 12 Nov
-- [ ] Waiting on user: confirm which time zone the Zoom meeting itself runs on (Central or Eastern); if Central, the site window shifts an hour later
-- [ ] Waiting on user: banner copy still says the online room opens at 9:00 AM Chicago time; rewrite it once the time zone is settled
+- [x] Online viewing window set to 8:45 AM to 1:15 PM Chicago (Central) time on 12 Nov
+- [x] Banner wording names 8:45 AM Chicago time, and a test keeps copy and window in step
 - [ ] Not started: a real Zoom join test with the meeting actually running (only the page wiring is verified so far)
