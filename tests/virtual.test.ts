@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, test } from "bun:test";
 import { eventPhase, FEATURED_EVENT } from "../src/lib/event";
 import { signMeetingSdkJwt, MAX_TOKEN_SECONDS } from "../src/lib/zoom.server";
+import { zoomJoinRefused } from "../src/lib/zoom-client";
 import en from "../src/i18n/locales/en.json";
 
 /** The hour a Chicago visitor reads on the homepage banner. */
@@ -25,7 +26,17 @@ describe("online band copy", () => {
     expect(opens).toBe("8:45 AM");
     expect(en.virtual.upcoming).toContain(opens);
     expect(en.virtual.notReady).toContain(opens);
+    expect(en.virtual.notOpenYet).toContain(opens);
     expect(en.virtual.soonBody).toContain(opens);
+  });
+});
+
+describe("zoom join failure", () => {
+  test("Zoom's own refusal is read as a code, not a browser failure", () => {
+    expect(zoomJoinRefused({ errorCode: 3008, errorMessage: "Meeting has not started" })).toBe(3008);
+    expect(zoomJoinRefused(new Error("Could not load /zoom/zoom-meeting-embedded-6.10.0.min.js"))).toBeUndefined();
+    expect(zoomJoinRefused(undefined)).toBeUndefined();
+    expect(zoomJoinRefused({ errorCode: "nope" })).toBeUndefined();
   });
 });
 
