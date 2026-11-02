@@ -42,8 +42,8 @@ export default function ZoomRoom({ join }: { join: Ready }) {
           <Button type="submit" variant="gold" size="lg" disabled={state === "loading" || !name.trim()}>{t("virtual.join")}</Button>
         </form>
       )}
-      {state === "loading" && <p role="status" style={{ margin: "var(--space-0)" }}>{t("virtual.loading")}</p>}
-      {state === "failed" && <p role="alert" style={{ margin: "var(--space-0)" }}>{t("virtual.failed")}</p>}
+      {state === "loading" && <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-700)" }}>{t("virtual.loading")}</p>}
+      {state === "failed" && <p role="alert" style={{ margin: "var(--space-0)", font: "var(--type-body)", color: "var(--ink-900)" }}>{t("virtual.failed")}</p>}
       <div ref={root} style={{ width: "100%" }} />
     </div>
   );
