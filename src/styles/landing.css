@@ -117,3 +117,73 @@ img.landing-photo {
   .landing-pin [data-icon] { animation: none; }
 }
 dialog::backdrop { background: var(--overlay-modal); }
+
+/* Online band: the sticky pointer to the watch page. Phones get a two-line
+   bar (eyebrow, timing line, button); the serif title only appears where
+   there is room for it, so the band stops eating a third of the screen. */
+.virtual-band {
+  background: var(--navy-900);
+  color: var(--text-on-inverse);
+  border-bottom-width: var(--border-width);
+  border-bottom-style: solid;
+  border-bottom-color: var(--border-inverse);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  position: sticky;
+  top: var(--space-0);
+  z-index: 10;
+}
+.virtual-band-inner {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "head cta"
+    "note cta";
+  column-gap: var(--space-3);
+  row-gap: var(--space-1);
+  align-items: center;
+}
+.virtual-band-head {
+  grid-area: head;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.virtual-band-eyebrow {
+  margin: var(--space-0);
+  color: var(--gold-400);
+}
+.virtual-band-title { display: none; }
+.virtual-band-note {
+  grid-area: note;
+  margin: var(--space-0);
+  min-width: 0;
+  font: var(--type-meta);
+}
+.virtual-band-cta {
+  grid-area: cta;
+  justify-self: end;
+  align-self: center;
+  /* The recording link is an anchor, and the design system's base layer gives
+     every anchor a hairline underline; here it would read as a stray rule
+     under the button. */
+  border-bottom-style: none;
+}
+@media (min-width: 600px) {
+  .virtual-band {
+    padding-block: var(--space-5);
+    padding-inline: var(--space-6);
+  }
+  .virtual-band-inner { column-gap: var(--space-4); }
+  .virtual-band-title {
+    display: block;
+    margin: var(--space-0);
+    font: var(--type-title);
+    color: var(--text-on-inverse);
+  }
+  .virtual-band-note { font: var(--type-body); }
+}
+

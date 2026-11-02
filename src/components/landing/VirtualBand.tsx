@@ -29,36 +29,26 @@ export function VirtualBand() {
   const phase = now === null ? "upcoming" : eventPhase(now, FEATURED_EVENT.virtual.opensAt, FEATURED_EVENT.virtual.closesAt);
   const recording = FEATURED_EVENT.virtual.recordingUrl;
 
+  // Phones get a two-line bar: the serif title and the eyebrow tier are desktop
+  // affordances, and a sticky band that eats a third of the screen is a
+  // bandwidth problem before it is a taste problem. See .virtual-band in
+  // src/styles/landing.css for the sizing.
   return (
-    <section
-      aria-labelledby="virtual-title"
-      style={{
-        background: "var(--navy-900)",
-        color: "var(--text-on-inverse)",
-        borderBottomWidth: "var(--border-width)",
-        borderBottomStyle: "solid",
-        borderBottomColor: "var(--border-inverse)",
-        paddingBlock: "var(--space-5)",
-        paddingInline: "var(--space-6)",
-        position: "sticky",
-        top: "var(--space-0)",
-        zIndex: 10,
-      }}
-    >
-      <div style={{ maxWidth: "var(--page-max)", marginInline: "auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "var(--space-4)" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
-          <p className="r17-eyebrow" style={{ margin: "var(--space-0)", color: "var(--gold-400)" }}>{t("virtual.eyebrow")}</p>
-          <h2 id="virtual-title" style={{ margin: "var(--space-0)", font: "var(--type-title)", color: "var(--text-on-inverse)" }}>{t("virtual.title")}</h2>
-          <p role="status" style={{ margin: "var(--space-0)", font: "var(--type-body)" }}>{t(`virtual.${phase}`)}</p>
+    <section aria-label={t("virtual.title")} className="virtual-band">
+      <div className="virtual-band-inner">
+        <div className="virtual-band-head">
+          <p className="r17-eyebrow virtual-band-eyebrow">{t("virtual.eyebrow")}</p>
+          <h2 className="virtual-band-title">{t("virtual.title")}</h2>
         </div>
+        <p role="status" className="virtual-band-note">{t(`virtual.${phase}`)}</p>
         {phase === "past" ? (
           recording ? (
-            <a href={recording} target="_blank" rel="noopener noreferrer" style={{ borderBottom: "none" }}>
+            <a className="virtual-band-cta" href={recording} target="_blank" rel="noopener noreferrer">
               <Button variant="gold" size="lg">{t("virtual.recording")}</Button>
             </a>
           ) : null
         ) : (
-          <Button variant="gold" size="lg" aria-haspopup="dialog" onClick={() => void watch()}>{t("virtual.cta")}</Button>
+          <Button className="virtual-band-cta" variant="gold" size="lg" aria-haspopup="dialog" onClick={() => void watch()}>{t("virtual.cta")}</Button>
         )}
       </div>
       <SoonDialog ref={dialog} />
