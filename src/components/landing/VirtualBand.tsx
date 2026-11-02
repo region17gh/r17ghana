@@ -1,14 +1,25 @@
-import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 
 import { Button } from "@/components/ui/Button";
 import { localePath, useI18n } from "@/i18n";
 import { FEATURED_EVENT, eventPhase } from "@/lib/event";
+import { getZoomJoin } from "@/lib/zoom.functions";
+import { SoonDialog } from "./SoonDialog";
 
 /** Top-of-homepage band pointing virtual guests to the live page. */
 export function VirtualBand() {
   const { locale, t } = useI18n();
   const [now, setNow] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const fetchJoin = useServerFn(getZoomJoin);
+  const dialog = useRef<HTMLDialogElement>(null);
+  async function watch() {
+    const join = await fetchJoin().catch(() => ({ ready: false as const }));
+    if (join.ready) void navigate({ to: localePath(locale, "/live") });
+    else dialog.current?.showModal();
+  }
   useEffect(() => {
     setNow(Date.now());
     const id = window.setInterval(() => setNow(Date.now()), 60_000);
@@ -29,6 +40,9 @@ export function VirtualBand() {
         borderBottomColor: "var(--border-inverse)",
         paddingBlock: "var(--space-5)",
         paddingInline: "var(--space-6)",
+        position: "sticky",
+        top: "var(--space-0)",
+        zIndex: 10,
       }}
     >
       <div style={{ maxWidth: "var(--page-max)", marginInline: "auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "var(--space-4)" }}>
@@ -44,11 +58,10 @@ export function VirtualBand() {
             </a>
           ) : null
         ) : (
-          <Link to={localePath(locale, "/live")} style={{ borderBottom: "none" }}>
-            <Button variant="gold" size="lg">{t("virtual.cta")}</Button>
-          </Link>
+          <Button variant="gold" size="lg" aria-haspopup="dialog" onClick={() => void watch()}>{t("virtual.cta")}</Button>
         )}
       </div>
+      <SoonDialog ref={dialog} />
     </section>
   );
 }

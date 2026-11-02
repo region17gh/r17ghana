@@ -1,0 +1,3 @@
+- [x] Watch online: show 'link coming soon' popup until Zoom details are added
+- [x] Keep the Attend online band pinned at top while scrolling
+- [ ] Waiting on user: Zoom Client ID, secret, meeting number, passcode

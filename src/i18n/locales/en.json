@@ -745,6 +745,9 @@
     "appLink": "Open in the Zoom app instead",
     "nameLabel": "Display name",
     "join": "Join",
-    "back": "Back to the homepage"
+    "back": "Back to the homepage",
+    "soonTitle": "The online link is coming soon",
+    "soonBody": "We will post the link to watch online here before the roundtable begins on 12 November at 9:00 AM Chicago time. Please check back.",
+    "soonClose": "Close"
   }
 }
