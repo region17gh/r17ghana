@@ -4,4 +4,7 @@
 - [x] Online pass stretched to 8 hours so nobody is dropped mid-program
 - [x] Online viewing window set to 8:45 AM to 1:15 PM Chicago (Central) time on 12 Nov
 - [x] Banner wording names 8:45 AM Chicago time, and a test keeps copy and window in step
-- [ ] Not started: a real Zoom join test with the meeting actually running (only the page wiring is verified so far)
+- [x] Join path verified against Zoom: the pass is accepted and the only reply is 3008 (meeting has not started), so credentials, passcode and browser join work
+- [ ] Not started: a join while the meeting is actually running (event is 12 Nov)
+- [ ] Not started: copy for "the room has not opened yet" when Zoom answers 3008, instead of the generic browser failure
+- [ ] Not started: decide whether the ~100 MB player in public/zoom (mostly Zoom's audio/video engine) is acceptable, or find a lighter route
