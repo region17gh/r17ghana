@@ -124,7 +124,9 @@ dialog::backdrop { background: var(--overlay-modal); }
 .virtual-band {
   background: var(--navy-900);
   color: var(--text-on-inverse);
-  border-bottom: var(--border-width) solid var(--border-inverse);
+  border-bottom-width: var(--border-width);
+  border-bottom-style: solid;
+  border-bottom-color: var(--border-inverse);
   padding-block: var(--space-3);
   padding-inline: var(--space-4);
   position: sticky;
@@ -168,7 +170,7 @@ dialog::backdrop { background: var(--overlay-modal); }
   /* The recording link is an anchor, and the design system's base layer gives
      every anchor a hairline underline; here it would read as a stray rule
      under the button. */
-  border-bottom: none;
+  border-bottom-style: none;
 }
 @media (min-width: 600px) {
   .virtual-band {
