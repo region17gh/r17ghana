@@ -116,3 +116,4 @@ img.landing-photo {
   .landing-reveal { opacity: 1; transform: none; transition: none; }
   .landing-pin [data-icon] { animation: none; }
 }
+dialog::backdrop { background: var(--overlay-modal); }
