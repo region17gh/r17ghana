@@ -1,6 +1,8 @@
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
 
 import { validate1 } from "@/hooks/useInvestForm";
+import en from "@/i18n/locales/en.json";
 import { CONNECTIONS, INVESTOR_TYPES, ORG_LINE, SECTORS, SUPPORT, TICKETS, TIMELINES } from "@/lib/invest/content";
 
 // These lists must match the CHECK constraints on public.investor_interests.
@@ -36,4 +38,26 @@ describe("step 1 validation", () => {
   test("complete step passes", () => expect(validate1(ok)).toEqual({}));
   test("consent is required", () => expect(validate1({ ...ok, consent: false }).consent).toBeDefined());
   test("bad email is rejected", () => expect(validate1({ ...ok, email: "ama@" }).email).toBeDefined());
+});
+
+// A visitor who is not told the address cannot ask for it, so the invest page
+// has to be reachable by selecting something on the home page.
+describe("invest page is reachable without typing the address", () => {
+  test("the home page carries the invitation and the footer", () => {
+    const home = readFileSync("src/routes/{-$locale}/index.tsx", "utf8");
+    expect(home).toContain("<InvestInvite />");
+    expect(home).toContain("<SiteFooter />");
+  });
+
+  test("both doors build the address through localePath", () => {
+    const invite = readFileSync("src/components/landing/InvestInvite.tsx", "utf8");
+    const footer = readFileSync("src/components/site/SiteFooter.tsx", "utf8");
+    expect(invite).toContain('localePath(locale, "/invest")');
+    expect(footer).toContain('localePath(locale, "/invest")');
+  });
+
+  test("the footer names the invest link", () => {
+    expect(en.nav.invest).toBe("Invest in Ghana");
+    expect(en.footer.tagline).toBe("One Nation. One Global Diaspora. One Shared Vision.");
+  });
 });
