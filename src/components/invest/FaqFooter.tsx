@@ -1,3 +1,4 @@
+import logo from "@/assets/region17-logo-white-gold.png.asset.json";
 import { SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { FAQ, ORG_LINE } from "@/lib/invest/content";
 
@@ -23,7 +24,7 @@ export function InvestFooter() {
   return (
     <footer className="invest-footer">
       <div className="invest-wrap invest-stack-sm">
-        <p className="invest-wordmark">R17GH</p>
+        <img className="invest-logo" src={logo.url} alt="Region 17, Ghana's 17th region" width={1628} height={380} />
         <p className="invest-gold">One Nation. One Global Diaspora. One Shared Vision.</p>
         <nav aria-label="Footer" className="invest-footer-links">
           <a href="#">About</a>

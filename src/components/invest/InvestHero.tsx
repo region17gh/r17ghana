@@ -1,6 +1,7 @@
 import hero from "@/assets/invest/hero-eastern-hills.webp";
 import heroSm from "@/assets/invest/hero-eastern-hills-800.webp";
 import { Button } from "@/components/ui/Button";
+import logo from "@/assets/region17-logo-white-gold.png.asset.json";
 import { useStart } from "./InvestContext";
 
 export function InvestHero() {
@@ -19,7 +20,7 @@ export function InvestHero() {
       />
       <div className="invest-hero-scrim" aria-hidden="true" />
       <div className="invest-hero-body invest-wrap">
-        <p className="r17-eyebrow invest-gold">R17GH Invest</p>
+        <img className="invest-logo" src={logo.url} alt="Region 17, Ghana's 17th region" width={1628} height={380} />
         <h1 className="invest-hero-title">Invest in Ghana beyond Accra.</h1>
         <p className="invest-hero-sub">
           Opportunities, incentives and the right people across Ghana's 16 regions.
