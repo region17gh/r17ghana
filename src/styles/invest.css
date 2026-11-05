@@ -112,20 +112,29 @@
   .invest-chip, .invest-sector { transition: none; }
 }
 
-/* Why now: lead statement beside a staggered 2x2 of evidence cards. */
-.why-now-grid { display: grid; gap: var(--space-10); align-items: start; }
+/* Why now: lead statement beside open columns of evidence. No boxes. */
+.why-now-grid { display: grid; gap: var(--space-12); align-items: start; }
 .why-now-lead { display: grid; gap: var(--space-5); }
 .why-now-eyebrow { color: var(--gold-700); margin: var(--space-0); }
 .why-now-title { font: var(--type-section); font-family: var(--font-display); color: var(--text-strong); margin: var(--space-0); letter-spacing: var(--tracking-display); }
 .why-now-lede { font: var(--type-body); color: var(--text-body); margin: var(--space-0); max-width: var(--measure-narrow); }
-.why-now-stats { list-style: none; margin: var(--space-0); padding: var(--space-0); display: grid; gap: var(--space-4); }
-.why-now-card { position: relative; display: grid; gap: var(--space-4); padding: var(--space-6); background: var(--paper-000); border-width: var(--border-width); border-style: solid; border-color: var(--border-hairline); border-top-width: var(--border-width-emphasis); border-top-color: var(--gold-500); border-radius: var(--radius-card); transition: var(--transition-surface); }
-.why-now-card:hover { box-shadow: var(--shadow-2); border-color: var(--border-default); border-top-color: var(--gold-600); }
-.why-now-num { position: absolute; top: var(--space-4); right: var(--space-5); font: var(--type-cite); font-family: var(--font-mono); color: var(--gold-700); }
-.why-now-signal { margin: var(--space-0); padding-top: var(--space-4); border-top-width: var(--border-width); border-top-style: solid; border-top-color: var(--border-hairline); font: var(--type-body); color: var(--text-strong); }
+.why-now-stats { list-style: none; margin: var(--space-0); padding: var(--space-0); display: grid; column-gap: var(--space-12); row-gap: var(--space-12); }
+.why-now-card { display: grid; gap: var(--space-4); }
+.why-now-num { font: var(--type-cite); font-family: var(--font-mono); color: var(--gold-700); }
+.why-now-signal { margin: var(--space-0); font: var(--type-body); color: var(--text-strong); max-width: var(--measure-narrow); }
 @media (min-width: 600px) { .why-now-stats { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1000px) {
   .why-now-grid { grid-template-columns: 5fr 7fr; gap: var(--space-16); }
   .why-now-lead { position: sticky; top: var(--space-24); }
-  .why-now-stats > :nth-child(even) { transform: translateY(var(--space-10)); }
 }
+
+/* Editorial blocks: no boxes. Hierarchy comes from type scale and space. */
+.invest-item { display: flex; flex-direction: column; gap: var(--space-3); padding-block: var(--space-2); }
+.invest-item .invest-figure { color: var(--navy-700); }
+.invest-grid-4, .invest-grid-3 { column-gap: var(--space-10); row-gap: var(--space-10); }
+.invest-region-panel { display: flex; flex-direction: column; gap: var(--space-3); padding-block: var(--space-6); }
+.invest-region-panel .r17-eyebrow { color: var(--region-ink); }
+.invest-sector, .invest-sector:hover { border-style: none; box-shadow: var(--shadow-none); background: transparent; padding-inline: var(--space-0); }
+.invest-sector:hover .invest-sector-name { text-decoration: underline; }
+.invest-form-card { border-style: none; }
+.invest-item > :first-child:not(p):not(h3) { align-self: flex-start; }

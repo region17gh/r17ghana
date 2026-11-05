@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { REGION_STRENGTHS } from "@/lib/invest/content";
 import { REGIONS_ALPHABETICAL } from "@/lib/regions";
 import { useStart } from "./InvestContext";
@@ -32,7 +31,7 @@ export function RegionExplorer() {
       </div>
       <div id="region-panel" aria-live="polite">
         {region ? (
-          <Card accent={`var(${region.token})`}>
+          <div className="invest-region-panel" style={{ ["--region-ink" as string]: `var(${region.token})` }}>
             <p className="r17-eyebrow invest-ink">{region.name} Region</p>
             <p className="invest-card-text">Capital: {region.capital}</p>
             <p className="invest-card-text">
@@ -43,7 +42,7 @@ export function RegionExplorer() {
                 I'm interested in this region
               </Button>
             </div>
-          </Card>
+          </div>
         ) : (
           <p className="invest-cite">Choose a region to see its capital and strengths.</p>
         )}
