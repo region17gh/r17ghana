@@ -84,6 +84,17 @@ export function useInvestForm() {
     window.localStorage.setItem(DRAFT_KEY, JSON.stringify({ s1: keep, s2 }));
   }, [s1, s2, step]);
 
+  // Clear an error the moment its answer is fixed, so the layout never shifts on blur
+  // (a shift between press and release made taps land on the wrong option).
+  useEffect(() => {
+    setErrors((prev) => {
+      const now = validate1(s1);
+      const next: Errors = {};
+      for (const k of Object.keys(prev) as Array<keyof Step1>) if (prev[k] && now[k]) next[k] = now[k];
+      return next;
+    });
+  }, [s1]);
+
   const open = useCallback((o: OpenOptions = {}) => {
     if (o.brief) setBrief(true);
     if (o.region || o.sector) setS2((p) => ({ ...p, regions: add(p.regions, o.region), sectors: add(p.sectors, o.sector) }));
