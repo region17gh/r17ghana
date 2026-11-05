@@ -74,7 +74,7 @@
 .invest-error { font: var(--type-meta); color: var(--pan-red); margin: var(--space-0); }
 .invest-note { font: var(--type-meta); color: var(--navy-700); background: var(--gold-100); padding: var(--space-3); border-radius: var(--radius-md); margin: var(--space-0); }
 .invest-link { background: none; border: none; min-height: var(--control-lg); padding-inline: var(--space-2); font: var(--type-ui); color: var(--text-link); text-decoration: underline; cursor: pointer; }
-.invest-honeypot { position: absolute; left: -9999em; width: var(--space-1); height: var(--space-1); overflow: hidden; }
+.invest-honeypot { position: absolute; width: var(--space-0); height: var(--space-0); overflow: hidden; opacity: 0; pointer-events: none; }
 
 .invest-mobile-bar {
   position: fixed; inset-inline: 0; bottom: 0; z-index: 20; padding: var(--space-3) var(--space-4);
