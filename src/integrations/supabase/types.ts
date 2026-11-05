@@ -1037,6 +1037,125 @@ export type Database = {
           },
         ]
       }
+      investor_interest_consents: {
+        Row: {
+          consent: string
+          granted_at: string
+          id: string
+          lead_id: string
+          mechanism: string
+          policy_version: string
+          revoked_at: string | null
+        }
+        Insert: {
+          consent: string
+          granted_at?: string
+          id?: string
+          lead_id: string
+          mechanism: string
+          policy_version: string
+          revoked_at?: string | null
+        }
+        Update: {
+          consent?: string
+          granted_at?: string
+          id?: string
+          lead_id?: string
+          mechanism?: string
+          policy_version?: string
+          revoked_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "investor_interest_consents_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "investor_interests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      investor_interests: {
+        Row: {
+          connection_type: Database["public"]["Enums"]["connection_type"]
+          country_of_residence: string
+          created_at: string
+          edit_token: string
+          email: string
+          full_name: string
+          id: string
+          investor_type: string
+          lead_score: number
+          lead_tier: string
+          message: string | null
+          referrer: string | null
+          regions: string[]
+          sectors: string[]
+          status: string
+          step_completed: number
+          support_needed: string[]
+          ticket_band: string | null
+          timeline: string | null
+          updated_at: string
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          wants_brief: boolean
+        }
+        Insert: {
+          connection_type: Database["public"]["Enums"]["connection_type"]
+          country_of_residence: string
+          created_at?: string
+          edit_token?: string
+          email: string
+          full_name: string
+          id?: string
+          investor_type: string
+          lead_score?: number
+          lead_tier?: string
+          message?: string | null
+          referrer?: string | null
+          regions?: string[]
+          sectors?: string[]
+          status?: string
+          step_completed?: number
+          support_needed?: string[]
+          ticket_band?: string | null
+          timeline?: string | null
+          updated_at?: string
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          wants_brief?: boolean
+        }
+        Update: {
+          connection_type?: Database["public"]["Enums"]["connection_type"]
+          country_of_residence?: string
+          created_at?: string
+          edit_token?: string
+          email?: string
+          full_name?: string
+          id?: string
+          investor_type?: string
+          lead_score?: number
+          lead_tier?: string
+          message?: string | null
+          referrer?: string | null
+          regions?: string[]
+          sectors?: string[]
+          status?: string
+          step_completed?: number
+          support_needed?: string[]
+          ticket_band?: string | null
+          timeline?: string | null
+          updated_at?: string
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          wants_brief?: boolean
+        }
+        Relationships: []
+      }
       matches: {
         Row: {
           created_at: string
@@ -4027,6 +4146,21 @@ export type Database = {
           url_path: string
         }[]
       }
+      complete_investor_interest_step2: {
+        Args: {
+          p_consent_updates?: boolean
+          p_edit_token: string
+          p_id: string
+          p_message?: string
+          p_policy_version?: string
+          p_regions?: string[]
+          p_sectors?: string[]
+          p_support_needed?: string[]
+          p_ticket_band?: string
+          p_timeline?: string
+        }
+        Returns: boolean
+      }
       composer_schema: { Args: { p_type: string }; Returns: Json }
       consume_unsubscribe_token: { Args: { p_token: string }; Returns: Json }
       credential_id: {
@@ -4049,6 +4183,16 @@ export type Database = {
       generate_matches_for_need: { Args: { p_need: string }; Returns: number }
       get_notifier_config: { Args: never; Returns: Json }
       handle_available: { Args: { candidate: string }; Returns: boolean }
+      investor_lead_score: {
+        Args: {
+          p_step: number
+          p_ticket: string
+          p_timeline: string
+          p_type: string
+        }
+        Returns: number
+      }
+      investor_lead_tier: { Args: { p_score: number }; Returns: string }
       is_founding_member: {
         Args: { m: Database["public"]["Tables"]["members"]["Row"] }
         Returns: boolean
@@ -4309,6 +4453,23 @@ export type Database = {
         Returns: string
       }
       slug_part: { Args: { t: string }; Returns: string }
+      submit_investor_interest_step1: {
+        Args: {
+          p_connection: Database["public"]["Enums"]["connection_type"]
+          p_consent_contact: boolean
+          p_country: string
+          p_email: string
+          p_full_name: string
+          p_investor_type: string
+          p_policy_version?: string
+          p_referrer?: string
+          p_utm_campaign?: string
+          p_utm_medium?: string
+          p_utm_source?: string
+          p_wants_brief?: boolean
+        }
+        Returns: Json
+      }
       suggest_handles: {
         Args: {
           first_name: string

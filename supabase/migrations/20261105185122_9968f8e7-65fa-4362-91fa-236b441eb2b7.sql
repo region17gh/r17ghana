@@ -1,0 +1,2 @@
+alter function public.submit_investor_interest_step1(text,text,text,public.connection_type,text,boolean,boolean,text,text,text,text,text) set search_path = public, extensions;
+alter function public.complete_investor_interest_step2(uuid,uuid,text,text[],text[],text,text[],text,boolean,text) set search_path = public, extensions;
