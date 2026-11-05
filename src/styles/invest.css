@@ -137,3 +137,4 @@
 .invest-sector, .invest-sector:hover { border-style: none; box-shadow: var(--shadow-none); background: transparent; padding-inline: var(--space-0); }
 .invest-sector:hover .invest-sector-name { text-decoration: underline; }
 .invest-form-card { border-style: none; }
+.invest-item > :first-child:not(p):not(h3) { align-self: flex-start; }
