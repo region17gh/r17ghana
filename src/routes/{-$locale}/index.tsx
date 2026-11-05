@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { LinkRecovery } from "@/components/auth/LinkRecovery";
 import { Reveal } from "@/components/charter/Reveal";
 import { EventBanner } from "@/components/landing/EventBanner";
+import { InvestInvite } from "@/components/landing/InvestInvite";
 import { VirtualBand } from "@/components/landing/VirtualBand";
+import { SiteFooter } from "@/components/site/SiteFooter";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { Button } from "@/components/ui/Button";
 import { localePath, useI18n } from "@/i18n";
@@ -117,6 +119,7 @@ function LocaleHome() {
                 <Button size="lg">{t("nav.joinCta")}</Button>
               </Link>
             </Reveal>
+            <InvestInvite />
           </>
         )}
         {/* Safety control, not decoration. Its wording is fixed. */}
@@ -132,6 +135,7 @@ function LocaleHome() {
           {t("legal.notAGovernmentDocument")}
         </p>
       </main>
+      <SiteFooter />
     </div>
   );
 }
