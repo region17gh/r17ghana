@@ -23,20 +23,20 @@ export function FormStep1() {
       {f.brief ? <p className="invest-note">We'll send the brief to your inbox.</p> : null}
       <Field label="Full name" required error={errors.fullName}>
         <Input autoComplete="name" value={s1.fullName} invalid={!!errors.fullName}
-          onChange={(e) => setS1({ ...s1, fullName: e.target.value })} onBlur={() => blur1("fullName")} maxLength={120} />
+          onChange={(e) => setS1((p) => ({ ...p, fullName: e.target.value }))} onBlur={() => blur1("fullName")} maxLength={120} />
       </Field>
       <Field label="Email" required error={errors.email}>
         <Input type="email" autoComplete="email" inputMode="email" value={s1.email} invalid={!!errors.email}
-          onChange={(e) => setS1({ ...s1, email: e.target.value })} onBlur={() => blur1("email")} maxLength={254} />
+          onChange={(e) => setS1((p) => ({ ...p, email: e.target.value }))} onBlur={() => blur1("email")} maxLength={254} />
       </Field>
       <Field label="Country you live in" required error={errors.country}>
         <Select value={s1.country} invalid={!!errors.country} onBlur={() => blur1("country")}
-          onChange={(e) => setS1({ ...s1, country: e.target.value })}
+          onChange={(e) => setS1((p) => ({ ...p, country: e.target.value }))}
           options={[{ value: "", label: "Choose a country" }, ...countries]} />
       </Field>
       <Field label="Your connection to Ghana" required error={errors.connection}>
         <Select value={s1.connection} invalid={!!errors.connection} onBlur={() => blur1("connection")}
-          onChange={(e) => setS1({ ...s1, connection: e.target.value as ConnectionType })}
+          onChange={(e) => setS1((p) => ({ ...p, connection: e.target.value as ConnectionType }))}
           options={[{ value: "", label: "Choose one" }, ...CONNECTIONS]} />
       </Field>
       <fieldset className="invest-fieldset">
@@ -45,7 +45,7 @@ export function FormStep1() {
           {INVESTOR_TYPES.map((o) => (
             <div key={o.value} className="invest-choice" data-checked={s1.investorType === o.value}>
               <Radio name="investor_type" label={o.label} checked={s1.investorType === o.value}
-                onChange={() => setS1({ ...s1, investorType: o.value as InvestorType })} />
+                onChange={() => setS1((p) => ({ ...p, investorType: o.value as InvestorType }))} />
             </div>
           ))}
         </div>
@@ -53,12 +53,12 @@ export function FormStep1() {
       </fieldset>
       <div>
         <Checkbox label="R17GH may contact me about my enquiry." checked={s1.consent}
-          onChange={(c) => setS1({ ...s1, consent: c })} />
+          onChange={(c) => setS1((p) => ({ ...p, consent: c }))} />
         {errors.consent ? <p role="alert" className="invest-error">{errors.consent}</p> : null}
       </div>
       <div className="invest-honeypot" aria-hidden="true">
         <label>Company website<input name="company_website" tabIndex={-1} autoComplete="off"
-          value={s1.website} onChange={(e) => setS1({ ...s1, website: e.target.value })} /></label>
+          value={s1.website} onChange={(e) => setS1((p) => ({ ...p, website: e.target.value }))} /></label>
       </div>
       {f.problem ? <p role="alert" className="invest-error">{f.problem}</p> : null}
       <Button type="submit" variant="gold" size="lg" fullWidth disabled={f.busy} aria-busy={f.busy}>

@@ -18,21 +18,21 @@ export function FormStep2() {
       {f.brief ? <p className="invest-note" role="status">Your brief is on its way.</p> : null}
       <p className="invest-card-text">The more you share, the better our introductions.</p>
       <Field label={project ? "Capital you are seeking (USD)" : "Amount you are considering (USD)"}>
-        <Select value={s2.ticket} onChange={(e) => setS2({ ...s2, ticket: e.target.value })}
+        <Select value={s2.ticket} onChange={(e) => setS2((p) => ({ ...p, ticket: e.target.value }))}
           options={[{ value: "", label: "Choose an amount" }, ...TICKETS]} />
       </Field>
-      <ChipGroup legend="Sectors of interest" options={SECTOR_OPTIONS} value={s2.sectors} onChange={(v) => setS2({ ...s2, sectors: v })} />
-      <ChipGroup legend="Regions of interest" options={REGION_OPTIONS} value={s2.regions} onChange={(v) => setS2({ ...s2, regions: v })} />
+      <ChipGroup legend="Sectors of interest" options={SECTOR_OPTIONS} value={s2.sectors} onChange={(v) => setS2((p) => ({ ...p, sectors: v }))} />
+      <ChipGroup legend="Regions of interest" options={REGION_OPTIONS} value={s2.regions} onChange={(v) => setS2((p) => ({ ...p, regions: v }))} />
       <Field label="Timeline">
-        <Select value={s2.timeline} onChange={(e) => setS2({ ...s2, timeline: e.target.value })}
+        <Select value={s2.timeline} onChange={(e) => setS2((p) => ({ ...p, timeline: e.target.value }))}
           options={[{ value: "", label: "Choose a timeline" }, ...TIMELINES]} />
       </Field>
-      <ChipGroup legend="How can we help?" options={SUPPORT} value={s2.support} onChange={(v) => setS2({ ...s2, support: v })} />
+      <ChipGroup legend="How can we help?" options={SUPPORT} value={s2.support} onChange={(v) => setS2((p) => ({ ...p, support: v }))} />
       <Field label="Anything else we should know?" hint={`${s2.message.length} of 600 characters`}>
-        <Textarea maxLength={600} value={s2.message} onChange={(e) => setS2({ ...s2, message: e.target.value })} />
+        <Textarea maxLength={600} value={s2.message} onChange={(e) => setS2((p) => ({ ...p, message: e.target.value }))} />
       </Field>
       <Checkbox label="Send me R17GH investment updates and event invitations." checked={s2.updates}
-        onChange={(c) => setS2({ ...s2, updates: c })} />
+        onChange={(c) => setS2((p) => ({ ...p, updates: c }))} />
       {f.problem ? <p role="alert" className="invest-error">{f.problem}</p> : null}
       <Button type="submit" variant="gold" size="lg" fullWidth disabled={f.busy} aria-busy={f.busy}>
         {f.busy ? "Sending…" : "Submit"}
