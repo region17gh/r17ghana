@@ -10,3 +10,6 @@
 - [x] Online band shrunk on phones: two-line bar (80px on a 402px-wide screen) instead of 239px, serif title kept on desktop only
 - [ ] Not started: a join while the meeting is actually running (event is 12 Nov)
 - [ ] Not started: decide whether the ~100 MB player in public/zoom (mostly Zoom's audio/video engine) is acceptable, or find a lighter route
+- [x] /invest page and two-step investor form (Prompt 1)
+- [ ] /invest team view (Prompt 2), waiting on the user
+- [ ] /invest emails via Resend (Prompt 3), waiting on RESEND_API_KEY, FROM_EMAIL, TEAM_ALERT_EMAIL
