@@ -138,3 +138,29 @@
 .invest-sector:hover .invest-sector-name { text-decoration: underline; }
 .invest-form-card { border-style: none; }
 .invest-item > :first-child:not(p):not(h3) { align-self: flex-start; }
+
+/* Motion. Short, purposeful, and off under reduced motion.
+   invest-rise: items lift in one after another when their group scrolls into view (Reveal adds .is-in). */
+@keyframes invest-up { from { opacity: 0; transform: translateY(var(--space-4)); } to { opacity: 1; transform: none; } }
+.invest-hero-body > * { animation: invest-up var(--dur-reveal) var(--ease-out) both; }
+.invest-hero-body > :nth-child(2) { animation-delay: var(--dur-fast); }
+.invest-hero-body > :nth-child(3) { animation-delay: var(--dur-base); }
+.invest-hero-body > :nth-child(4) { animation-delay: var(--dur-slow); }
+[data-charter-reveal] .invest-rise, [data-charter-reveal].invest-rise-all > * {
+  opacity: 0; transform: translateY(var(--space-4));
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--charter-i, 0) * var(--dur-instant));
+}
+[data-charter-reveal].is-in .invest-rise, [data-charter-reveal].is-in.invest-rise-all > * { opacity: 1; transform: none; }
+.invest-region-panel { animation: invest-up var(--dur-base) var(--ease-out) both; }
+.invest-chip:active { background: var(--paper-200); }
+.invest-chip[aria-pressed="true"]:active { background: var(--navy-800); }
+.invest-sector .invest-sector-name { transition: var(--transition-control); }
+.invest-sector:active .invest-sector-name { color: var(--navy-700); text-decoration: underline; }
+.invest-mobile-bar { transform: translateY(100%); transition: transform var(--dur-base) var(--ease-out); }
+.invest-mobile-bar[data-shown="true"] { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .invest-hero-body > *, .invest-region-panel { animation: none; }
+  [data-charter-reveal] .invest-rise, [data-charter-reveal].invest-rise-all > * { opacity: 1; transform: none; transition: none; }
+  .invest-mobile-bar { transition: none; }
+}
