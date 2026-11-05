@@ -16,11 +16,16 @@ export const ORG_LINE =
   "R17GH is a US 501(c)(3) nonprofit working in partnership with the Embassy of Ghana to the United States. It is not a government body.";
 
 export const STATS = [
-  { value: "5.0", unit: "%", label: "Inflation, August 2026", year: 2026, source: "Bank of Ghana" },
-  { value: "B", unit: "Positive", label: "Fitch sovereign rating, upgraded May 2026", year: 2026, source: "Fitch Ratings" },
-  { value: "US$12.9", unit: "B", label: "International reserves, June 2026", year: 2026, source: "Bank of Ghana" },
-  { value: "US$2.62", unit: "B", label: "Foreign direct investment recorded in 2025", year: 2025, source: "GIPA" },
+  { value: "5.0", unit: "%", label: "Inflation, August 2026", year: 2026, source: "Bank of Ghana", signal: "Prices have steadied, so costs and contracts can be planned in cedis again." },
+  { value: "B", unit: "Positive", label: "Fitch sovereign rating, upgraded May 2026", year: 2026, source: "Fitch Ratings", signal: "Independent ratings now read the outlook as improving, not at risk." },
+  { value: "US$12.9", unit: "B", label: "International reserves, June 2026", year: 2026, source: "Bank of Ghana", signal: "A deeper buffer behind the currency means less exposure to sudden swings." },
+  { value: "US$2.62", unit: "B", label: "Foreign direct investment recorded in 2025", year: 2025, source: "GIPA", signal: "Investors are already moving. Early entrants pick partners, land and sites first." },
 ];
+
+export const WHY_NOW = {
+  title: "The recovery is on the record. The early window will not stay open.",
+  lede: "Four numbers show an economy that has stabilised. Combined with new incentives for investment outside Accra, the conditions for entering the regions are better now than they have been in years.",
+};
 
 export const INCENTIVES = [
   { figure: "Up to 50%", text: "Tax rebate for factories located outside Accra and Tema" },
