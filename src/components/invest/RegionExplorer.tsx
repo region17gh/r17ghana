@@ -31,7 +31,7 @@ export function RegionExplorer() {
       </div>
       <div id="region-panel" aria-live="polite">
         {region ? (
-          <div className="invest-region-panel" style={{ ["--region-ink" as string]: `var(${region.token})` }}>
+          <div key={region.slug} className="invest-region-panel" style={{ ["--region-ink" as string]: `var(${region.token})` }}>
             <p className="r17-eyebrow invest-ink">{region.name} Region</p>
             <p className="invest-card-text">Capital: {region.capital}</p>
             <p className="invest-card-text">
