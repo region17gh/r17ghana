@@ -38,7 +38,6 @@ export function Sectors() {
             <button key={s.value} type="button" className="invest-sector" onClick={() => start({ sector: s.value })}>
               <Icon name={s.icon} size={24} />
               <span className="invest-sector-name">{s.label}</span>
-              <span className="invest-card-text">{s.body}</span>
             </button>
           ))}
         </div>

@@ -9,7 +9,7 @@ export function Opportunity() {
         <SectionHeader
           eyebrow="The opportunity is outside Accra"
           title={<span id="outside-accra">Most investment stops in Accra. The incentives don't.</span>}
-          lede="In 2025, 143 of 181 newly registered foreign investment projects went to Greater Accra. Ghana rewards investors who build in the regions."
+          lede="In 2025, 143 of 181 new foreign projects went to Greater Accra."
         />
         <div className="invest-grid-4">
           {INCENTIVES.map((i) => (

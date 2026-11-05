@@ -34,7 +34,7 @@ export function DiasporaGap() {
       <div className="invest-wrap invest-gap-body">
         <h2 id="gap" className="invest-gap-title">The diaspora sends money home. Very little of it becomes registered investment.</h2>
         <p className="invest-hero-sub">
-          In 2025, the United States accounted for 4 registered projects in Ghana and the United Kingdom for 8. R17GH exists to change that number.
+          In 2025: 4 registered projects from the US, 8 from the UK. We exist to change that.
         </p>
         <div className="invest-actions">
           <Button variant="gold" size="lg" onClick={() => start()}>Be part of it</Button>
