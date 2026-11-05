@@ -21,7 +21,8 @@
     "settings": "Settings",
     "signIn": "Sign in",
     "signOut": "Sign out",
-    "joinCta": "Join Region 17"
+    "joinCta": "Join Region 17",
+    "invest": "Invest in Ghana"
   },
   "legal": {
     "notAGovernmentDocument": "Region 17 membership is a standing in a community. It is not a government document and confers no citizenship, residence, visa, or right of entry.",
@@ -727,7 +728,14 @@
     "aboutHead": "About the event",
     "flyerAlt": "Ghana-Chicago Business Roundtable flyer: theme, Strengthening Ghana and Chicago Economic Partnerships, unlocking opportunities in trade, investment, innovation and diaspora engagement. Thursday 12 November 2026, 9:00 AM to 1:00 PM at mHUB. Hosted by the Embassy of Ghana to the United States in partnership with Region 17 and the Greater Englewood Chamber of Commerce. Partners: mHUB, Ghana National Council of Chicago, Chicago Diaspora Chamber.",
     "joinPrompt": "Not a member yet? Membership is free.",
-    "joinLink": "Join Region 17"
+    "joinLink": "Join Region 17",
+    "investEyebrow": "INVESTMENT",
+    "investTitle": "Invest in Ghana beyond Accra",
+    "investLede": "R17GH connects the global African diaspora to opportunities, incentives and the right people across Ghana's 16 regions.",
+    "investCta": "Invest in Ghana"
+  },
+  "footer": {
+    "tagline": "One Nation. One Global Diaspora. One Shared Vision."
   },
   "virtual": {
     "eyebrow": "ATTEND ONLINE",

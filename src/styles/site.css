@@ -1,0 +1,74 @@
+/* The home page investment invitation, and the footer that closes public
+   pages. Both are chrome: they carry design system tokens and nothing else. */
+.landing-invest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: var(--measure-prose);
+}
+.landing-invest-eyebrow {
+  color: var(--gold-700);
+}
+.landing-invest-title {
+  font: var(--type-title);
+  color: var(--text-strong);
+  margin: var(--space-0);
+  max-width: var(--measure-narrow);
+}
+.landing-invest-lede {
+  font: var(--type-body);
+  color: var(--text-body);
+  margin: var(--space-0);
+  max-width: var(--measure-prose);
+}
+/* The invitation's action is an anchor around the system's button. The design
+   system's base layer gives every anchor a hairline underline, which would
+   read as a stray rule under the button. */
+.landing-invest-link {
+  border-bottom-style: none;
+}
+
+.site-footer {
+  background: var(--navy-900);
+  color: var(--text-on-inverse);
+  margin-top: var(--space-16);
+  padding-block: var(--space-12) var(--space-16);
+}
+.site-footer-inner {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.site-footer-wordmark {
+  font: var(--type-title);
+  margin: var(--space-0);
+}
+.site-footer-tagline {
+  font: var(--type-body);
+  color: var(--gold-400);
+  margin: var(--space-0);
+}
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-6);
+}
+/* The base layer tints an anchor's underline from the link colour, which is
+   meant for paper. On navy the rule takes the system's inverse border. */
+.site-footer-links a {
+  color: var(--text-on-inverse);
+  min-height: var(--control-md);
+  display: inline-flex;
+  align-items: center;
+  border-bottom-color: var(--border-inverse);
+}
+.site-footer-fine {
+  font: var(--type-cite);
+  color: var(--text-on-inverse-muted);
+  margin: var(--space-0);
+  max-width: var(--measure-prose);
+}
