@@ -16,15 +16,15 @@ export const ORG_LINE =
   "R17GH is a US 501(c)(3) nonprofit working in partnership with the Embassy of Ghana to the United States. It is not a government body.";
 
 export const STATS = [
-  { value: "5.0", unit: "%", label: "Inflation, August 2026", year: 2026, source: "Bank of Ghana", signal: "Prices have steadied, so costs and contracts can be planned in cedis again." },
-  { value: "B", unit: "Positive", label: "Fitch sovereign rating, upgraded May 2026", year: 2026, source: "Fitch Ratings", signal: "Independent ratings now read the outlook as improving, not at risk." },
-  { value: "US$12.9", unit: "B", label: "International reserves, June 2026", year: 2026, source: "Bank of Ghana", signal: "A deeper buffer behind the currency means less exposure to sudden swings." },
-  { value: "US$2.62", unit: "B", label: "Foreign direct investment recorded in 2025", year: 2025, source: "GIPA", signal: "Investors are already moving. Early entrants pick partners, land and sites first." },
+  { value: "5.0", unit: "%", label: "Inflation, August 2026", year: 2026, source: "Bank of Ghana", signal: "Costs can be planned in cedis again." },
+  { value: "B", unit: "Positive", label: "Fitch sovereign rating, upgraded May 2026", year: 2026, source: "Fitch Ratings", signal: "Ratings now read the outlook as improving." },
+  { value: "US$12.9", unit: "B", label: "International reserves, June 2026", year: 2026, source: "Bank of Ghana", signal: "A deeper buffer against currency swings." },
+  { value: "US$2.62", unit: "B", label: "Foreign direct investment recorded in 2025", year: 2025, source: "GIPA", signal: "Early entrants pick partners and sites first." },
 ];
 
 export const WHY_NOW = {
   title: "The recovery is on the record. The early window will not stay open.",
-  lede: "Four numbers show an economy that has stabilised. Combined with new incentives for investment outside Accra, the conditions for entering the regions are better now than they have been in years.",
+  lede: "The economy has stabilised, and new incentives reward building outside Accra.",
 };
 
 export const INCENTIVES = [
@@ -45,24 +45,24 @@ export const REGION_STRENGTHS: Record<string, string[]> = {
 export const LAW_CARDS = [
   {
     title: "No general minimum capital",
-    body: "The GIPA Act 2026 removed the general minimum foreign capital requirement for joint ventures and wholly foreign-owned companies.",
+    body: "Removed for joint ventures and foreign-owned companies by the GIPA Act 2026.",
   },
   {
     title: "Know the trading rule",
-    body: "Businesses that buy and resell goods still need US$500,000 in cash equity and a team that is at least 75% skilled Ghanaians. This applies even to Ghanaian-owned companies with a foreign director or owner. We'll help you structure around it.",
+    body: "Buy-and-resell businesses still need US$500,000 in cash equity and a team at least 75% skilled Ghanaians, even with one foreign owner or director. We help you plan around it.",
     alert: "Diaspora alert",
   },
   {
     title: "Registered in 5 working days",
-    body: "With a 24-hour expedited option, investment guarantees against expropriation, and the right to transfer profits and dividends.",
+    body: "Or 24 hours expedited. Guarantees against expropriation and the right to transfer profits.",
   },
 ];
 
 export const STEPS = [
-  { title: "Tell us your goals", body: "Two minutes. What you want to build, where, and at what scale." },
-  { title: "We map the fit", body: "Region, sector, incentives and the rules that apply to you." },
-  { title: "We make the introductions", body: "Project promoters, regional investment offices, advisers and diaspora partners." },
-  { title: "We help you land", body: "Diaspora Delegations to Ghana and hands-on business setup." },
+  { title: "Tell us your goals", body: "Two minutes: what, where, and at what scale." },
+  { title: "We map the fit", body: "Region, sector, incentives and rules." },
+  { title: "We make the introductions", body: "Projects, regional offices, advisers and partners." },
+  { title: "We help you land", body: "Delegations to Ghana and business setup." },
 ];
 
 export type SectorValue =

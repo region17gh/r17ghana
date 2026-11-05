@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { IconButton } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { FormStep1 } from "./FormStep1";
 import { FormStep2 } from "./FormStep2";
+import { usePastHero } from "@/hooks/usePastHero";
 import { useInvest } from "./InvestContext";
 
 export function InvestForm() {
@@ -51,9 +52,10 @@ export function InvestForm() {
 
 export function MobileBar() {
   const f = useInvest();
+  const shown = usePastHero(".invest-hero");
   if (f.isOpen) return null;
   return (
-    <div className="invest-mobile-bar">
+    <div className="invest-mobile-bar" data-shown={shown} aria-hidden={!shown} inert={!shown}>
       <Button variant="gold" size="lg" fullWidth onClick={() => f.open()}>Start here</Button>
     </div>
   );

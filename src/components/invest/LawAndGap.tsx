@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/charter/Reveal";
 import farm from "@/assets/invest/northern-farmland.webp";
 import farmSm from "@/assets/invest/northern-farmland-800.webp";
 import { Button } from "@/components/ui/Button";
@@ -8,18 +9,18 @@ import { useStart } from "./InvestContext";
 export function LawCards() {
   return (
     <section aria-labelledby="law-2026" className="invest-section invest-paper">
-      <div className="invest-wrap invest-stack">
+      <Reveal className="invest-wrap invest-stack">
         <SectionHeader eyebrow="What changed in 2026" title={<span id="law-2026">Ghana's new investment law, in plain terms.</span>} />
         <div className="invest-grid-3">
-          {LAW_CARDS.map((c) => (
-            <div key={c.title} className="invest-item">
+          {LAW_CARDS.map((c, n) => (
+            <div key={c.title} className="invest-item invest-rise" style={{ ["--charter-i" as string]: n }}>
               {c.alert ? <Badge tone="gold">{c.alert}</Badge> : null}
               <h3 className="invest-h3">{c.title}</h3>
               <p className="invest-card-text">{c.body}</p>
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -31,15 +32,15 @@ export function DiasporaGap() {
       <img className="invest-band-img" src={farm} srcSet={`${farmSm} 800w, ${farm} 1600w`} sizes="100vw"
         width={1600} height={912} loading="lazy" alt="Irrigated farmland in Ghana's northern savannah" />
       <div className="invest-hero-scrim" aria-hidden="true" />
-      <div className="invest-wrap invest-gap-body">
+      <Reveal className="invest-wrap invest-gap-body invest-rise-all">
         <h2 id="gap" className="invest-gap-title">The diaspora sends money home. Very little of it becomes registered investment.</h2>
         <p className="invest-hero-sub">
-          In 2025, the United States accounted for 4 registered projects in Ghana and the United Kingdom for 8. R17GH exists to change that number.
+          In 2025: 4 registered projects from the US, 8 from the UK. We exist to change that.
         </p>
         <div className="invest-actions">
           <Button variant="gold" size="lg" onClick={() => start()}>Be part of it</Button>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

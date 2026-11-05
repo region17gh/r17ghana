@@ -22,7 +22,7 @@ export function InvestHero() {
         <p className="r17-eyebrow invest-gold">R17GH Invest</p>
         <h1 className="invest-hero-title">Invest in Ghana beyond Accra.</h1>
         <p className="invest-hero-sub">
-          R17GH connects the global African diaspora to opportunities, incentives and the right people across Ghana's 16 regions.
+          Opportunities, incentives and the right people across Ghana's 16 regions.
         </p>
         <div className="invest-actions">
           <Button variant="gold" size="lg" onClick={() => start()}>Tell us what you want to build</Button>
