@@ -1,0 +1,39 @@
+import { describe, expect, test } from "bun:test";
+
+import { validate1 } from "@/hooks/useInvestForm";
+import { CONNECTIONS, INVESTOR_TYPES, ORG_LINE, SECTORS, SUPPORT, TICKETS, TIMELINES } from "@/lib/invest/content";
+
+// These lists must match the CHECK constraints on public.investor_interests.
+describe("invest form options match the database", () => {
+  test("investor types", () => {
+    expect(INVESTOR_TYPES.map((o) => o.value)).toEqual(["individual", "business_owner", "investor_group", "institution", "ghana_project"]);
+  });
+  test("amounts", () => {
+    expect(TICKETS.map((o) => o.value)).toEqual(["under_25k", "25k_100k", "100k_500k", "500k_2m", "over_2m", "not_sure"]);
+  });
+  test("timelines", () => {
+    expect(TIMELINES.map((o) => o.value)).toEqual(["exploring", "12_months", "6_months", "already_investing"]);
+  });
+  test("ten sectors and five kinds of help", () => {
+    expect(SECTORS).toHaveLength(10);
+    expect(SUPPORT.map((o) => o.value)).toEqual(["information", "introductions", "delegation", "setup", "project_review"]);
+  });
+  test("reuses the six member connection types", () => {
+    expect(CONNECTIONS.map((o) => o.value)).toEqual(["ghanaian_abroad", "ghanaian_heritage", "african_diaspora", "ghanaian_at_home", "african_continental", "ally"]);
+  });
+});
+
+describe("invest wording", () => {
+  test("partnership, not initiative, and never a government body", () => {
+    expect(ORG_LINE).toContain("in partnership with the Embassy of Ghana");
+    expect(ORG_LINE).not.toContain("initiative");
+    expect(ORG_LINE).toContain("not a government body");
+  });
+});
+
+describe("step 1 validation", () => {
+  const ok = { fullName: "Ama Mensah", email: "ama@example.com", country: "Ghana", connection: "ally" as const, investorType: "individual" as const, consent: true, website: "" };
+  test("complete step passes", () => expect(validate1(ok)).toEqual({}));
+  test("consent is required", () => expect(validate1({ ...ok, consent: false }).consent).toBeDefined());
+  test("bad email is rejected", () => expect(validate1({ ...ok, email: "ama@" }).email).toBeDefined());
+});

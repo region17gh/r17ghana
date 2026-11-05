@@ -9,7 +9,6 @@ import { DiasporaGap, LawCards } from "@/components/invest/LawAndGap";
 import { Opportunity } from "@/components/invest/Opportunity";
 import { StatStrip } from "@/components/invest/StatStrip";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
-import "@/styles/invest.css";
 
 const TITLE = "R17GH Invest | Invest in Ghana beyond Accra";
 const DESC =
