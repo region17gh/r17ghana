@@ -1,7 +1,7 @@
 import farm from "@/assets/invest/northern-farmland.webp";
 import farmSm from "@/assets/invest/northern-farmland-800.webp";
 import { Button } from "@/components/ui/Button";
-import { Badge, Card, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Badge, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { LAW_CARDS } from "@/lib/invest/content";
 import { useStart } from "./InvestContext";
 
@@ -12,11 +12,11 @@ export function LawCards() {
         <SectionHeader eyebrow="What changed in 2026" title={<span id="law-2026">Ghana's new investment law, in plain terms.</span>} />
         <div className="invest-grid-3">
           {LAW_CARDS.map((c) => (
-            <Card key={c.title} accent={c.alert ? "var(--gold-500)" : undefined}>
+            <div key={c.title} className="invest-item">
               {c.alert ? <Badge tone="gold">{c.alert}</Badge> : null}
               <h3 className="invest-h3">{c.title}</h3>
               <p className="invest-card-text">{c.body}</p>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

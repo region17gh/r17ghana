@@ -1,4 +1,4 @@
-import { Card, SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { SectionHeader } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { INCENTIVES } from "@/lib/invest/content";
 import { RegionExplorer } from "./RegionExplorer";
 
@@ -13,10 +13,10 @@ export function Opportunity() {
         />
         <div className="invest-grid-4">
           {INCENTIVES.map((i) => (
-            <Card key={i.figure} accent="var(--gold-500)">
+            <div key={i.figure} className="invest-item">
               <p className="invest-figure">{i.figure}</p>
               <p className="invest-card-text">{i.text}</p>
-            </Card>
+            </div>
           ))}
         </div>
         <RegionExplorer />
