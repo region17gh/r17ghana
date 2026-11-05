@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 
 import { validate1 } from "@/hooks/useInvestForm";
+import en from "@/i18n/locales/en.json";
 import { CONNECTIONS, INVESTOR_TYPES, ORG_LINE, SECTORS, SUPPORT, TICKETS, TIMELINES } from "@/lib/invest/content";
 
 // These lists must match the CHECK constraints on public.investor_interests.
