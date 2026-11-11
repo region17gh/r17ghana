@@ -19,6 +19,7 @@ import { Route as Char123LocaleChar125DeclareRouteImport } from './routes/{-$loc
 import { Route as Char123LocaleChar125HomeRouteImport } from './routes/{-$locale}/home'
 import { Route as Char123LocaleChar125InvestRouteImport } from './routes/{-$locale}/invest'
 import { Route as Char123LocaleChar125LiveRouteImport } from './routes/{-$locale}/live'
+import { Route as Char123LocaleChar125ProgramRouteImport } from './routes/{-$locale}/program'
 import { Route as Char123LocaleChar125SigninRouteImport } from './routes/{-$locale}/signin'
 import { Route as Char123LocaleChar125VerifyRouteImport } from './routes/{-$locale}/verify'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
@@ -87,6 +88,12 @@ const Char123LocaleChar125LiveRoute =
   Char123LocaleChar125LiveRouteImport.update({
     id: '/live',
     path: '/live',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125ProgramRoute =
+  Char123LocaleChar125ProgramRouteImport.update({
+    id: '/program',
+    path: '/program',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125SigninRoute =
@@ -165,6 +172,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
+  '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
@@ -187,6 +195,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
+  '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
@@ -211,6 +220,7 @@ export interface FileRoutesById {
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
+  '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
@@ -236,6 +246,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
     | '/{-$locale}/live'
+    | '/{-$locale}/program'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}/'
@@ -258,6 +269,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
     | '/{-$locale}/live'
+    | '/{-$locale}/program'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}'
@@ -281,6 +293,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
     | '/{-$locale}/live'
+    | '/{-$locale}/program'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}/'
@@ -379,6 +392,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125LiveRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/program': {
+      id: '/{-$locale}/program'
+      path: '/program'
+      fullPath: '/{-$locale}/program'
+      preLoaderRoute: typeof Char123LocaleChar125ProgramRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
     '/{-$locale}/signin': {
       id: '/{-$locale}/signin'
       path: '/signin'
@@ -464,6 +484,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125HomeRoute: typeof Char123LocaleChar125HomeRoute
   Char123LocaleChar125InvestRoute: typeof Char123LocaleChar125InvestRoute
   Char123LocaleChar125LiveRoute: typeof Char123LocaleChar125LiveRoute
+  Char123LocaleChar125ProgramRoute: typeof Char123LocaleChar125ProgramRoute
   Char123LocaleChar125SigninRoute: typeof Char123LocaleChar125SigninRoute
   Char123LocaleChar125VerifyRoute: typeof Char123LocaleChar125VerifyRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
@@ -480,6 +501,7 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125HomeRoute: Char123LocaleChar125HomeRoute,
     Char123LocaleChar125InvestRoute: Char123LocaleChar125InvestRoute,
     Char123LocaleChar125LiveRoute: Char123LocaleChar125LiveRoute,
+    Char123LocaleChar125ProgramRoute: Char123LocaleChar125ProgramRoute,
     Char123LocaleChar125SigninRoute: Char123LocaleChar125SigninRoute,
     Char123LocaleChar125VerifyRoute: Char123LocaleChar125VerifyRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,

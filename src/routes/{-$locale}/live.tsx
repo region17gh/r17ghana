@@ -51,6 +51,7 @@ function LivePage() {
         ) : (
           <p role="status">{t("virtual.notReady")}</p>
         )}
+        <Link to={localePath(locale, "/program")}>See the program</Link>
         <Link to={localePath(locale, "/")}>{t("virtual.back")}</Link>
         <p className="r17-cite" style={{ margin: "var(--space-0)", maxWidth: "var(--measure-narrow)" }}>{t("legal.notAGovernmentDocument")}</p>
       </main>

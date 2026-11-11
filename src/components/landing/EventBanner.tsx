@@ -81,6 +81,7 @@ export function EventBanner() {
                       <p aria-live="polite" style={{ ...m0, fontFamily: "var(--font-mono)", color: "var(--gold-400)" }}>{t("landing.countdown", left)}</p>
                     ) : null}
                     <Button variant="gold" size="lg" href={FEATURED_EVENT.rsvpUrl}>{t("landing.rsvp")}</Button>
+                    <Link to={localePath(locale, "/program")} style={{ color: "var(--navy-100)" }}>See the program</Link>
                   </>
                 )}
                 <p style={{ ...m0, font: "var(--type-meta)", color: "var(--navy-200)" }}>{t("landing.joinPrompt")}</p>
