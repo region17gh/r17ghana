@@ -17,7 +17,7 @@ export const ORG_LINE =
 
 export const STATS = [
   { value: "5.0", unit: "%", label: "Inflation, August 2026", year: 2026, source: "Bank of Ghana", signal: "Costs can be planned in cedis again." },
-  { value: "B", unit: "Positive", label: "Fitch sovereign rating, upgraded May 2026", year: 2026, source: "Fitch Ratings", signal: "Ratings now read the outlook as improving." },
+  { value: "B", unit: "", label: "Fitch sovereign rating, upgraded May 2026", year: 2026, source: "Fitch Ratings", signal: "Outlook positive. Agencies now read the trend as improving." },
   { value: "US$12.9", unit: "B", label: "International reserves, June 2026", year: 2026, source: "Bank of Ghana", signal: "A deeper buffer against currency swings." },
   { value: "US$2.62", unit: "B", label: "Foreign direct investment recorded in 2025", year: 2025, source: "GIPA", signal: "Early entrants pick partners and sites first." },
 ];

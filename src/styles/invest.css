@@ -112,16 +112,27 @@
   .invest-chip, .invest-sector { transition: none; }
 }
 
-/* Why now: lead statement beside open columns of evidence. No boxes. */
+/* Why now: four information cards. The card skin is the design system's own
+   (white surface, hairline, tight radius); the takeaway sits on a rule at the
+   base so every card in a row closes at the same line. */
 .why-now-grid { display: grid; gap: var(--space-12); align-items: start; }
 .why-now-lead { display: grid; gap: var(--space-5); }
 .why-now-eyebrow { color: var(--gold-700); margin: var(--space-0); }
 .why-now-title { font: var(--type-section); font-family: var(--font-display); color: var(--text-strong); margin: var(--space-0); letter-spacing: var(--tracking-display); }
 .why-now-lede { font: var(--type-body); color: var(--text-body); margin: var(--space-0); max-width: var(--measure-narrow); }
-.why-now-stats { list-style: none; margin: var(--space-0); padding: var(--space-0); display: grid; column-gap: var(--space-12); row-gap: var(--space-12); }
-.why-now-card { display: grid; gap: var(--space-4); }
+.why-now-stats { list-style: none; margin: var(--space-0); padding: var(--space-0); display: grid; column-gap: var(--space-6); row-gap: var(--space-6); }
+.why-now-item { display: flex; }
+.why-now-card { display: flex; flex-direction: column; gap: var(--space-4); flex: 1; }
 .why-now-num { font: var(--type-cite); font-family: var(--font-mono); color: var(--gold-700); }
-.why-now-signal { margin: var(--space-0); font: var(--type-body); color: var(--text-strong); max-width: var(--measure-narrow); }
+.why-now-stat { flex: 1; }
+.why-now-signal {
+  margin: var(--space-0);
+  padding-block-start: var(--space-4);
+  border-block-start: var(--border-width) solid var(--border-hairline);
+  font: var(--type-body);
+  color: var(--text-strong);
+  max-width: var(--measure-narrow);
+}
 @media (min-width: 600px) { .why-now-stats { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1000px) {
   .why-now-grid { grid-template-columns: 5fr 7fr; gap: var(--space-16); }
