@@ -13,3 +13,4 @@
 - [x] /invest page and two-step investor form (Prompt 1)
 - [ ] /invest team view (Prompt 2), waiting on the user
 - [ ] /invest emails via Resend (Prompt 3), waiting on RESEND_API_KEY, FROM_EMAIL, TEAM_ALERT_EMAIL
+- [ ] /program page: speakers, run of show, videos, PDFs and the room QR code. Address is /program (US spelling). Waiting on speaker photos, names, titles, organisations, bios, each speaker's publication agreement, the run of show, and the video files or links.
