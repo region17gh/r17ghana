@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 
 import { validate1 } from "@/hooks/useInvestForm";
 import en from "@/i18n/locales/en.json";
+import { INVEST_FORM_HASH, opensInvestForm } from "@/lib/invest/hash";
 import { CONNECTIONS, INVESTOR_TYPES, ORG_LINE, SECTORS, SUPPORT, TICKETS, TIMELINES } from "@/lib/invest/content";
 
 // These lists must match the CHECK constraints on public.investor_interests.
@@ -59,5 +60,26 @@ describe("invest page is reachable without typing the address", () => {
   test("the footer names the invest link", () => {
     expect(en.nav.invest).toBe("Invest in Ghana");
     expect(en.footer.tagline).toBe("One Nation. One Global Diaspora. One Shared Vision.");
+  });
+});
+
+// The printed QR code encodes one address, so that address must be the form's own.
+describe("the investor form has its own address", () => {
+  test("the address is the form section's anchor", () => {
+    expect(INVEST_FORM_HASH).toBe("#invest-form");
+    const form = readFileSync("src/components/invest/InvestForm.tsx", "utf8");
+    expect(form).toContain('id="invest-form"');
+  });
+
+  test("only that fragment opens the form", () => {
+    expect(opensInvestForm("#invest-form")).toBe(true);
+    expect(opensInvestForm("#faq")).toBe(false);
+    expect(opensInvestForm("")).toBe(false);
+  });
+
+  test("the page opens the form when the address asks for it", () => {
+    const form = readFileSync("src/components/invest/InvestForm.tsx", "utf8");
+    expect(form).toContain("opensInvestForm(window.location.hash)");
+    expect(form).toContain("f.open()");
   });
 });

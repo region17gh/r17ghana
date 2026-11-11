@@ -5,7 +5,8 @@ import { IconButton } from "@/design-system/region-17-ghana-design-system-e3e62f
 import { FormStep1 } from "./FormStep1";
 import { FormStep2 } from "./FormStep2";
 import { usePastHero } from "@/hooks/usePastHero";
-import { useInvest } from "./InvestContext";
+import { opensInvestForm } from "@/lib/invest/hash";
+import { focusInvestForm, useInvest } from "./InvestContext";
 
 export function InvestForm() {
   const f = useInvest();
@@ -21,6 +22,14 @@ export function InvestForm() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [f.isOpen, f]);
+
+  // An address ending in #invest-form (a QR code, a printed link) opens the form
+  // straight away: a full-screen sheet on phones, a scroll to it on desktop.
+  useEffect(() => {
+    if (!opensInvestForm(window.location.hash)) return;
+    f.open();
+    focusInvestForm();
+  }, [f.open]);
 
   return (
     <section id="invest-form" className="invest-form-wrap" data-open={f.isOpen} aria-labelledby="invest-form-title">

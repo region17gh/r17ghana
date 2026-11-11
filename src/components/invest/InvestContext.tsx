@@ -15,16 +15,19 @@ export function useInvest(): InvestForm {
   return v;
 }
 
+/** Scrolls the inline form into view on wide screens and moves focus to its heading. */
+export function focusInvestForm() {
+  if (!window.matchMedia("(min-width: 860px)").matches) return;
+  const el = document.getElementById("invest-form");
+  el?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  window.setTimeout(() => document.getElementById("invest-form-title")?.focus(), 300);
+}
+
 /** Opens the form: a full-screen sheet on phones, a scroll to the inline form on desktop. */
 export function useStart() {
   const { open } = useInvest();
   return (o?: Parameters<InvestForm["open"]>[0]) => {
     open(o);
-    const desktop = window.matchMedia("(min-width: 860px)").matches;
-    if (desktop) {
-      const el = document.getElementById("invest-form");
-      el?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-      window.setTimeout(() => document.getElementById("invest-form-title")?.focus(), 300);
-    }
+    focusInvestForm();
   };
 }
