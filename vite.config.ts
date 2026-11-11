@@ -25,6 +25,10 @@ export default defineConfig(({ command, mode }) => {
         "@": path.resolve(__dirname, "./src"),
         "entities/lib/decode.js": path.resolve(__dirname, "node_modules/entities/lib/decode.js"),
         "entities/lib/encode.js": path.resolve(__dirname, "node_modules/entities/lib/encode.js"),
+        // htmlparser2@10 imports the entities@7 subpaths; the root entities is pinned to v4
+        // for @react-email/render, so route those subpaths to the nested v7 copy.
+        "entities/decode": path.resolve(__dirname, "node_modules/htmlparser2/node_modules/entities/dist/esm/decode.js"),
+        "entities/escape": path.resolve(__dirname, "node_modules/htmlparser2/node_modules/entities/dist/esm/escape.js"),
         entities: path.resolve(__dirname, "node_modules/entities"),
       },
     },
