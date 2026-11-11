@@ -72,3 +72,8 @@
   margin: var(--space-0);
   max-width: var(--measure-prose);
 }
+
+/* Lock sideways movement on phones: nothing may pan the page left or right.
+   Inner scrollers (e.g. chip rows) still scroll; pinch zoom stays for accessibility. */
+html, body { overflow-x: clip; overscroll-behavior-x: none; max-width: 100%; }
+@supports not (overflow-x: clip) { html, body { overflow-x: hidden; } }
