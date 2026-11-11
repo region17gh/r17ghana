@@ -61,3 +61,6 @@
 .program-home::before { content: "\2190"; margin-inline-end: var(--space-2); }
 .program-home-end { align-self: flex-start; display: inline-flex; align-items: center; min-height: var(--control-lg); margin-block-start: var(--space-10); }
 .program-links + .program-section { padding-block-start: var(--space-4); }
+.program-cal { display: inline-flex; align-items: center; min-height: var(--control-lg); padding-inline: var(--space-0); background: none; border: none; color: var(--navy-700); font: var(--type-meta); font-weight: var(--weight-semibold); text-decoration: underline; cursor: pointer; }
+.program-cal:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.program-download.program-cal { font: var(--type-body); font-weight: var(--weight-semibold); text-decoration: none; display: flex; }

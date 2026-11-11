@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { downloadIcs } from "@/lib/calendar";
 import { currentSegment, formatRange, TIME_ZONES, type Segment } from "@/lib/program";
 
 /** The clock is read after hydration so server and client markup match. */
@@ -20,12 +21,13 @@ export function RunOfShow({ list }: { list: Segment[] }) {
 
   return (
     <section aria-labelledby="ros-h" className="program-section">
-      <details className="program-fold">
+      <details className="program-fold" onToggle={(e) => { if (e.currentTarget.open) window.__lovableEvents?.track?.("project.run_of_show_opened", {}); }}>
         <summary className="program-fold-summary">
           <h2 id="ros-h" className="program-h2">Run of show</h2>
           <span className="program-fold-count">{list.length} items</span>
         </summary>
-      <a className="program-download" href="/downloads/run-of-show.pdf" download="Run-of-show.pdf">Download run of show (PDF)</a>
+      <a className="program-download" href="/downloads/run-of-show.pdf" download="Run-of-show.pdf" onClick={() => window.__lovableEvents?.track?.("project.run_of_show_pdf_downloaded", {})}>Download run of show (PDF)</a>
+      <button type="button" className="program-download program-cal" onClick={() => { downloadIcs(list, "Region17-program.ics"); window.__lovableEvents?.track?.("project.program_calendar_added", { scope: "all" }); }}>Add whole program to calendar</button>
       <p className="program-note">Every item shows Central (Chicago), West Coast and GMT.</p>
       <ol className="program-ros">
         {list.map((s, i) => (
@@ -39,6 +41,7 @@ export function RunOfShow({ list }: { list: Segment[] }) {
             <div>
               <p className="program-title">{s.title}{i === live ? <span className="program-now"> Now</span> : null}</p>
               <p className="program-lead">{s.lead}</p>
+              <button type="button" className="program-cal" onClick={() => { downloadIcs([s], "Region17-program-item.ics"); window.__lovableEvents?.track?.("project.program_calendar_added", { scope: "item" }); }}>Add to calendar</button>
             </div>
           </li>
         ))}

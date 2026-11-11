@@ -11,6 +11,7 @@ function Player({ v }: { v: ProgramVideo }) {
       controlsList="nodownload"
       onContextMenu={(e) => e.preventDefault()}
       aria-label={v.title}
+      onPlay={(e) => { if (e.currentTarget.currentTime < 1) window.__lovableEvents?.track?.("project.program_video_played", { video_id: v.id }); }}
     >
       <source src={v.src} type="video/mp4" />
     </video>

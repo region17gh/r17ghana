@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "events": {
+    "project.program_calendar_added": {
+      "event_schema_version": 1,
+      "description": "A visitor downloaded a calendar file for one program item or the whole program.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scope"
+        ],
+        "properties": {
+          "scope": {
+            "type": "string",
+            "enum": [
+              "item",
+              "all"
+            ]
+          }
+        }
+      }
+    },
+    "project.program_video_played": {
+      "event_schema_version": 1,
+      "description": "A visitor started playing one of the program page videos from the beginning.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "video_id"
+        ],
+        "properties": {
+          "video_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "project.run_of_show_opened": {
+      "event_schema_version": 1,
+      "description": "A visitor opened the run of show on the program page.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    "project.run_of_show_pdf_downloaded": {
+      "event_schema_version": 1,
+      "description": "A visitor tapped Download run of show (PDF).",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    }
+  }
+}
