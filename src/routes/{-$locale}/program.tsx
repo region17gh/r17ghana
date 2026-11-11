@@ -35,19 +35,20 @@ function ProgramPage() {
     <>
       <PanBand />
       <main className="program-page">
+        <Link className="program-home" to={localePath(locale, "/")}>Region 17 home</Link>
         <p className="r17-eyebrow program-eyebrow">Event program</p>
         <h1 ref={heading} tabIndex={-1} className="program-h1">{PROGRAM_TITLE}</h1>
         <p className="program-meta">{PROGRAM_PLACE}</p>
         <p className="program-meta">{PROGRAM_MC}</p>
         <nav className="program-links" aria-label="Event links">
           <Link to={localePath(locale, "/live")}>Watch online</Link>
-          <Link to={localePath(locale, "/")}>Back to home</Link>
         </nav>
+        <RunOfShow list={RUN_OF_SHOW} />
         <Speakers list={SPEAKERS} />
         <MainVideo video={MAIN_VIDEO} />
-        <RunOfShow list={RUN_OF_SHOW} />
         <MoreVideos list={MORE_VIDEOS} />
         <AskEvent />
+        <Link className="program-home-end" to={localePath(locale, "/")}>Back to Region 17 home</Link>
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>
       </main>
     </>

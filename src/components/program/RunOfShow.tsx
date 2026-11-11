@@ -23,8 +23,9 @@ export function RunOfShow({ list }: { list: Segment[] }) {
       <details className="program-fold">
         <summary className="program-fold-summary">
           <h2 id="ros-h" className="program-h2">Run of show</h2>
-          <span className="program-note">{list.length} items. Tap to open or close.</span>
+          <span className="program-fold-count">{list.length} items</span>
         </summary>
+      <a className="program-download" href="/downloads/run-of-show.pdf" download="Run-of-show.pdf">Download run of show (PDF)</a>
       <p className="program-note">Every item shows Central (Chicago), West Coast and GMT.</p>
       <ol className="program-ros">
         {list.map((s, i) => (

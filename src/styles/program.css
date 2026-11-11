@@ -51,3 +51,13 @@
 .program-ask > * { width: 100%; }
 .program-ask > button { width: auto; }
 .program-answer { max-width: var(--measure-prose); white-space: pre-line; }
+/* Run of show as a toggle button near the top */
+.program-fold > summary { padding-inline: var(--space-4); border-width: var(--border-width); border-style: solid; border-color: var(--navy-700); border-radius: var(--radius-md); align-items: center; color: var(--navy-700); }
+.program-fold > summary .program-h2 { font: var(--type-body); font-weight: var(--weight-semibold); }
+.program-fold-count { color: var(--ink-700); font: var(--type-meta); margin-inline-start: auto; }
+.program-fold > summary::after { font: var(--type-body); color: var(--navy-700); }
+.program-download { display: inline-flex; align-items: center; min-height: var(--control-lg); margin-block-end: var(--space-4); color: var(--navy-700); font-weight: var(--weight-semibold); }
+.program-home { align-self: flex-start; display: inline-flex; align-items: center; min-height: var(--control-lg); color: var(--ink-700); font: var(--type-meta); }
+.program-home::before { content: "\2190"; margin-inline-end: var(--space-2); }
+.program-home-end { align-self: flex-start; display: inline-flex; align-items: center; min-height: var(--control-lg); margin-block-start: var(--space-10); }
+.program-links + .program-section { padding-block-start: var(--space-4); }
