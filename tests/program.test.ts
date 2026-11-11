@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { RUN_OF_SHOW, SPEAKERS, currentSegment, formatRange, zoneShortName } from "@/lib/program";
+import { RUN_OF_SHOW, SPEAKERS, TIME_ZONES, currentSegment, formatRange, zoneShortName } from "@/lib/program";
 
 describe("program", () => {
   it("shows Central times as supplied", () => {
@@ -19,5 +19,9 @@ describe("program", () => {
   });
   it("falls back to the zone name when no short label exists", () => {
     expect(zoneShortName("Not/AZone")).toBe("Not/AZone");
+  });
+  it("shows Central, West Coast and GMT clocks for every item", () => {
+    expect(TIME_ZONES.map((z) => z.label)).toEqual(["CST", "PST", "GMT"]);
+    expect(formatRange(RUN_OF_SHOW[0], TIME_ZONES[2].zone)).toBe("3:00 PM to 4:00 PM");
   });
 });

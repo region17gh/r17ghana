@@ -23,7 +23,6 @@
 .program-more { align-self: flex-start; min-height: var(--control-lg); padding-inline: var(--space-0); background: none; border: none; color: var(--navy-700); font: var(--type-body); font-weight: var(--weight-semibold); text-decoration: underline; cursor: pointer; }
 .program-more:focus-visible { box-shadow: var(--focus-ring); }
 
-.program-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-6); }
 .program-ros { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .program-row { display: grid; grid-template-columns: 1fr; gap: var(--space-1); padding-block: var(--space-4); border-block-end: var(--border-width) solid var(--border-hairline); transition: background-color var(--dur-base) var(--ease-standard); }
 @media (min-width: 48rem) { .program-row { grid-template-columns: 14rem 1fr; gap: var(--space-6); } }

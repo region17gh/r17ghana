@@ -79,3 +79,9 @@ export function zoneShortName(timeZone: string, at = Date.now()): string {
     return timeZone;
   }
 }
+
+/** The three clocks shown for every program item: Central, West Coast and GMT. */
+export const TIME_ZONES = ["America/Chicago", "America/Los_Angeles", "Etc/UTC"].map((zone) => ({
+  zone,
+  label: zone === "Etc/UTC" ? "GMT" : zoneShortName(zone, RUN_OF_SHOW[0].start),
+}));
