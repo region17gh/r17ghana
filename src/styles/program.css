@@ -47,3 +47,7 @@
 .program-video-item { display: flex; flex-direction: column; gap: var(--space-1); }
 .program-video-item .program-video { margin-block-end: var(--space-2); }
 @media (min-width: 48rem) { .program-videos { grid-template-columns: 1fr 1fr; } }
+.program-ask { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); max-width: var(--measure-prose); width: 100%; }
+.program-ask > * { width: 100%; }
+.program-ask > button { width: auto; }
+.program-answer { max-width: var(--measure-prose); white-space: pre-line; }

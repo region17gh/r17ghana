@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 
 import { RunOfShow } from "@/components/program/RunOfShow";
 import { Speakers } from "@/components/program/Speakers";
+import { AskEvent } from "@/components/program/AskEvent";
 import { MainVideo, MoreVideos } from "@/components/program/Videos";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
@@ -46,6 +47,7 @@ function ProgramPage() {
         <MainVideo video={MAIN_VIDEO} />
         <RunOfShow list={RUN_OF_SHOW} />
         <MoreVideos list={MORE_VIDEOS} />
+        <AskEvent />
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>
       </main>
     </>
