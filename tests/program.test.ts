@@ -1,5 +1,15 @@
 import { describe, expect, it } from "bun:test";
 import { RUN_OF_SHOW, SPEAKERS, TIME_ZONES, currentSegment, formatRange, zoneShortName } from "@/lib/program";
+import { MORE_VIDEOS, SHOWN_BY_DEFAULT } from "@/lib/program-videos";
+
+describe("more videos", () => {
+  it("shows two videos before any tapping", () => {
+    expect(SHOWN_BY_DEFAULT).toBe(2);
+  });
+  it("keeps the rest behind the toggle", () => {
+    expect(MORE_VIDEOS.length - SHOWN_BY_DEFAULT).toBe(3);
+  });
+});
 
 describe("program", () => {
   it("shows Central times as supplied", () => {

@@ -16,6 +16,9 @@ export type ProgramVideo = { id: string; title: string; length: string; src: str
 /** Watch only: guests may not download these (organiser's decision). */
 export const MAIN_VIDEO: ProgramVideo = { id: "resetting-ghana-agenda", title: "The Resetting Ghana Agenda", length: "4:08", src: a1.url, poster: p1.url };
 
+/** How many of the extra videos stay on screen before the rest fold away (organiser's decision). */
+export const SHOWN_BY_DEFAULT = 2;
+
 export const MORE_VIDEOS: ProgramVideo[] = [
   { id: "open-for-business-mahama", title: "Open for business: President Mahama", length: "2:26", src: a2.url, poster: p2.url },
   { id: "ghana-open-for-business", title: "Ghana open for business", length: "1:40", src: a3.url, poster: p3.url },
