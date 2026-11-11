@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { RUN_OF_SHOW, SPEAKERS, currentSegment, formatRange } from "@/lib/program";
+import { RUN_OF_SHOW, SPEAKERS, currentSegment, formatRange, zoneShortName } from "@/lib/program";
 
 describe("program", () => {
   it("shows Central times as supplied", () => {
@@ -13,5 +13,11 @@ describe("program", () => {
   });
   it("lists two speakers", () => {
     expect(SPEAKERS).toHaveLength(2);
+  });
+  it("names the viewer's zone for the event date", () => {
+    expect(zoneShortName("America/Los_Angeles", RUN_OF_SHOW[0].start)).toBe("PST");
+  });
+  it("falls back to the zone name when no short label exists", () => {
+    expect(zoneShortName("Not/AZone")).toBe("Not/AZone");
   });
 });

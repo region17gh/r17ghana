@@ -13,3 +13,11 @@
    side wants a name like --size-body). Until it is, the body ground is pinned
    to the ink value the colour token was meant to hold. */
 body { color: var(--ink-700) }
+
+/* The library's Checkbox, Radio and Switch hide the real input and draw the
+   control as a sibling span, so keyboard focus lands on an invisible box and
+   nothing moves. The ring belongs on the drawn control. */
+input[type="checkbox"]:focus-visible + span,
+input[type="radio"]:focus-visible + span {
+  box-shadow: var(--focus-ring);
+}

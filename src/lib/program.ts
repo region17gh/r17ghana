@@ -69,3 +69,13 @@ export function formatRange(s: Segment, timeZone: string): string {
   const f = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", timeZone });
   return `${f.format(s.start)} to ${f.format(s.end)}`;
 }
+
+/** Short label for a viewer's zone, e.g. "PST". Falls back to the zone name if it cannot be read. */
+export function zoneShortName(timeZone: string, at = Date.now()): string {
+  try {
+    const parts = new Intl.DateTimeFormat("en-US", { timeZone, timeZoneName: "short" }).formatToParts(at);
+    return parts.find((p) => p.type === "timeZoneName")?.value ?? timeZone;
+  } catch {
+    return timeZone;
+  }
+}
