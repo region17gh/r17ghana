@@ -1252,3 +1252,12 @@
     animation: none;
   }
 }
+
+/* Narrow phones (320px class): the logo yields space so the Join control stays on screen. */
+.charter-masthead .charter-masthead-brand { min-width: 0; flex-shrink: 1; }
+.charter-masthead-mark { max-width: 100%; object-fit: contain; object-position: left center; }
+@media (max-width: 22.5rem) {
+  .charter-masthead { gap: var(--space-2); }
+  .charter-masthead .charter-masthead-join { padding-inline: var(--space-3); flex-shrink: 0; }
+  .charter-masthead-mark { height: var(--control-sm); }
+}
