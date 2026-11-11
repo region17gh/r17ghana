@@ -20,7 +20,7 @@ export const askEvent = createServerFn({ method: "POST" })
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
+        model: "google/gemini-3.8-flash",
         messages: [
           { role: "system", content: `${SYSTEM}\n\nEVENT MATERIALS\n${eventMaterials()}` },
           { role: "user", content: data.question },

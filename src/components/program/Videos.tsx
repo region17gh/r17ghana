@@ -14,6 +14,7 @@ function Player({ v }: { v: ProgramVideo }) {
       onPlay={(e) => { if (e.currentTarget.currentTime < 1) window.__lovableEvents?.track?.("project.program_video_played", { video_id: v.id }); }}
     >
       <source src={v.src} type="video/mp4" />
+      <track kind="captions" label="English" srcLang="en" src={`/captions/${v.id}.vtt`} default />
     </video>
   );
 }
@@ -23,7 +24,7 @@ export function MainVideo({ video }: { video: ProgramVideo }) {
     <section className="program-section" aria-labelledby="main-video-h">
       <h2 id="main-video-h" className="program-h2">{video.title}</h2>
       <Player v={video} />
-      <p className="program-meta">{video.length}. Tap play to load. Captions coming soon.</p>
+      <p className="program-meta">{video.length}. Tap play to load. English captions available.</p>
     </section>
   );
 }
