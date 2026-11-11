@@ -77,3 +77,7 @@
    Inner scrollers (e.g. chip rows) still scroll; pinch zoom stays for accessibility. */
 html, body { overflow-x: clip; overscroll-behavior-x: none; max-width: 100%; }
 @supports not (overflow-x: clip) { html, body { overflow-x: hidden; } }
+
+/* Region 17 logo on paper pages: natural shape, top left */
+.r17-page-logo { display: inline-flex; align-self: flex-start; min-height: var(--control-lg); align-items: center; }
+.r17-page-logo img { display: block; height: var(--space-10); width: auto; max-width: 100%; object-fit: contain; }

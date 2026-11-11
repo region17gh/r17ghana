@@ -1,4 +1,5 @@
 import { ClientOnly, Link, createFileRoute } from "@tanstack/react-router";
+import logo from "@/assets/region17-logo-navy-gold-512.png.asset.json";
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
@@ -34,6 +35,7 @@ function LivePage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <PanBand />
       <main style={{ flexGrow: 1, width: "100%", maxWidth: "var(--page-max)", marginInline: "auto", paddingBlock: "var(--space-10)", paddingInline: "var(--space-6)", display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+        <Link className="r17-page-logo" to={localePath(locale, "/")} aria-label="Region 17 home"><img src={logo.url} alt="Region 17" width={512} height={120} /></Link>
         <p className="r17-eyebrow" style={{ margin: "var(--space-0)", color: "var(--gold-700)" }}>{t("virtual.eyebrow")}</p>
         <h1 ref={heading} tabIndex={-1} style={{ margin: "var(--space-0)", font: "var(--type-section)" }}>{t("virtual.pageTitle")}</h1>
         <p style={{ margin: "var(--space-0)", maxWidth: "var(--measure-prose)" }}>{t("virtual.howTo")}</p>

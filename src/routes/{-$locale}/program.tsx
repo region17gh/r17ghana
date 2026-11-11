@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 
+import logo from "@/assets/region17-logo-navy-gold-512.png.asset.json";
 import { RunOfShow } from "@/components/program/RunOfShow";
 import { Speakers } from "@/components/program/Speakers";
 import { AskEvent } from "@/components/program/AskEvent";
@@ -35,7 +36,7 @@ function ProgramPage() {
     <>
       <PanBand />
       <main className="program-page">
-        <Link className="program-home" to={localePath(locale, "/")}>Region 17 home</Link>
+        <Link className="r17-page-logo" to={localePath(locale, "/")} aria-label="Region 17 home"><img src={logo.url} alt="Region 17" width={512} height={120} /></Link>
         <p className="r17-eyebrow program-eyebrow">Event program</p>
         <h1 ref={heading} tabIndex={-1} className="program-h1">{PROGRAM_TITLE}</h1>
         <p className="program-meta">{PROGRAM_PLACE}</p>

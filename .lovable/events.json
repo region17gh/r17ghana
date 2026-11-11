@@ -1,6 +1,30 @@
 {
   "schema_version": 1,
   "events": {
+    "project.investor_question_asked": {
+      "event_schema_version": 1,
+      "description": "A visitor asked the investor question helper on /invest; result says whether an answer came back or the helper was unavailable. Question text is never sent.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "result"
+        ],
+        "properties": {
+          "result": {
+            "type": "string",
+            "enum": [
+              "answered",
+              "unavailable"
+            ]
+          }
+        }
+      }
+    },
     "project.program_calendar_added": {
       "event_schema_version": 1,
       "description": "A visitor downloaded a calendar file for one program item or the whole program.",
