@@ -46,7 +46,7 @@ export function MoreVideos({ list }: { list: ProgramVideo[] }) {
       </ul>
       {hidden.length > 0 && (
         <details className="program-fold">
-          <summary className="program-fold-summary">
+          <summary>
             <span className="program-h2">Show more videos</span>
             <span className="program-fold-count">{hidden.length} videos</span>
           </summary>
