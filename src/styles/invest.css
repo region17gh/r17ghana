@@ -167,7 +167,12 @@
 
 .invest-logo {
   display: block;
-  height: var(--space-12);
+  align-self: flex-start;
+  height: var(--space-10);
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
   margin-block-end: var(--space-4);
 }
+.invest-hero-body { padding-block-start: var(--space-6); }
+.invest-hero-body > .invest-logo { margin-block-end: var(--space-12); }
