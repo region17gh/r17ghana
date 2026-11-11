@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 
 import { Button } from "@/components/ui/Button";
@@ -40,16 +40,24 @@ export function VirtualBand() {
           <p className="r17-eyebrow virtual-band-eyebrow">{t("virtual.eyebrow")}</p>
           <h2 className="virtual-band-title">{t("virtual.title")}</h2>
         </div>
-        <p role="status" className="virtual-band-note">{t(`virtual.${phase}`)}</p>
+        <p role="status" className="virtual-band-note">
+          {t(`virtual.${phase}`)}{" "}
+          {phase !== "past" ? <a href={FEATURED_EVENT.rsvpUrl} target="_blank" rel="noopener noreferrer" className="virtual-band-rsvp">{t("virtual.rsvp")}</a> : null}
+        </p>
+        <div className="virtual-band-cta">
+          <Link to={localePath(locale, "/program")} className="virtual-band-link">
+            <Button variant="inverse" size="lg">{t("virtual.program")}</Button>
+          </Link>
         {phase === "past" ? (
           recording ? (
-            <a className="virtual-band-cta" href={recording} target="_blank" rel="noopener noreferrer">
+            <a className="virtual-band-link" href={recording} target="_blank" rel="noopener noreferrer">
               <Button variant="gold" size="lg">{t("virtual.recording")}</Button>
             </a>
           ) : null
         ) : (
-          <Button className="virtual-band-cta" variant="gold" size="lg" aria-haspopup="dialog" onClick={() => void watch()}>{t("virtual.cta")}</Button>
+          <Button variant="gold" size="lg" aria-haspopup="dialog" onClick={() => void watch()}>{t("virtual.cta")}</Button>
         )}
+        </div>
       </div>
       <SoonDialog ref={dialog} />
     </section>

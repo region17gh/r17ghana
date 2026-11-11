@@ -171,7 +171,19 @@ dialog::backdrop { background: var(--overlay-modal); }
      every anchor a hairline underline; here it would read as a stray rule
      under the button. */
   border-bottom-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
 }
+.virtual-band-link { border-bottom-style: none; }
+/* Phones: text on top, the two buttons share one row below it. */
+@media (max-width: 599px) {
+  .virtual-band-inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "note" "cta"; }
+  .virtual-band-cta { display: grid; grid-template-columns: 1fr 1fr; justify-self: stretch; margin-block-start: var(--space-1); }
+  .virtual-band-cta > *, .virtual-band-cta button { width: 100%; }
+}
+.virtual-band-rsvp { color: var(--gold-300); }
 @media (min-width: 600px) {
   .virtual-band {
     padding-block: var(--space-5);

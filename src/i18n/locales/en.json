@@ -738,10 +738,10 @@
     "tagline": "One Nation. One Global Diaspora. One Shared Vision."
   },
   "virtual": {
-    "eyebrow": "ATTEND ONLINE",
-    "title": "Watch the Ghana-Chicago Business Roundtable online",
-    "upcoming": "Online seats open on 12 November at 8:45 AM Chicago time.",
-    "live": "Live now. Join from your browser.",
+    "eyebrow": "NOV 12 · IN PERSON AND ONLINE",
+    "title": "Ghana-Chicago Business Roundtable",
+    "upcoming": "mHUB Chicago at 9:00 AM Central. Online from 8:45 AM.",
+    "live": "Live now at mHUB Chicago and online.",
     "past": "Thank you to everyone who joined online.",
     "recording": "Watch the recording",
     "cta": "Watch online",
@@ -757,6 +757,8 @@
     "back": "Back to the homepage",
     "soonTitle": "The online link is coming soon",
     "soonBody": "We will post the link to watch online here before the online room opens on 12 November at 8:45 AM Chicago time. Please check back.",
-    "soonClose": "Close"
+    "soonClose": "Close",
+    "program": "Program",
+    "rsvp": "RSVP"
   }
 }
