@@ -20,7 +20,11 @@ export function RunOfShow({ list }: { list: Segment[] }) {
 
   return (
     <section aria-labelledby="ros-h" className="program-section">
-      <h2 id="ros-h" className="program-h2">Run of show</h2>
+      <details className="program-fold">
+        <summary className="program-fold-summary">
+          <h2 id="ros-h" className="program-h2">Run of show</h2>
+          <span className="program-note">{list.length} items. Tap to open or close.</span>
+        </summary>
       <p className="program-note">Every item shows Central (Chicago), West Coast and GMT.</p>
       <ol className="program-ros">
         {list.map((s, i) => (
@@ -38,6 +42,7 @@ export function RunOfShow({ list }: { list: Segment[] }) {
           </li>
         ))}
       </ol>
+      </details>
     </section>
   );
 }

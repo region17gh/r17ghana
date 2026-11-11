@@ -33,3 +33,10 @@
 .program-lead { color: var(--ink-700); }
 .program-now { color: var(--gold-700); font: var(--type-meta); font-weight: var(--weight-bold); }
 @media (prefers-reduced-motion: reduce) { .program-row { transition: none; } }
+
+.program-fold > summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); min-height: var(--control-lg); padding-block: var(--space-3); border-block-end: var(--border-width) solid var(--border-hairline); }
+.program-fold > summary::-webkit-details-marker { display: none; }
+.program-fold > summary::after { content: "+"; font: var(--type-title); color: var(--ink-700); }
+.program-fold[open] > summary::after { content: "\2212"; }
+.program-fold > summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.program-fold[open] > summary { margin-block-end: var(--space-6); }
