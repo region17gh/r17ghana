@@ -64,3 +64,5 @@
 .program-cal { display: inline-flex; align-items: center; min-height: var(--control-lg); padding-inline: var(--space-0); background: none; border: none; color: var(--navy-700); font: var(--type-meta); font-weight: var(--weight-semibold); text-decoration: underline; cursor: pointer; }
 .program-cal:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .program-download.program-cal { font: var(--type-body); font-weight: var(--weight-semibold); text-decoration: none; display: flex; }
+.program-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-block-end: var(--space-4); }
+.program-actions > a { text-decoration: none; }
