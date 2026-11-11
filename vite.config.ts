@@ -1,5 +1,5 @@
 import path from "path";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -12,6 +12,8 @@ export default defineConfig(({ command, mode }) => {
   // Cloudflare Workers plugin only on build (produces the worker output);
   // the workerd runtime isn't available for the dev server.
   const useCloudflare = command === "build";
+  // Server-only env for server routes (e.g. email sending); never added to client defines.
+  Object.assign(process.env, loadEnv(mode, process.cwd(), ""));
 
   return {
     server: {
@@ -21,6 +23,9 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        "entities/lib/decode.js": path.resolve(__dirname, "node_modules/entities/lib/decode.js"),
+        "entities/lib/encode.js": path.resolve(__dirname, "node_modules/entities/lib/encode.js"),
+        entities: path.resolve(__dirname, "node_modules/entities"),
       },
     },
     plugins: [

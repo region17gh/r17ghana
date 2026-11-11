@@ -31,6 +31,7 @@ import { Route as Char123LocaleChar125RegionDistrictRouteImport } from './routes
 import { Route as Char123LocaleChar125JoinIndexRouteImport } from './routes/{-$locale}/join/index'
 import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{-$locale}/join/register'
 import { Route as Char123LocaleChar125RegionsRegionRouteImport } from './routes/{-$locale}/regions.$region'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
@@ -161,6 +162,12 @@ const Char123LocaleChar125RegionsRegionRoute =
     path: '/regions/$region',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
@@ -185,6 +192,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/mcp': typeof McpRoute
@@ -208,6 +216,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join': typeof Char123LocaleChar125JoinIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -233,6 +242,7 @@ export interface FileRoutesById {
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -259,6 +269,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/join/'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/mcp'
@@ -282,6 +293,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region'
     | '/{-$locale}/join'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/{-$locale}'
@@ -306,6 +318,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/join/'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -318,6 +331,7 @@ export interface RootRouteChildren {
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
   Char91__mockupChar93PreviewSplatRoute: typeof Char91__mockupChar93PreviewSplatRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -476,6 +490,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125RegionsRegionRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -532,6 +553,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91__componentChar93PreviewSplatRoute:
     Char91__componentChar93PreviewSplatRoute,
   Char91__mockupChar93PreviewSplatRoute: Char91__mockupChar93PreviewSplatRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
