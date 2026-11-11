@@ -40,3 +40,10 @@
 .program-fold[open] > summary::after { content: "\2212"; }
 .program-fold > summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .program-fold[open] > summary { margin-block-end: var(--space-6); }
+
+/* Videos: watch only, load on tap */
+.program-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--navy-900); border-radius: var(--radius-card); }
+.program-videos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-10) var(--space-6); grid-template-columns: 1fr; }
+.program-video-item { display: flex; flex-direction: column; gap: var(--space-1); }
+.program-video-item .program-video { margin-block-end: var(--space-2); }
+@media (min-width: 48rem) { .program-videos { grid-template-columns: 1fr 1fr; } }

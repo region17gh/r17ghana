@@ -3,12 +3,14 @@ import { useEffect, useRef } from "react";
 
 import { RunOfShow } from "@/components/program/RunOfShow";
 import { Speakers } from "@/components/program/Speakers";
+import { MainVideo, MoreVideos } from "@/components/program/Videos";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
+import { MAIN_VIDEO, MORE_VIDEOS } from "@/lib/program-videos";
 import { PROGRAM_MC, PROGRAM_PLACE, PROGRAM_TITLE, RUN_OF_SHOW, SPEAKERS } from "@/lib/program";
 
 const TITLE = "Program | U.S. and Ghana Business and Investment Roundtable | Region 17";
-const DESC = "Speakers and run of show for the November 12, 2026 roundtable at mHUB, Chicago. In person and online.";
+const DESC = "Speakers, videos and run of show for the November 12, 2026 roundtable at mHUB, Chicago. In person and online.";
 
 export const Route = createFileRoute("/{-$locale}/program")({
   head: () => ({
@@ -41,7 +43,9 @@ function ProgramPage() {
           <Link to={localePath(locale, "/")}>Back to home</Link>
         </nav>
         <Speakers list={SPEAKERS} />
+        <MainVideo video={MAIN_VIDEO} />
         <RunOfShow list={RUN_OF_SHOW} />
+        <MoreVideos list={MORE_VIDEOS} />
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>
       </main>
     </>
