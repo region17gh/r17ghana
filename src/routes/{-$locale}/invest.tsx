@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { AskInvest } from "@/components/invest/AskInvest";
 import { Faq, InvestFooter } from "@/components/invest/FaqFooter";
 import { HowItWorks, Sectors } from "@/components/invest/HowAndSectors";
 import { InvestForm, MobileBar } from "@/components/invest/InvestForm";
@@ -42,6 +43,7 @@ function InvestPage() {
         <Sectors />
         <InvestForm />
         <Faq />
+        <AskInvest />
       </main>
       <InvestFooter />
       <MobileBar />
