@@ -24,3 +24,27 @@
 .landing-section .r17-lift:not(:focus-visible) {
   box-shadow: var(--shadow-lift);
 }
+
+/* Framed photos and videos sit a little off the page. Full-bleed backgrounds and
+   logos are left flat. A gentle rise on hover for mouse users only; no motion
+   for touch, and none when reduced motion is requested. */
+:root {
+  --shadow-media: var(--shadow-3);
+  --shadow-media-hover: var(--shadow-4);
+}
+.program-photo, .program-video, .invest-inline-img, img.landing-photo, .charter-plate,
+.program-fold > summary, .program-download, .program-ask textarea {
+  box-shadow: var(--shadow-media);
+}
+.program-fold > summary:focus-visible, .program-download:focus-visible { box-shadow: var(--focus-ring); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .program-photo, .program-video, .invest-inline-img, img.landing-photo, .r17-lift, .program-fold > summary {
+    transition: transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);
+  }
+  .program-photo:hover, .program-video:hover, .invest-inline-img:hover, img.landing-photo:hover, .r17-lift:hover, .program-fold > summary:hover {
+    transform: translateY(calc(var(--space-1) * -0.5));
+  }
+  .program-photo:hover, .program-video:hover, .invest-inline-img:hover, img.landing-photo:hover, .program-fold > summary:hover {
+    box-shadow: var(--shadow-media-hover);
+  }
+}
