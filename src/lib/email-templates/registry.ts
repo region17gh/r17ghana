@@ -1,10 +1,13 @@
 import type { ComponentType } from 'react'
+import { template as welcome } from './member-welcome'
+import { template as rsvp } from './event-rsvp'
+import { template as reply } from './investor-reply'
 
 export interface TemplateEntry {
-  component: ComponentType<any>
-  subject: string | ((data: Record<string, any>) => string)
+  component: ComponentType<Record<string, unknown>>
+  subject: string | ((data: Record<string, unknown>) => string)
   displayName?: string
-  previewData?: Record<string, any>
+  previewData?: Record<string, unknown>
   /** Fixed recipient — overrides caller-provided recipientEmail when set. */
   to?: string
 }
@@ -18,6 +21,7 @@ export interface TemplateEntry {
  *   // then add to TEMPLATES: 'welcome': welcomeTemplate
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
-  // Add templates here as they are created, e.g.:
-  // 'welcome': welcomeTemplate,
+  'member-welcome': welcome,
+  'event-rsvp': rsvp,
+  'investor-reply': reply,
 }

@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { Field, SectionHeader, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Checkbox, Field, Input, SectionHeader, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { useInvestQa } from "@/hooks/useInvestQa";
 
 export function AskInvest() {
-  const [q, setQ] = useState("");
-  const { answer, links, error, busy, submit } = useInvestQa();
+  const { answer, links, error, busy, submit, q, setQ, email, setEmail, replyPermission, setReplyPermission } = useInvestQa();
   return (
     <section className="invest-section" aria-labelledby="ask-invest-h">
       <div className="invest-wrap invest-narrow invest-stack">
@@ -14,6 +12,9 @@ export function AskInvest() {
         <Field label="Your question" error={error || undefined}>
           <Textarea value={q} onChange={(e) => setQ(e.target.value)} maxLength={500} rows={3} invalid={Boolean(error)} />
         </Field>
+        <Field label="Email for a team reply (optional)"><Input type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={254} /></Field>
+        <Checkbox label="The Region 17 team may email me a reply to this question." checked={replyPermission} onChange={setReplyPermission} />
+        <p className="r17-cite">Your question and the automated answer are saved privately for the Region 17 team. Leave your email blank to ask without an email reply.</p>
         <Button type="submit" variant="secondary" size="lg" disabled={busy || q.trim().length < 3}>{busy ? "Thinking" : "Ask"}</Button>
       </form>
       <div aria-live="polite">{answer && <p className="program-answer">{answer}</p>}

@@ -9,11 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as AuthenticatedInvestorInboxRouteImport } from './routes/_authenticated/investor-inbox'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125DeclareRouteImport } from './routes/{-$locale}/declare'
 import { Route as Char123LocaleChar125HomeRouteImport } from './routes/{-$locale}/home'
@@ -33,6 +35,10 @@ import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{
 import { Route as Char123LocaleChar125RegionsRegionRouteImport } from './routes/{-$locale}/regions.$region'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
@@ -60,6 +66,12 @@ const Char91DotwellKnownChar93OauthProtectedResourceRoute =
     id: '/.well-known/oauth-protected-resource',
     path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedInvestorInboxRoute =
+  AuthenticatedInvestorInboxRouteImport.update({
+    id: '/investor-inbox',
+    path: '/investor-inbox',
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const Char123LocaleChar125IndexRoute =
   Char123LocaleChar125IndexRouteImport.update({
@@ -170,11 +182,13 @@ const LovableEmailTransactionalPreviewRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof AuthenticatedRouteRouteWithChildren
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -195,10 +209,12 @@ export interface FileRoutesByFullPath {
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof AuthenticatedRouteRouteWithChildren
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -220,11 +236,13 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/_authenticated/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -247,11 +265,13 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
     | '/{-$locale}'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/investor-inbox'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -272,10 +292,12 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/investor-inbox'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -296,11 +318,13 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
+    | '/_authenticated'
     | '/{-$locale}'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/_authenticated/investor-inbox'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -322,6 +346,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   Char123LocaleChar125RouteRoute: typeof Char123LocaleChar125RouteRouteWithChildren
   McpRoute: typeof McpRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -336,6 +361,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mcp': {
       id: '/mcp'
       path: '/mcp'
@@ -370,6 +402,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/.well-known/oauth-protected-resource'
       preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/investor-inbox': {
+      id: '/_authenticated/investor-inbox'
+      path: '/investor-inbox'
+      fullPath: '/investor-inbox'
+      preLoaderRoute: typeof AuthenticatedInvestorInboxRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/{-$locale}/': {
       id: '/{-$locale}/'
@@ -500,6 +539,17 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedInvestorInboxRoute: typeof AuthenticatedInvestorInboxRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedInvestorInboxRoute: AuthenticatedInvestorInboxRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125DeclareRoute: typeof Char123LocaleChar125DeclareRoute
   Char123LocaleChar125HomeRoute: typeof Char123LocaleChar125HomeRoute
@@ -542,6 +592,7 @@ const Char123LocaleChar125RouteRouteWithChildren =
   )
 
 const rootRouteChildren: RootRouteChildren = {
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   Char123LocaleChar125RouteRoute: Char123LocaleChar125RouteRouteWithChildren,
   McpRoute: McpRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

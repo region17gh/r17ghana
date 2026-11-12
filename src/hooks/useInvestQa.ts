@@ -10,11 +10,14 @@ export function useInvestQa() {
   const [links, setLinks] = useState<QaLink[]>([]);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [q, setQ] = useState("");
+  const [email, setEmail] = useState("");
+  const [replyPermission, setReplyPermission] = useState(false);
   async function submit(question: string) {
     setBusy(true); setError(""); setAnswer(""); setLinks([]);
     let result: "answered" | "unavailable" = "unavailable";
     try {
-      const r = await ask({ data: { question } });
+      const r = await ask({ data: { question, email, replyPermission } });
       if ("answer" in r) { setAnswer(r.answer); setLinks(r.links); result = "answered"; } else setError(r.error);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
@@ -24,5 +27,5 @@ export function useInvestQa() {
       window.__lovableEvents?.track?.("project.investor_question_asked", { result });
     }
   }
-  return { answer, links, error, busy, submit };
+  return { answer, links, error, busy, submit, q, setQ, email, setEmail, replyPermission, setReplyPermission };
 }
