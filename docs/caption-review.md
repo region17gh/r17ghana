@@ -8,8 +8,8 @@ All six full audio tracks were compared to the existing English captions using t
 - Open for business: President Mahama and Ghana in 30 seconds: no text corrections supported by the review.
 - Five final music cues extended beyond the actual MP4 duration. They now end at the exact measured duration.
 
-## Outstanding alignment check
+## Ghana open for business alignment
 
-The model reported possible drift in Ghana open for business. Full-track and short-segment rechecks disagreed by several seconds and even generated an end time beyond the recording. Those timing estimates were not applied. Its speech cue alignment requires a human editor or reliable forced-alignment tool before it can be described as fully verified.
+Retimed from word-level timestamps measured with a local speech aligner (faster-whisper small.en). The earlier cues ran up to 13 seconds ahead of the voice; every cue now starts within a fraction of a second of the spoken line. The wording was confirmed unchanged. This video has narration and instrumental music only, so it has no lyrics to transcribe.
 
-Remaining foreign-language lyrics also require the rights holder's lyric sheet or a qualified language reviewer. No language identification or translation was invented.
+Remaining foreign-language lyrics in the music video still require the rights holder's lyric sheet or a qualified language reviewer.
