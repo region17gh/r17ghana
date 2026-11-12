@@ -47,15 +47,15 @@ const seg = (s: string, e: string, title: string, lead: string): Segment => ({ s
 
 export const RUN_OF_SHOW: Segment[] = [
   seg("09:00", "10:00", "Registration, VIP arrival and protocol", "All guests, dignitaries and speakers"),
-  seg("10:00", "10:05", "Welcome remarks", "Senator Preston"),
-  seg("10:05", "10:07", "Host remarks", "mHUB representative"),
+  seg("10:00", "10:03", "Host remarks", "Jason Coleman, Executive Director, mHUB"),
+  seg("10:03", "10:07", "Welcome remarks", "Senator Preston"),
   seg("10:07", "10:12", "GIPA video", "GIPA"),
   seg("10:12", "10:14", "Introduction of the Ambassador", "Adjoa B. Asamoah"),
-  seg("10:14", "10:44", "Ambassador’s remarks, 30 minutes", "H.E. Victor Emmanuel Smith"),
-  seg("10:44", "10:59", "GIPA presentation", "GIPA representative"),
+  seg("10:14", "10:44", "Ambassador’s remarks", "H.E. Victor Emmanuel Smith"),
+  seg("10:44", "10:59", "GIPA presentation", "GIPA representative, Tim"),
   seg("10:59", "11:09", "Region 17 remarks", "Maabena Webb"),
   seg("11:09", "11:24", "Marketing, real estate and global investment", "Dr. Makeda Smith"),
-  seg("11:24", "11:39", "Q&A", "Speakers and participants"),
+  seg("11:24", "11:39", "Questions and answers", "Experts on stage: Mickson, Makeda, Adjoa B., Maabena, Agyare and the Ambassador"),
   seg("11:39", "11:44", "Closing remarks", "Nana Asante-Smith"),
   seg("11:44", "12:44", "Lunch and networking", "All participants"),
 ];
