@@ -1156,6 +1156,115 @@ export type Database = {
         }
         Relationships: []
       }
+      investor_question_consents: {
+        Row: {
+          granted_at: string
+          id: string
+          mechanism: string
+          policy_version: string
+          question_id: string
+          revoked_at: string | null
+        }
+        Insert: {
+          granted_at?: string
+          id?: string
+          mechanism: string
+          policy_version: string
+          question_id: string
+          revoked_at?: string | null
+        }
+        Update: {
+          granted_at?: string
+          id?: string
+          mechanism?: string
+          policy_version?: string
+          question_id?: string
+          revoked_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "investor_question_consents_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "investor_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      investor_question_replies: {
+        Row: {
+          administrator_id: string
+          body: string
+          created_at: string
+          id: string
+          outcome: string
+          question_id: string
+          updated_at: string
+        }
+        Insert: {
+          administrator_id: string
+          body: string
+          created_at?: string
+          id?: string
+          outcome?: string
+          question_id: string
+          updated_at?: string
+        }
+        Update: {
+          administrator_id?: string
+          body?: string
+          created_at?: string
+          id?: string
+          outcome?: string
+          question_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "investor_question_replies_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: true
+            referencedRelation: "investor_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      investor_questions: {
+        Row: {
+          answer: string | null
+          created_at: string
+          id: string
+          outcome: string
+          question: string
+          read_at: string | null
+          reply_email: string | null
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          answer?: string | null
+          created_at?: string
+          id?: string
+          outcome?: string
+          question: string
+          read_at?: string | null
+          reply_email?: string | null
+          state?: string
+          updated_at?: string
+        }
+        Update: {
+          answer?: string | null
+          created_at?: string
+          id?: string
+          outcome?: string
+          question?: string
+          read_at?: string | null
+          reply_email?: string | null
+          state?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       matches: {
         Row: {
           created_at: string
@@ -4113,6 +4222,14 @@ export type Database = {
       call_notifier_drain: { Args: never; Returns: number }
       can_message: { Args: { p_from: string; p_to: string }; Returns: boolean }
       can_submit_need: { Args: { p_place_slug: string }; Returns: boolean }
+      capture_investor_question: {
+        Args: {
+          p_email?: string
+          p_question: string
+          p_reply_permission?: boolean
+        }
+        Returns: string
+      }
       check_in: { Args: { p_code: string; p_method?: string }; Returns: Json }
       claim_account: { Args: never; Returns: Json }
       claim_due_deliveries: {
