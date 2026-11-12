@@ -15,7 +15,11 @@
 - [ ] /invest emails via Resend (Prompt 3), waiting on RESEND_API_KEY, FROM_EMAIL, TEAM_ALERT_EMAIL
 - [ ] /program page: speakers, run of show, videos, PDFs and the room QR code. Address is /program (US spelling). Waiting on speaker photos, names, titles, organisations, bios, each speaker's publication agreement, the run of show, and the video files or links.
 - [x] One event bar on homepage: watch online + program + RSVP links
-- [ ] Member welcome email via managed sending, exact disclaimer, test to jaune@diasporanetwork.africa
-- [ ] Review all six caption tracks against video/audio and validate cue timings
-- [ ] Private admin investor-question inbox with optional reply email, pending approval of storage and administrator access
-- [ ] Luma RSVP confirmation email with actual registration trigger, pending Luma access
+- [x] Member welcome and RSVP templates created; test sends accepted and sending records confirmed
+- [ ] Automatic member welcome through managed sending: waiting for permission to change existing local-morning timing to immediate sending
+- [ ] Test email inbox arrival: waiting for recipient confirmation
+- [x] All six audio tracks compared to captions; supported wording corrections and recording-duration bounds applied
+- [ ] Final caption synchronization and foreign-language lyrics: timing rechecks conflict; needs reliable alignment or human review and approved lyric text
+- [x] Private investor-question storage, optional permissioned reply email, operator-checked inbox and reply action built
+- [ ] Admin inbox authenticated read/reply verification: waiting for the user's chosen app account to receive operator access
+- [ ] Luma RSVP automatic confirmation trigger: waiting for Luma webhook/API access; no Luma App connector or custom-connector setup tool is available
