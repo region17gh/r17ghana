@@ -32,6 +32,7 @@ import { Route as Char123LocaleChar125RegionIndexRouteImport } from './routes/{-
 import { Route as Char123LocaleChar125RegionDistrictRouteImport } from './routes/{-$locale}/$region/$district'
 import { Route as Char123LocaleChar125JoinIndexRouteImport } from './routes/{-$locale}/join/index'
 import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{-$locale}/join/register'
+import { Route as Char123LocaleChar125ProgramThankYouRouteImport } from './routes/{-$locale}/program_.thank-you'
 import { Route as Char123LocaleChar125RegionsRegionRouteImport } from './routes/{-$locale}/regions.$region'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -168,6 +169,12 @@ const Char123LocaleChar125JoinRegisterRoute =
     path: '/join/register',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
+const Char123LocaleChar125ProgramThankYouRoute =
+  Char123LocaleChar125ProgramThankYouRouteImport.update({
+    id: '/program_/thank-you',
+    path: '/program/thank-you',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
 const Char123LocaleChar125RegionsRegionRoute =
   Char123LocaleChar125RegionsRegionRouteImport.update({
     id: '/regions/$region',
@@ -203,6 +210,7 @@ export interface FileRoutesByFullPath {
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
@@ -229,6 +237,7 @@ export interface FileRoutesByTo {
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join': typeof Char123LocaleChar125JoinIndexRoute
@@ -257,6 +266,7 @@ export interface FileRoutesById {
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/program_/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
@@ -286,6 +296,7 @@ export interface FileRouteTypes {
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/join/'
@@ -312,6 +323,7 @@ export interface FileRouteTypes {
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region'
     | '/{-$locale}/join'
@@ -339,6 +351,7 @@ export interface FileRouteTypes {
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/program_/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/join/'
@@ -522,6 +535,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125JoinRegisterRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/program_/thank-you': {
+      id: '/{-$locale}/program_/thank-you'
+      path: '/program/thank-you'
+      fullPath: '/{-$locale}/program/thank-you'
+      preLoaderRoute: typeof Char123LocaleChar125ProgramThankYouRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
     '/{-$locale}/regions/$region': {
       id: '/{-$locale}/regions/$region'
       path: '/regions/$region'
@@ -561,6 +581,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   Char123LocaleChar125RegionDistrictRoute: typeof Char123LocaleChar125RegionDistrictRoute
   Char123LocaleChar125JoinRegisterRoute: typeof Char123LocaleChar125JoinRegisterRoute
+  Char123LocaleChar125ProgramThankYouRoute: typeof Char123LocaleChar125ProgramThankYouRoute
   Char123LocaleChar125RegionsRegionRoute: typeof Char123LocaleChar125RegionsRegionRoute
   Char123LocaleChar125RegionIndexRoute: typeof Char123LocaleChar125RegionIndexRoute
   Char123LocaleChar125JoinIndexRoute: typeof Char123LocaleChar125JoinIndexRoute
@@ -580,6 +601,8 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
       Char123LocaleChar125RegionDistrictRoute,
     Char123LocaleChar125JoinRegisterRoute:
       Char123LocaleChar125JoinRegisterRoute,
+    Char123LocaleChar125ProgramThankYouRoute:
+      Char123LocaleChar125ProgramThankYouRoute,
     Char123LocaleChar125RegionsRegionRoute:
       Char123LocaleChar125RegionsRegionRoute,
     Char123LocaleChar125RegionIndexRoute: Char123LocaleChar125RegionIndexRoute,

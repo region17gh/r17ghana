@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import logo from "@/assets/region17-logo-navy-gold-512.png.asset.json";
 import { RunOfShow } from "@/components/program/RunOfShow";
@@ -8,6 +8,7 @@ import { AskEvent } from "@/components/program/AskEvent";
 import { MainVideo, MoreVideos } from "@/components/program/Videos";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
+import { eventPhase } from "@/lib/event";
 import { MAIN_VIDEO, MORE_VIDEOS } from "@/lib/program-videos";
 import { PROGRAM_MC, PROGRAM_PLACE, PROGRAM_TITLE, RUN_OF_SHOW, SPEAKERS } from "@/lib/program";
 
@@ -32,6 +33,8 @@ function ProgramPage() {
   const { locale, t } = useI18n();
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => heading.current?.focus(), []);
+  const [past, setPast] = useState(false);
+  useEffect(() => setPast(eventPhase(Date.now()) === "past"), []);
   return (
     <>
       <PanBand />
@@ -42,7 +45,7 @@ function ProgramPage() {
         <p className="program-meta">{PROGRAM_PLACE}</p>
         <p className="program-meta">{PROGRAM_MC}</p>
         <nav className="program-links" aria-label="Event links">
-          <Link to={localePath(locale, "/live")}>Watch online</Link>
+          {past ? <Link to={localePath(locale, "/program/thank-you")}>Thank you for attending: videos and downloads</Link> : <Link to={localePath(locale, "/live")}>Watch online</Link>}
         </nav>
         <RunOfShow list={RUN_OF_SHOW} />
         <Speakers list={SPEAKERS} />

@@ -11,3 +11,7 @@
 @import "./styles/program.css";
 @import "./styles/elevation.css";
 @import "./styles/a11y-corrections.css";
+
+/* Post-event thank-you page: plain link list, editorial, no boxes. */
+.thanks-list { list-style: none; padding: 0; margin: 0 0 var(--space-8); display: grid; gap: var(--space-3); }
+.thanks-list a { display: inline-flex; align-items: center; min-height: var(--control-lg); font-size: var(--text-body-lg); color: var(--navy-700); text-underline-offset: var(--space-1); }
