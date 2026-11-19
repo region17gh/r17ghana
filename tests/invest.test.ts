@@ -47,8 +47,7 @@ describe("invest page is reachable without typing the address", () => {
   test("the home page carries the invitation and the footer", () => {
     const home = readFileSync("src/routes/{-$locale}/index.tsx", "utf8");
     expect(home).toContain("<InvestInvite />");
-    expect(home).toContain("<PageShell>");
-    expect(readFileSync("src/components/site/PageShell.tsx", "utf8")).toContain("<SiteFooter />");
+    expect(home).toContain("<SiteFooter />");
   });
 
   test("both doors build the address through localePath", () => {

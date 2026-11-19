@@ -17,18 +17,11 @@ import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AuthenticatedInvestorInboxRouteImport } from './routes/_authenticated/investor-inbox'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
-import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}/about'
 import { Route as Char123LocaleChar125DeclareRouteImport } from './routes/{-$locale}/declare'
-import { Route as Char123LocaleChar125EventsRouteImport } from './routes/{-$locale}/events'
 import { Route as Char123LocaleChar125HomeRouteImport } from './routes/{-$locale}/home'
 import { Route as Char123LocaleChar125InvestRouteImport } from './routes/{-$locale}/invest'
-import { Route as Char123LocaleChar125KnowledgeRouteImport } from './routes/{-$locale}/knowledge'
 import { Route as Char123LocaleChar125LiveRouteImport } from './routes/{-$locale}/live'
-import { Route as Char123LocaleChar125PartnersRouteImport } from './routes/{-$locale}/partners'
 import { Route as Char123LocaleChar125ProgramRouteImport } from './routes/{-$locale}/program'
-import { Route as Char123LocaleChar125ProgramsRouteImport } from './routes/{-$locale}/programs'
-import { Route as Char123LocaleChar125ResourcesRouteImport } from './routes/{-$locale}/resources'
-import { Route as Char123LocaleChar125ServicesRouteImport } from './routes/{-$locale}/services'
 import { Route as Char123LocaleChar125SigninRouteImport } from './routes/{-$locale}/signin'
 import { Route as Char123LocaleChar125VerifyRouteImport } from './routes/{-$locale}/verify'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
@@ -37,7 +30,6 @@ import { Route as Char91__componentChar93PreviewSplatRouteImport } from './route
 import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[__mockup].preview.$'
 import { Route as Char123LocaleChar125RegionIndexRouteImport } from './routes/{-$locale}/$region/index'
 import { Route as Char123LocaleChar125RegionDistrictRouteImport } from './routes/{-$locale}/$region/$district'
-import { Route as Char123LocaleChar125HomeSettingsRouteImport } from './routes/{-$locale}/home_.settings'
 import { Route as Char123LocaleChar125JoinIndexRouteImport } from './routes/{-$locale}/join/index'
 import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{-$locale}/join/register'
 import { Route as Char123LocaleChar125ProgramThankYouRouteImport } from './routes/{-$locale}/program_.thank-you'
@@ -88,22 +80,10 @@ const Char123LocaleChar125IndexRoute =
     path: '/',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125AboutRoute =
-  Char123LocaleChar125AboutRouteImport.update({
-    id: '/about',
-    path: '/about',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
 const Char123LocaleChar125DeclareRoute =
   Char123LocaleChar125DeclareRouteImport.update({
     id: '/declare',
     path: '/declare',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125EventsRoute =
-  Char123LocaleChar125EventsRouteImport.update({
-    id: '/events',
-    path: '/events',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125HomeRoute =
@@ -118,46 +98,16 @@ const Char123LocaleChar125InvestRoute =
     path: '/invest',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125KnowledgeRoute =
-  Char123LocaleChar125KnowledgeRouteImport.update({
-    id: '/knowledge',
-    path: '/knowledge',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
 const Char123LocaleChar125LiveRoute =
   Char123LocaleChar125LiveRouteImport.update({
     id: '/live',
     path: '/live',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125PartnersRoute =
-  Char123LocaleChar125PartnersRouteImport.update({
-    id: '/partners',
-    path: '/partners',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
 const Char123LocaleChar125ProgramRoute =
   Char123LocaleChar125ProgramRouteImport.update({
     id: '/program',
     path: '/program',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125ProgramsRoute =
-  Char123LocaleChar125ProgramsRouteImport.update({
-    id: '/programs',
-    path: '/programs',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125ResourcesRoute =
-  Char123LocaleChar125ResourcesRouteImport.update({
-    id: '/resources',
-    path: '/resources',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
-const Char123LocaleChar125ServicesRoute =
-  Char123LocaleChar125ServicesRouteImport.update({
-    id: '/services',
-    path: '/services',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125SigninRoute =
@@ -207,12 +157,6 @@ const Char123LocaleChar125RegionDistrictRoute =
     path: '/$region/$district',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125HomeSettingsRoute =
-  Char123LocaleChar125HomeSettingsRouteImport.update({
-    id: '/home_/settings',
-    path: '/home/settings',
-    getParentRoute: () => Char123LocaleChar125RouteRoute,
-  } as any)
 const Char123LocaleChar125JoinIndexRoute =
   Char123LocaleChar125JoinIndexRouteImport.update({
     id: '/join/',
@@ -252,18 +196,11 @@ export interface FileRoutesByFullPath {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
-  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
-  '/{-$locale}/events': typeof Char123LocaleChar125EventsRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
-  '/{-$locale}/knowledge': typeof Char123LocaleChar125KnowledgeRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
-  '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
   '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
-  '/{-$locale}/programs': typeof Char123LocaleChar125ProgramsRoute
-  '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
-  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
@@ -272,7 +209,6 @@ export interface FileRoutesByFullPath {
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
-  '/{-$locale}/home/settings': typeof Char123LocaleChar125HomeSettingsRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
   '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
@@ -287,18 +223,11 @@ export interface FileRoutesByTo {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
-  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
-  '/{-$locale}/events': typeof Char123LocaleChar125EventsRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
-  '/{-$locale}/knowledge': typeof Char123LocaleChar125KnowledgeRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
-  '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
   '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
-  '/{-$locale}/programs': typeof Char123LocaleChar125ProgramsRoute
-  '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
-  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
@@ -307,7 +236,6 @@ export interface FileRoutesByTo {
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
-  '/{-$locale}/home/settings': typeof Char123LocaleChar125HomeSettingsRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
   '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
@@ -324,18 +252,11 @@ export interface FileRoutesById {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/investor-inbox': typeof AuthenticatedInvestorInboxRoute
-  '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
-  '/{-$locale}/events': typeof Char123LocaleChar125EventsRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
-  '/{-$locale}/knowledge': typeof Char123LocaleChar125KnowledgeRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
-  '/{-$locale}/partners': typeof Char123LocaleChar125PartnersRoute
   '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
-  '/{-$locale}/programs': typeof Char123LocaleChar125ProgramsRoute
-  '/{-$locale}/resources': typeof Char123LocaleChar125ResourcesRoute
-  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
@@ -344,7 +265,6 @@ export interface FileRoutesById {
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
-  '/{-$locale}/home_/settings': typeof Char123LocaleChar125HomeSettingsRoute
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
   '/{-$locale}/program_/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
@@ -362,18 +282,11 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/investor-inbox'
-    | '/{-$locale}/about'
     | '/{-$locale}/declare'
-    | '/{-$locale}/events'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
-    | '/{-$locale}/knowledge'
     | '/{-$locale}/live'
-    | '/{-$locale}/partners'
     | '/{-$locale}/program'
-    | '/{-$locale}/programs'
-    | '/{-$locale}/resources'
-    | '/{-$locale}/services'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}/'
@@ -382,7 +295,6 @@ export interface FileRouteTypes {
     | '/__component/preview/$'
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
-    | '/{-$locale}/home/settings'
     | '/{-$locale}/join/register'
     | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
@@ -397,18 +309,11 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/investor-inbox'
-    | '/{-$locale}/about'
     | '/{-$locale}/declare'
-    | '/{-$locale}/events'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
-    | '/{-$locale}/knowledge'
     | '/{-$locale}/live'
-    | '/{-$locale}/partners'
     | '/{-$locale}/program'
-    | '/{-$locale}/programs'
-    | '/{-$locale}/resources'
-    | '/{-$locale}/services'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}'
@@ -417,7 +322,6 @@ export interface FileRouteTypes {
     | '/__component/preview/$'
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
-    | '/{-$locale}/home/settings'
     | '/{-$locale}/join/register'
     | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
@@ -433,18 +337,11 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/investor-inbox'
-    | '/{-$locale}/about'
     | '/{-$locale}/declare'
-    | '/{-$locale}/events'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
-    | '/{-$locale}/knowledge'
     | '/{-$locale}/live'
-    | '/{-$locale}/partners'
     | '/{-$locale}/program'
-    | '/{-$locale}/programs'
-    | '/{-$locale}/resources'
-    | '/{-$locale}/services'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
     | '/{-$locale}/'
@@ -453,7 +350,6 @@ export interface FileRouteTypes {
     | '/__component/preview/$'
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
-    | '/{-$locale}/home_/settings'
     | '/{-$locale}/join/register'
     | '/{-$locale}/program_/thank-you'
     | '/{-$locale}/regions/$region'
@@ -534,25 +430,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/about': {
-      id: '/{-$locale}/about'
-      path: '/about'
-      fullPath: '/{-$locale}/about'
-      preLoaderRoute: typeof Char123LocaleChar125AboutRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
     '/{-$locale}/declare': {
       id: '/{-$locale}/declare'
       path: '/declare'
       fullPath: '/{-$locale}/declare'
       preLoaderRoute: typeof Char123LocaleChar125DeclareRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/events': {
-      id: '/{-$locale}/events'
-      path: '/events'
-      fullPath: '/{-$locale}/events'
-      preLoaderRoute: typeof Char123LocaleChar125EventsRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/home': {
@@ -569,13 +451,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125InvestRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/knowledge': {
-      id: '/{-$locale}/knowledge'
-      path: '/knowledge'
-      fullPath: '/{-$locale}/knowledge'
-      preLoaderRoute: typeof Char123LocaleChar125KnowledgeRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
     '/{-$locale}/live': {
       id: '/{-$locale}/live'
       path: '/live'
@@ -583,39 +458,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125LiveRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/partners': {
-      id: '/{-$locale}/partners'
-      path: '/partners'
-      fullPath: '/{-$locale}/partners'
-      preLoaderRoute: typeof Char123LocaleChar125PartnersRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
     '/{-$locale}/program': {
       id: '/{-$locale}/program'
       path: '/program'
       fullPath: '/{-$locale}/program'
       preLoaderRoute: typeof Char123LocaleChar125ProgramRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/programs': {
-      id: '/{-$locale}/programs'
-      path: '/programs'
-      fullPath: '/{-$locale}/programs'
-      preLoaderRoute: typeof Char123LocaleChar125ProgramsRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/resources': {
-      id: '/{-$locale}/resources'
-      path: '/resources'
-      fullPath: '/{-$locale}/resources'
-      preLoaderRoute: typeof Char123LocaleChar125ResourcesRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
-    '/{-$locale}/services': {
-      id: '/{-$locale}/services'
-      path: '/services'
-      fullPath: '/{-$locale}/services'
-      preLoaderRoute: typeof Char123LocaleChar125ServicesRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/signin': {
@@ -674,13 +521,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125RegionDistrictRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/home_/settings': {
-      id: '/{-$locale}/home_/settings'
-      path: '/home/settings'
-      fullPath: '/{-$locale}/home/settings'
-      preLoaderRoute: typeof Char123LocaleChar125HomeSettingsRouteImport
-      parentRoute: typeof Char123LocaleChar125RouteRoute
-    }
     '/{-$locale}/join/': {
       id: '/{-$locale}/join/'
       path: '/join'
@@ -731,23 +571,15 @@ const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 interface Char123LocaleChar125RouteRouteChildren {
-  Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
   Char123LocaleChar125DeclareRoute: typeof Char123LocaleChar125DeclareRoute
-  Char123LocaleChar125EventsRoute: typeof Char123LocaleChar125EventsRoute
   Char123LocaleChar125HomeRoute: typeof Char123LocaleChar125HomeRoute
   Char123LocaleChar125InvestRoute: typeof Char123LocaleChar125InvestRoute
-  Char123LocaleChar125KnowledgeRoute: typeof Char123LocaleChar125KnowledgeRoute
   Char123LocaleChar125LiveRoute: typeof Char123LocaleChar125LiveRoute
-  Char123LocaleChar125PartnersRoute: typeof Char123LocaleChar125PartnersRoute
   Char123LocaleChar125ProgramRoute: typeof Char123LocaleChar125ProgramRoute
-  Char123LocaleChar125ProgramsRoute: typeof Char123LocaleChar125ProgramsRoute
-  Char123LocaleChar125ResourcesRoute: typeof Char123LocaleChar125ResourcesRoute
-  Char123LocaleChar125ServicesRoute: typeof Char123LocaleChar125ServicesRoute
   Char123LocaleChar125SigninRoute: typeof Char123LocaleChar125SigninRoute
   Char123LocaleChar125VerifyRoute: typeof Char123LocaleChar125VerifyRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   Char123LocaleChar125RegionDistrictRoute: typeof Char123LocaleChar125RegionDistrictRoute
-  Char123LocaleChar125HomeSettingsRoute: typeof Char123LocaleChar125HomeSettingsRoute
   Char123LocaleChar125JoinRegisterRoute: typeof Char123LocaleChar125JoinRegisterRoute
   Char123LocaleChar125ProgramThankYouRoute: typeof Char123LocaleChar125ProgramThankYouRoute
   Char123LocaleChar125RegionsRegionRoute: typeof Char123LocaleChar125RegionsRegionRoute
@@ -757,25 +589,16 @@ interface Char123LocaleChar125RouteRouteChildren {
 
 const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
   {
-    Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
     Char123LocaleChar125DeclareRoute: Char123LocaleChar125DeclareRoute,
-    Char123LocaleChar125EventsRoute: Char123LocaleChar125EventsRoute,
     Char123LocaleChar125HomeRoute: Char123LocaleChar125HomeRoute,
     Char123LocaleChar125InvestRoute: Char123LocaleChar125InvestRoute,
-    Char123LocaleChar125KnowledgeRoute: Char123LocaleChar125KnowledgeRoute,
     Char123LocaleChar125LiveRoute: Char123LocaleChar125LiveRoute,
-    Char123LocaleChar125PartnersRoute: Char123LocaleChar125PartnersRoute,
     Char123LocaleChar125ProgramRoute: Char123LocaleChar125ProgramRoute,
-    Char123LocaleChar125ProgramsRoute: Char123LocaleChar125ProgramsRoute,
-    Char123LocaleChar125ResourcesRoute: Char123LocaleChar125ResourcesRoute,
-    Char123LocaleChar125ServicesRoute: Char123LocaleChar125ServicesRoute,
     Char123LocaleChar125SigninRoute: Char123LocaleChar125SigninRoute,
     Char123LocaleChar125VerifyRoute: Char123LocaleChar125VerifyRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
     Char123LocaleChar125RegionDistrictRoute:
       Char123LocaleChar125RegionDistrictRoute,
-    Char123LocaleChar125HomeSettingsRoute:
-      Char123LocaleChar125HomeSettingsRoute,
     Char123LocaleChar125JoinRegisterRoute:
       Char123LocaleChar125JoinRegisterRoute,
     Char123LocaleChar125ProgramThankYouRoute:

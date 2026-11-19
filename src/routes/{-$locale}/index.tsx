@@ -1,68 +1,141 @@
-import { useEffect, useRef, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 import { LinkRecovery } from "@/components/auth/LinkRecovery";
+import { Reveal } from "@/components/charter/Reveal";
+import { EventBanner } from "@/components/landing/EventBanner";
 import { InvestInvite } from "@/components/landing/InvestInvite";
-import { PageShell } from "@/components/site/PageShell";
-import { Chicago } from "@/components/site/home/Chicago";
-import { Hero } from "@/components/site/home/Hero";
-import { PartnerDoors } from "@/components/site/home/PartnerDoors";
-import { WhatWeDo } from "@/components/site/home/WhatWeDo";
-import { useI18n } from "@/i18n";
+import { VirtualBand } from "@/components/landing/VirtualBand";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
+import { Button } from "@/components/ui/Button";
+import { localePath, useI18n } from "@/i18n";
 import { clearLinkError, currentLinkError, type LinkProblem } from "@/lib/auth/linkError";
-import { WHY_NOW } from "@/lib/site/content";
 
 export const Route = createFileRoute("/{-$locale}/")({
   head: () => ({
     meta: [
-      { title: "Region 17 Ghana | Ghana's 17th Region, mobilized" },
-      { name: "description", content: DESC },
-      { property: "og:title", content: "Region 17 Ghana | Ghana's 17th Region, mobilized" },
-      { property: "og:description", content: DESC },
+      { title: "Region 17 Ghana | Ghana-Chicago Business Roundtable, 12 Nov" },
+      {
+        name: "description",
+        content:
+          "Region 17 Ghana is the membership register of Ghana's seventeenth region: the global African diaspora, Ghanaians at home and abroad, continental Africans, and allies.",
+      },
+      { property: "og:title", content: "Region 17 Ghana | Membership register" },
+      {
+        property: "og:description",
+        content:
+          "The membership register of Ghana's seventeenth region, and a public intelligence layer covering Ghana's 16 regions.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://r17gh.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://r17gh.com/" }],
   }),
   component: LocaleHome,
 });
 
-const DESC = "A free membership for the global African diaspora, connected to Ghana's 16 regions through programs, events, resources, knowledge transfer and services.";
-
-// Brand home. A dead confirmation link lands here with its reason in the URL
-// fragment (never sent to the server), so it is read and answered first.
+// Placeholder home page. The marketing home page is still out of scope; this
+// carries the site name, the tagline, the standing disclaimer, and one link
+// into the join flow so the flow is reachable. Strings come from the locale
+// dictionary rather than being hardcoded here.
 function LocaleHome() {
-  const { t } = useI18n();
-  const heading = useRef<HTMLHeadingElement>(null);
+  const { locale, t } = useI18n();
+  const navigate = useNavigate();
   const [linkProblem, setLinkProblem] = useState<LinkProblem | null>(null);
+
+  // This is where a dead confirmation link lands: the site URL, carrying the
+  // reason in the fragment. Unread, it shows a member the home page and no
+  // explanation at all, so it is read here and answered.
+  //
+  // Absent that, the root goes to the join story. Until the marketing home
+  // page exists, nobody should land on this placeholder. The redirect is done
+  // here rather than in beforeLoad so a dead link's fragment, which the browser
+  // never sends to the server, still gets read and answered first.
+  //
+  // D-078 collapsed `/en` and `/` into one address, so this route now serves
+  // the site root. That is why the old server-side 307 at `src/routes/index.tsx`
+  // is gone rather than moved: a redirect there could not preserve the fragment,
+  // which is the whole reason the recovery above works.
   useEffect(() => {
     const failure = currentLinkError();
     if (!failure) return;
     setLinkProblem(failure.problem);
     clearLinkError();
-  }, []);
+  }, [locale, navigate]);
 
-  if (linkProblem) {
-    return (
-      <PageShell>
-        <h1 className="site-hero-title">{t("meta.siteName")}</h1>
-        <LinkRecovery problem={linkProblem} />
-      </PageShell>
-    );
-  }
   return (
-    <PageShell>
-        <Hero headingRef={heading} />
-        <section className="site-section" aria-labelledby="why-h">
-          <p className="r17-eyebrow">Why now</p>
-          <h2 id="why-h" className="site-h2">{WHY_NOW.title}</h2>
-          <p className="site-lede">{WHY_NOW.body}</p>
-        </section>
-        <WhatWeDo />
-        <Chicago />
-        <PartnerDoors />
-        <InvestInvite />
-    </PageShell>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <PanBand />
+      {linkProblem ? null : <VirtualBand />}
+      {linkProblem ? null : <EventBanner />}
+      <main
+        style={{
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "var(--space-6)",
+          paddingBlock: "var(--space-16)",
+          paddingInline: "var(--space-6)",
+          textAlign: "center",
+        }}
+      >
+        {linkProblem ? (
+          <>
+            <h1 style={{ font: "var(--type-hero)", margin: "var(--space-0)" }}>{t("meta.siteName")}</h1>
+            <LinkRecovery problem={linkProblem} />
+          </>
+        ) : (
+          <>
+            {/* SectionHeader keeps its title in a full-width row even when
+                centred, which reads off-centre here, so this section composes
+                the same tokens directly: eyebrow, serif title, lede. */}
+            <Reveal className="landing-reveal">
+              <header style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", alignItems: "center", textAlign: "center" }}>
+                <span
+                  style={{
+                    font: "var(--type-eyebrow)",
+                    letterSpacing: "var(--tracking-eyebrow)",
+                    textTransform: "uppercase",
+                    color: "var(--gold-700)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "var(--space-2)",
+                  }}
+                >
+                  <span aria-hidden="true" style={{ width: "var(--space-5)", height: "var(--border-width)", background: "currentColor", opacity: 0.6 }} />
+                  {t("landing.joinEyebrow")}
+                </span>
+                <h2 style={{ font: "var(--type-section)", color: "var(--text-strong)", maxWidth: "22ch", margin: "var(--space-0)" }}>
+                  {t("landing.joinTitle")}
+                </h2>
+                <p style={{ font: "var(--type-body-lg)", maxWidth: "var(--measure-prose)", color: "var(--text-body)", margin: "var(--space-0)" }}>
+                  {t("landing.joinLede")}
+                </p>
+              </header>
+            </Reveal>
+            <Reveal className="landing-reveal">
+              <Link to={localePath(locale, "/join")} style={{ borderBottom: "none" }}>
+                <Button size="lg">{t("nav.joinCta")}</Button>
+              </Link>
+            </Reveal>
+            <InvestInvite />
+          </>
+        )}
+        {/* Safety control, not decoration. Its wording is fixed. */}
+        <p
+          className="r17-cite"
+          style={{
+            maxWidth: "var(--measure-narrow)",
+            margin: "var(--space-0)",
+            marginInline: "auto",
+            textAlign: "center",
+          }}
+        >
+          {t("legal.notAGovernmentDocument")}
+        </p>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
