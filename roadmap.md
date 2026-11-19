@@ -23,3 +23,11 @@
 - [x] Private investor-question storage, optional permissioned reply email, operator-checked inbox and reply action built
 - [ ] Admin inbox authenticated read/reply verification: waiting for the user's chosen app account to receive operator access
 - [ ] Luma RSVP automatic confirmation trigger: waiting for Luma webhook/API access; no Luma App connector or custom-connector setup tool is available
+
+## Brand site and membership (Nov 2026)
+- [x] Business model review folded into phase 1
+- [x] Phase 1a: homepage, about, partners, five PERKS pages
+- [x] Phase 1b: header sign-in, member recordings, settings page
+- [ ] Leadership review of drafted copy (blocked: owner)
+- [ ] Volta or Eastern as first region, fund wording (blocked: owner decision)
+- [ ] Load Chicago as first listed offering in the database (blocked: owner OK)

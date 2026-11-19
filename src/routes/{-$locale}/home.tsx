@@ -1,3 +1,4 @@
+import { Recordings, SettingsLink } from "@/components/member/Recordings";
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
@@ -558,6 +559,7 @@ function HomePage() {
           </section>
         ) : null}
 
+        <Recordings />
         <section style={{ marginTop: "var(--space-10)" }}>
           <h2 style={{ font: "var(--type-subtitle)" }}>{t("home.townhallHeading")}</h2>
           <p style={{ marginTop: "var(--space-3)", color: "var(--text-muted)" }}>
@@ -565,6 +567,7 @@ function HomePage() {
           </p>
         </section>
 
+        <SettingsLink />
         {/* Safety control, not decoration. Its wording is fixed. */}
         <p
           className="r17-cite"
