@@ -38,6 +38,7 @@ import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{
 import { Route as Char123LocaleChar125ProgramThankYouRouteImport } from './routes/{-$locale}/program_.thank-you'
 import { Route as Char123LocaleChar125RegionsRegionRouteImport } from './routes/{-$locale}/regions.$region'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
+import { Route as Char123LocaleChar125EventsRoundtablesChicagoRouteImport } from './routes/{-$locale}/events.roundtables.chicago'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
@@ -208,6 +209,12 @@ const LovableEmailTransactionalPreviewRoute =
     path: '/lovable/email/transactional/preview',
     getParentRoute: () => rootRouteImport,
   } as any)
+const Char123LocaleChar125EventsRoundtablesChicagoRoute =
+  Char123LocaleChar125EventsRoundtablesChicagoRouteImport.update({
+    id: '/events/roundtables/chicago',
+    path: '/events/roundtables/chicago',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedRouteRouteWithChildren
@@ -239,6 +246,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/events/': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/{-$locale}/events/roundtables/chicago': typeof Char123LocaleChar125EventsRoundtablesChicagoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedRouteRouteWithChildren
@@ -269,6 +277,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/events': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join': typeof Char123LocaleChar125JoinIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/{-$locale}/events/roundtables/chicago': typeof Char123LocaleChar125EventsRoundtablesChicagoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -301,6 +310,7 @@ export interface FileRoutesById {
   '/{-$locale}/events/': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/{-$locale}/events/roundtables/chicago': typeof Char123LocaleChar125EventsRoundtablesChicagoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -334,6 +344,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/events/'
     | '/{-$locale}/join/'
     | '/lovable/email/transactional/preview'
+    | '/{-$locale}/events/roundtables/chicago'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -364,6 +375,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/events'
     | '/{-$locale}/join'
     | '/lovable/email/transactional/preview'
+    | '/{-$locale}/events/roundtables/chicago'
   id:
     | '__root__'
     | '/_authenticated'
@@ -395,6 +407,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/events/'
     | '/{-$locale}/join/'
     | '/lovable/email/transactional/preview'
+    | '/{-$locale}/events/roundtables/chicago'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -616,6 +629,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/{-$locale}/events/roundtables/chicago': {
+      id: '/{-$locale}/events/roundtables/chicago'
+      path: '/events/roundtables/chicago'
+      fullPath: '/{-$locale}/events/roundtables/chicago'
+      preLoaderRoute: typeof Char123LocaleChar125EventsRoundtablesChicagoRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
   }
 }
 
@@ -648,6 +668,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125RegionIndexRoute: typeof Char123LocaleChar125RegionIndexRoute
   Char123LocaleChar125EventsIndexRoute: typeof Char123LocaleChar125EventsIndexRoute
   Char123LocaleChar125JoinIndexRoute: typeof Char123LocaleChar125JoinIndexRoute
+  Char123LocaleChar125EventsRoundtablesChicagoRoute: typeof Char123LocaleChar125EventsRoundtablesChicagoRoute
 }
 
 const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
@@ -674,6 +695,8 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125RegionIndexRoute: Char123LocaleChar125RegionIndexRoute,
     Char123LocaleChar125EventsIndexRoute: Char123LocaleChar125EventsIndexRoute,
     Char123LocaleChar125JoinIndexRoute: Char123LocaleChar125JoinIndexRoute,
+    Char123LocaleChar125EventsRoundtablesChicagoRoute:
+      Char123LocaleChar125EventsRoundtablesChicagoRoute,
   }
 
 const Char123LocaleChar125RouteRouteWithChildren =

@@ -28,5 +28,7 @@
 - [x] Chicago testimonial captions double-checked; clear errors fixed, unclear names kept out of titles
 - [x] /program shows whichever round is next; a future round is one new entry
 - [ ] Boston Zoom room: waiting on the new meeting number and passcode (the saved ones are Chicago's)
+- [x] Chicago event kept in full at /events/roundtables/chicago (old address forwards)
+- [ ] Boston moves to /events/roundtables/boston after the event
 - [ ] Next round page: waiting on its date, venue, RSVP link and details
 - [ ] Testimonial names for 4 guests: waiting on correct spellings

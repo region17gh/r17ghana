@@ -26,5 +26,5 @@ export const BOSTON = {
 export type EventEntry = { slug: string; title: string; when: string; where: string; href: string; upcoming: boolean };
 export const EVENTS: EventEntry[] = [
   { slug: "boston-2026", title: BOSTON.title, when: "December 3, 2026", where: "Boston, Massachusetts", href: "/program", upcoming: true },
-  { slug: "chicago-2026", title: "U.S. and Ghana Regional Business and Investment Roundtable", when: "November 12, 2026", where: "mHUB, Chicago, Illinois", href: "/events/chicago-2026", upcoming: false },
+  { slug: "chicago-2026", title: "U.S. and Ghana Regional Business and Investment Roundtable", when: "November 12, 2026", where: "mHUB, Chicago, Illinois", href: "/events/roundtables/chicago", upcoming: false },
 ];
