@@ -8,7 +8,7 @@ const partners: EventPartner[] = [
   { name: "Greater Boston Chamber of Commerce", url: "https://www.bostonchamber.com" },
   { name: "Massachusetts Business Roundtable", url: "https://www.maroundtable.com" },
   { name: "Massachusetts Office of International Trade & Investment", url: "https://www.mass.gov/orgs/massachusetts-office-of-international-trade-investment" },
-  { name: "Ghana Association of Greater Boston" },
+  { name: "Ghana Association of Greater Boston", url: "https://gagb.net/index.html" },
 ];
 
 /** The event promoted on the homepage. Times are absolute instants (EST is UTC-5). */
