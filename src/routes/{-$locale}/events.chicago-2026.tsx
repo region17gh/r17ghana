@@ -10,7 +10,7 @@ import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
 import { eventPhase } from "@/lib/event";
 import { MAIN_VIDEO, MORE_VIDEOS } from "@/lib/program-videos";
-import { RECAP_CLIP, RECAP_PHOTOS } from "@/lib/chicago-recap";
+import { RECAP_CLIP, RECAP_PHOTOS, TESTIMONIALS } from "@/lib/chicago-recap";
 import { PhotoGallery } from "@/components/events/PhotoGallery";
 import { Press } from "@/components/events/Press";
 import { PROGRAM_MC, PROGRAM_PLACE, PROGRAM_TITLE, RUN_OF_SHOW, SPEAKERS } from "@/lib/program";
@@ -51,6 +51,7 @@ function ProgramPage() {
           {past ? <Link to={localePath(locale, "/program/thank-you")}>Thank you for attending: videos and downloads</Link> : <Link to={localePath(locale, "/live")}>Watch online</Link>}
         </nav>
         <PhotoGallery list={RECAP_PHOTOS} />
+        <MoreVideos list={TESTIMONIALS} heading="What guests said" id="testimonials" />
         <RunOfShow list={RUN_OF_SHOW} />
         <Speakers list={SPEAKERS} />
         <MainVideo video={MAIN_VIDEO} />

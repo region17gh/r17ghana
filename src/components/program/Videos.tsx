@@ -29,12 +29,12 @@ export function MainVideo({ video }: { video: ProgramVideo }) {
   );
 }
 
-export function MoreVideos({ list }: { list: ProgramVideo[] }) {
+export function MoreVideos({ list, heading = "More videos", id = "more-videos" }: { list: ProgramVideo[]; heading?: string; id?: string }) {
   const shown = list.slice(0, SHOWN_BY_DEFAULT);
   const hidden = list.slice(SHOWN_BY_DEFAULT);
   return (
-    <section className="program-section" aria-labelledby="more-videos-h">
-      <h2 id="more-videos-h" className="program-h2">More videos</h2>
+    <section className="program-section" aria-labelledby={`${id}-h`}>
+      <h2 id={`${id}-h`} className="program-h2">{heading}</h2>
       <p className="program-note">Tap a video to watch it. Nothing here can be downloaded.</p>
       <ul className="program-videos">
         {shown.map((v) => (
