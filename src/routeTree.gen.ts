@@ -15,6 +15,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as AuthenticatedBostonQuestionsRouteImport } from './routes/_authenticated/boston-questions'
 import { Route as AuthenticatedInvestorInboxRouteImport } from './routes/_authenticated/investor-inbox'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125DeclareRouteImport } from './routes/{-$locale}/declare'
@@ -74,6 +75,12 @@ const Char91DotwellKnownChar93OauthProtectedResourceRoute =
     id: '/.well-known/oauth-protected-resource',
     path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedBostonQuestionsRoute =
+  AuthenticatedBostonQuestionsRouteImport.update({
+    id: '/boston-questions',
+    path: '/boston-questions',
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedInvestorInboxRoute =
   AuthenticatedInvestorInboxRouteImport.update({
@@ -244,6 +251,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
@@ -278,6 +286,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
@@ -313,6 +322,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/_authenticated/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/_authenticated/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
@@ -350,6 +360,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/boston-questions'
     | '/investor-inbox'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
@@ -384,6 +395,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/boston-questions'
     | '/investor-inbox'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
@@ -418,6 +430,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/_authenticated/boston-questions'
     | '/_authenticated/investor-inbox'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
@@ -504,6 +517,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/.well-known/oauth-protected-resource'
       preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/boston-questions': {
+      id: '/_authenticated/boston-questions'
+      path: '/boston-questions'
+      fullPath: '/boston-questions'
+      preLoaderRoute: typeof AuthenticatedBostonQuestionsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/investor-inbox': {
       id: '/_authenticated/investor-inbox'
@@ -698,10 +718,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedBostonQuestionsRoute: typeof AuthenticatedBostonQuestionsRoute
   AuthenticatedInvestorInboxRoute: typeof AuthenticatedInvestorInboxRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedBostonQuestionsRoute: AuthenticatedBostonQuestionsRoute,
   AuthenticatedInvestorInboxRoute: AuthenticatedInvestorInboxRoute,
 }
 

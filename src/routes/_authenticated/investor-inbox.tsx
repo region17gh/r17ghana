@@ -14,5 +14,5 @@ export const Route = createFileRoute("/_authenticated/investor-inbox")({
 });
 function InboxPage() {
   return <main className="invest-wrap invest-section invest-stack"><Link to="/">Region 17 home</Link>
-    <h1 className="program-h1">Investor question inbox</h1><InvestorInbox /></main>;
+    <h1 className="program-h1">Investor question inbox</h1><Link to="/boston-questions">Review Boston roundtable questions</Link><InvestorInbox /></main>;
 }

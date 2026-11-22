@@ -13,11 +13,34 @@ export interface PressArticle {
   paragraphs: string[];
   note?: string;
   videoId?: string;
+  format?: "video" | "event";
   image?: { url: string; alt: string; caption: string };
 }
 
 /** Original editorial summaries, not reproductions of publishers' articles. */
 export const PRESS_ARTICLES: PressArticle[] = [
+  {
+    slug: "washington-diplomatic-times-launch", title: "Ghana's Embassy in Washington launches Region 17 to court diaspora investment",
+    headline: "Diplomatic Times covers the Washington launch", publisher: "Diplomatic Times Online", date: "2026-08-03", category: "Media coverage",
+    url: "https://www.diplomatictimesonline.com/ghanas-embassy-in-washington-launches-region-17-to-court-diaspora-investment/",
+    summary: "Diplomatic Times reports on the July 30 launch and its focus on diaspora expertise, investment and national development.",
+    paragraphs: ["Richmond Fordjour Ampofo reports on the launch of Region 17 in Washington, D.C., and the role of diaspora professionals, entrepreneurs and development partners.", "The article discusses remittances and structured participation in Ghana's development. Its economic figures remain attributed to the publisher and are not independently verified here or presented as an investment offer."],
+  },
+  {
+    slug: "washington-official-launch-recap", title: "Washington, D.C. launch: official video recap",
+    headline: "A look back at the Washington launch", publisher: "Region 17 Ghana", date: "2026-08-07", category: "Announcements", format: "video",
+    url: "https://www.instagram.com/reel/Dbwdc3RNZho/",
+    summary: "Region 17's official Instagram recap of the July 30 Washington, D.C. launch.",
+    paragraphs: ["Region 17 shares a video recap of its Washington, D.C. launch on Instagram. The launch brought together diaspora participants and institutional partners to discuss national development.", "Open the original post to watch the recap. Instagram may require sign-in."],
+    note: "Post date and description supplied by Region 17. The Instagram recording was not independently accessible for verification.",
+  },
+  {
+    slug: "chicago-roundtable-event-record", title: "Ghana-Chicago Business Roundtable, November 12, 2026",
+    headline: "Chicago roundtable: the event record", publisher: "Region 17 Ghana", date: "2026-11-12", category: "Announcements", format: "event",
+    url: "https://r17gh.com/events/roundtables/chicago",
+    summary: "The Chicago roundtable's videos, speaker biographies, guest testimonials and photographs are preserved in the event archive.",
+    paragraphs: ["Region 17's November 12 roundtable at mHUB Chicago brought diaspora guests and business participants together with the Embassy of Ghana in the United States.", "The event archive preserves the published run of show, speaker biographies, recordings and guest testimonials. These materials document the discussions without promising investment, employment or immigration outcomes."],
+  },
   {
     slug: "chicago-diaspora-ownership", title: "A Seat at the Table: Region 17 Challenges Diaspora Ghanaians to Transform $7.8 Billion in Remittances into Ownership of Ghana's Future",
     headline: "From remittances to participation: the Chicago conversation", publisher: "SankofaOnline", date: "2026-11-15", category: "Media coverage",
@@ -102,6 +125,7 @@ export const PRESS_ARTICLES: PressArticle[] = [
     headline: "Watch: the 2025 Diaspora Summit", publisher: "JoyNews", date: "2025-12-19", category: "Diaspora context",
     url: "https://www.youtube.com/watch?v=ooj5ev3pJQQ",
     videoId: "ooj5ev3pJQQ",
+    format: "video",
     summary: "JoyNews video coverage of the summit on Ghana's connection with the global African diaspora.",
     paragraphs: ["JoyNews presents video coverage of the 2025 Diaspora Summit under the theme of resetting Ghana and recognizing the diaspora as the 17th Region.", "Watch the original broadcast on YouTube for the full proceedings. This summit coverage provides background to the diaspora conversation, rather than a recording of a Region 17 Ghana roundtable."],
     note: "Summit date: December 19, 2025. The linked broadcast is published by JoyNews, not Africa News; the archive credits the verified channel.",

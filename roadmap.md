@@ -27,14 +27,17 @@
 - [x] /press page, linked from footer and events page; footer links Program, Events, Press
 - [x] Chicago testimonial captions double-checked; clear errors fixed, unclear names kept out of titles
 - [x] /program shows whichever round is next; a future round is one new entry
-- [ ] Boston Zoom room: waiting on the new meeting number and passcode (the saved ones are Chicago's)
+- [x] Boston Zoom meeting 84188935625 configured without a passcode
 - [x] Chicago event kept in full at /events/roundtables/chicago (old address forwards)
-- [ ] Boston archive at /events/roundtables/boston and automatic Events Hub transition after December 3 at noon Eastern
+- [x] Boston archive at /events/roundtables/boston and automatic Events Hub transition after December 3 at noon Eastern, checked in future-date browser simulation
 - [ ] Next round page: waiting on its date, venue, RSVP link and details
 - [ ] Testimonial names for 4 guests: waiting on correct spellings
 - [x] Press archive: corporate editorial layout, searchable coverage and individual article pages
 - [x] Press archive: verify supplied sources, preserve Chicago coverage, check mobile navigation
 - [x] Press archive: add the supplied summit video as an individual coverage page (verified publisher: JoyNews)
 - [ ] Press archive: Embassy launch announcement awaiting its original link
-- [ ] Boston public question submissions: waiting for approval of stored questions, publication consent and review status
-- [ ] Additional August and November coverage: verify Diplomatic Times and official Instagram sources, add Chicago event announcement, preserve existing Sankofa town hall article without duplicates
+- [x] Boston question submission and operator review page at /boston-questions, separate publication consent, private pending records and approved-only public display; real submission and anonymous read checks passed
+- [ ] Boston question approval UI verification: external Supabase session unavailable; needs a signed-in platform operator
+- [x] Added Diplomatic Times August coverage, owner-supplied Instagram recap and Chicago event record without duplicating Sankofa town hall coverage
+- [ ] Instagram recap content verification: publisher content unavailable to inspection; date and description attributed to Region 17
+- [ ] Summit playback and existing asset visual verification: localhost could not load hosted images or YouTube player; controls and embed destination checked

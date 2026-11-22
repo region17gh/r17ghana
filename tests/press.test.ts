@@ -25,4 +25,9 @@ describe("press archive", () => {
     expect(articles[0]?.date).toBe("2026-11-15");
     expect(articles.at(-1)?.date).toBe("2025-12-19");
   });
+  test("August coverage and the November event record have distinct entries", () => {
+    expect(filterPress("Diplomatic Times", "Media coverage", "2026").map((a) => a.slug)).toEqual(["washington-diplomatic-times-launch"]);
+    expect(PRESS_ARTICLES.find((a) => a.slug === "washington-official-launch-recap")?.url).toBe("https://www.instagram.com/reel/Dbwdc3RNZho/");
+    expect(PRESS_ARTICLES.find((a) => a.slug === "chicago-roundtable-event-record")?.url).toBe("https://r17gh.com/events/roundtables/chicago");
+  });
 });

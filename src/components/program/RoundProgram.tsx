@@ -7,6 +7,7 @@ import { localePath, useI18n } from "@/i18n";
 import { SPEAKERS } from "@/lib/program";
 import type { Round } from "@/lib/rounds";
 import { usePressArticleFocus } from "@/hooks/usePressArticleFocus";
+import { BostonQuestions } from "@/components/program/BostonQuestions";
 
 export function RoundProgram({ round, past }: { round: Round; past: boolean }) {
   const { locale, t } = useI18n();
@@ -46,6 +47,7 @@ export function RoundProgram({ round, past }: { round: Round; past: boolean }) {
           <p className="program-note">{past ? "The final run of show has not been published in this archive." : "The full run of show and speaker list will be posted here before the event."}</p>
         </section>
 
+        {round.slug === "boston-2026" && <BostonQuestions />}
         <section className="program-section" aria-labelledby="contact-h">
           <h2 id="contact-h" className="program-h2">Questions</h2>
           <p>Contact Region 17 at <a href={`mailto:${round.contact}`}>{round.contact}</a>.</p>
