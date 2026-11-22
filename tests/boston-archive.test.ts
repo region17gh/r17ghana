@@ -4,7 +4,7 @@ import { BOSTON, eventEntries } from "@/lib/boston";
 test("Boston remains in upcoming until December 3, 2026 at noon Eastern", () => {
   const entry = eventEntries(Date.parse("2026-12-03T11:59:59-05:00")).find((e) => e.slug === "boston-2026");
   expect(entry?.upcoming).toBe(true);
-  expect(entry?.href).toBe("/program");
+  expect(entry?.href).toBe("/events/roundtables/boston");
 });
 
 test("Boston automatically enters the hub archive at noon Eastern", () => {

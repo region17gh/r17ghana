@@ -4,8 +4,9 @@ import { useEffect, useRef } from "react";
 import logo from "@/assets/region17-logo-navy-gold-512.png.asset.json";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
-import { eventEntries, type EventEntry } from "@/lib/boston";
+import { eventEntries } from "@/lib/boston";
 import { useEventClock } from "@/hooks/useEventClock";
+import { EventCard } from "@/components/events/EventCard";
 
 const DESC = "Region 17 roundtables and gatherings: what is coming up, and videos and materials from past events.";
 
@@ -23,17 +24,6 @@ export const Route = createFileRoute("/{-$locale}/events/")({
   component: EventsHub,
 });
 
-function EventItem({ e }: { e: EventEntry }) {
-  const { locale } = useI18n();
-  return (
-    <article className="program-section">
-      <h3 className="program-h2">{e.title}</h3>
-      <p className="program-meta">{e.when}, {e.where}</p>
-      <Link to={localePath(locale, e.href)}>{e.upcoming ? "View the program and RSVP" : "View the event archive"}</Link>
-    </article>
-  );
-}
-
 function EventsHub() {
   const { locale, t } = useI18n();
   const heading = useRef<HTMLHeadingElement>(null);
@@ -44,12 +34,11 @@ function EventsHub() {
   return (
     <>
       <PanBand />
-      <main className="program-page">
+      <main className="events-hub">
         <Link className="r17-page-logo" to={localePath(locale, "/")} aria-label="Region 17 home"><img src={logo.url} alt="Region 17" width={512} height={120} /></Link>
-        <h1 ref={heading} tabIndex={-1} className="program-h1">Events</h1>
-        <section aria-labelledby="up-h"><h2 id="up-h" className="r17-eyebrow program-eyebrow">Upcoming</h2>{upcoming.map((e) => <EventItem key={e.slug} e={e} />)}</section>
-        <section aria-labelledby="past-h" className="program-section"><h2 id="past-h" className="r17-eyebrow program-eyebrow">Past</h2>{past.map((e) => <EventItem key={e.slug} e={e} />)}</section>
-        <Link to={localePath(locale, "/press")}>Press coverage of Region 17 events</Link>
+        <header className="events-hub-intro"><p className="r17-eyebrow">In conversation. In person.</p><h1 ref={heading} tabIndex={-1} className="program-h1">Events</h1><p>Connecting people, ideas and partnerships for Ghana's development.</p></header>
+        {upcoming.length > 0 && <section aria-labelledby="up-h" className="events-hub-group"><h2 id="up-h" className="r17-eyebrow program-eyebrow">Upcoming</h2>{upcoming.map((e) => <EventCard key={e.slug} event={e} />)}</section>}
+        <section aria-labelledby="past-h" className="events-hub-group"><h2 id="past-h" className="r17-eyebrow program-eyebrow">Past gatherings</h2>{past.map((e) => <EventCard key={e.slug} event={e} />)}</section>
         <Link className="program-home-end" to={localePath(locale, "/")}>Back to Region 17 home</Link>
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>
       </main>

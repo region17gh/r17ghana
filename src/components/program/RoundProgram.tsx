@@ -8,6 +8,8 @@ import { SPEAKERS } from "@/lib/program";
 import type { Round } from "@/lib/rounds";
 import { usePressArticleFocus } from "@/hooks/usePressArticleFocus";
 import { BostonQuestions } from "@/components/program/BostonQuestions";
+import { EventsInvitation } from "@/components/events/EventsInvitation";
+import { FEATURED_EVENT } from "@/lib/event";
 
 export function RoundProgram({ round, past }: { round: Round; past: boolean }) {
   const { locale, t } = useI18n();
@@ -37,7 +39,7 @@ export function RoundProgram({ round, past }: { round: Round; past: boolean }) {
 
         <section className="program-section" aria-labelledby="partners-h">
           <h2 id="partners-h" className="program-h2">Presented by</h2>
-          <ul>{round.partners.map((p) => <li key={p}>{p}</li>)}</ul>
+          <ul>{round.partners.map((p) => { const partner = FEATURED_EVENT.partners.find((item) => item.name === p); return <li key={p}>{partner?.url ? <a href={partner.url} target="_blank" rel="noopener noreferrer">{p}</a> : p}</li>; })}</ul>
         </section>
 
         {speakers.length > 0 && <Speakers list={speakers} />}
@@ -51,8 +53,8 @@ export function RoundProgram({ round, past }: { round: Round; past: boolean }) {
         <section className="program-section" aria-labelledby="contact-h">
           <h2 id="contact-h" className="program-h2">Questions</h2>
           <p>Contact Region 17 at <a href={`mailto:${round.contact}`}>{round.contact}</a>.</p>
-          <Link to={localePath(locale, "/events")}>See past events, including the Chicago videos</Link>
         </section>
+        <EventsInvitation />
 
         <Link className="program-home-end" to={localePath(locale, "/")}>Back to Region 17 home</Link>
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>

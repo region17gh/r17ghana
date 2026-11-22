@@ -1,0 +1,26 @@
+.events-hub { max-width: var(--page-max); margin-inline: auto; padding-inline: var(--space-6); padding-block: var(--space-10) var(--space-16); }
+.events-hub-intro { margin-block: var(--space-8) var(--space-12); max-width: var(--measure-prose); }
+.events-hub-intro p { font: var(--type-body-lg); color: var(--ink-700); }
+.events-hub-group { margin-block-end: var(--space-16); }
+.event-card-layout { display: grid; grid-template-columns: 1fr 1fr; }
+.event-card-image-link { display: flex; min-width: 0; background: var(--paper-050); }
+.event-card-image-link img { display: block; width: 100%; height: 100%; max-height: calc(var(--space-32) * 4); }
+.event-card-flyer { object-fit: contain; }
+.event-card-photo { object-fit: cover; }
+.event-card-copy { padding: var(--space-8); display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); min-width: 0; }
+.event-card-copy p, .event-card-copy h3 { margin: 0; }
+.event-card-city { font: var(--type-section); color: var(--navy-700); }
+.event-card-copy h3 { font: var(--type-title); }
+.event-card-copy h3 a { color: var(--navy-700); text-decoration: none; }
+.event-card-date { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink-700); }
+.event-card-place { font: var(--type-meta); color: var(--ink-700); }
+.event-card-open { display: inline-flex; align-items: center; gap: var(--space-4); min-height: var(--control-lg); color: var(--navy-700); font: var(--type-ui); text-underline-offset: var(--space-2); }
+.events-invitation { display: grid; grid-template-columns: 1fr 2fr; align-items: center; gap: var(--space-8); margin-block: var(--space-12); }
+.events-invitation img { width: 100%; height: auto; border-radius: var(--radius-card); }
+.events-invitation p { margin-block: var(--space-4); }
+@media (max-width: 48rem) {
+ .event-card-layout, .events-invitation { grid-template-columns: 1fr; }
+ .event-card-copy { padding: var(--space-6); }
+ .events-hub { padding-inline: var(--space-4); }
+ .events-invitation { gap: var(--space-5); }
+}

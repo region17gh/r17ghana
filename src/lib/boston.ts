@@ -27,7 +27,7 @@ export type EventEntry = { slug: string; title: string; when: string; where: str
 export function eventEntries(now: number): EventEntry[] {
   const upcoming = now < BOSTON.end;
   return [
-    { slug: "boston-2026", title: BOSTON.title, when: "December 3, 2026", where: "Boston, Massachusetts", href: upcoming ? "/program" : "/events/roundtables/boston", upcoming },
+    { slug: "boston-2026", title: BOSTON.title, when: "December 3, 2026", where: "Boston, Massachusetts", href: "/events/roundtables/boston", upcoming },
     { slug: "chicago-2026", title: "U.S. and Ghana Regional Business and Investment Roundtable", when: "November 12, 2026", where: "mHUB, Chicago, Illinois", href: "/events/roundtables/chicago", upcoming: false },
   ];
 }

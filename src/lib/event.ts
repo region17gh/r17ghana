@@ -7,7 +7,7 @@ const partners: EventPartner[] = [
   { name: "Embassy of Ghana to the United States", url: "https://washington.mfa.gov.gh/?lang=en" },
   { name: "Greater Boston Chamber of Commerce", url: "https://www.bostonchamber.com" },
   { name: "Massachusetts Business Roundtable", url: "https://www.maroundtable.com" },
-  { name: "Massachusetts Office of International Trade & Investment", url: "https://www.mass.gov/orgs/massachusetts-office-of-international-trade-investment" },
+  { name: "Massachusetts Office of International Trade & Investment", url: "https://www.mass.gov/orgs/massachusetts-office-of-international-trade-and-investment" },
   { name: "Ghana Association of Greater Boston", url: "https://gagb.net/index.html" },
 ];
 
