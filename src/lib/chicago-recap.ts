@@ -33,12 +33,12 @@ export const PRESS: PressItem[] = [
 const tVid = import.meta.glob<Pointer>("@/assets/events/testimonials/*.mp4.asset.json", { eager: true });
 const tPic = import.meta.glob<Pointer>("@/assets/events/testimonials/*.jpg.asset.json", { eager: true });
 const T: [string, string][] = [
-  ["Kellen Reeves", "0:36"], ["Guest from Chicago's West Side", "1:01"], ["Brenda", "0:25"], ["Seraphina", "0:20"],
-  ["Dozie", "0:21"], ["Juma Momolu", "0:17"], ["Jack Campbell", "0:39"], ["Guest", "0:22"],
+  ["Kellen Reeves", "0:36"], ["Guest from Chicago's West Side", "1:01"], ["Brenda", "0:25"], ["Chicago guest", "0:20"],
+  ["Event caterer", "0:21"], ["Chicago-born guest", "0:17"], ["Jack Campbell", "0:39"], ["Chocolate maker", "0:22"],
 ];
-/** Guest testimonials filmed at the Chicago roundtable; names as spoken on camera. */
+/** Guest testimonials filmed at the Chicago roundtable; names only where two separate listens agree. */
 export const TESTIMONIALS: ProgramVideo[] = T.map(([name, length], n) => {
   const k = `testimonial-${n + 1}`;
   const pick = (g: Record<string, Pointer>, ext: string) => Object.entries(g).find(([p]) => p.endsWith(`/${k}.${ext}.asset.json`))![1].default.url;
-  return { id: `chicago-${k}`, title: name === "Guest" ? "Guest testimonial" : `${name} on the roundtable`, length, src: pick(tVid, "mp4"), poster: pick(tPic, "jpg") };
+  return { id: `chicago-${k}`, title: `${name} on the roundtable`, length, src: pick(tVid, "mp4"), poster: pick(tPic, "jpg") };
 });

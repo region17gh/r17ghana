@@ -22,6 +22,9 @@ export function SiteFooter() {
         <nav aria-label="Footer" className="site-footer-links">
           <Link to={localePath(locale, "/join")}>{t("nav.join")}</Link>
           <Link to={localePath(locale, "/invest")}>{t("nav.invest")}</Link>
+          <Link to={localePath(locale, "/program")}>{t("nav.program")}</Link>
+          <Link to={localePath(locale, "/events")}>{t("nav.events")}</Link>
+          <Link to={localePath(locale, "/press")}>{t("nav.press")}</Link>
           <Link to={localePath(locale, "/signin")}>{t("nav.signIn")}</Link>
         </nav>
         <p className="site-footer-fine">{ORG_LINE}</p>

@@ -23,3 +23,10 @@
 - [x] Private investor-question storage, optional permissioned reply email, operator-checked inbox and reply action built
 - [ ] Admin inbox authenticated read/reply verification: waiting for the user's chosen app account to receive operator access
 - [ ] Luma RSVP automatic confirmation trigger: waiting for Luma webhook/API access; no Luma App connector or custom-connector setup tool is available
+- [x] Online band back on homepage for Boston (Program, Watch online, RSVP, All events), window 9:15 AM to 12:30 PM Eastern on 3 Dec
+- [x] /press page, linked from footer and events page; footer links Program, Events, Press
+- [x] Chicago testimonial captions double-checked; clear errors fixed, unclear names kept out of titles
+- [x] /program shows whichever round is next; a future round is one new entry
+- [ ] Boston Zoom room: waiting on the new meeting number and passcode (the saved ones are Chicago's)
+- [ ] Next round page: waiting on its date, venue, RSVP link and details
+- [ ] Testimonial names for 4 guests: waiting on correct spellings

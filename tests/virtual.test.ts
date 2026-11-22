@@ -8,22 +8,22 @@ import en from "../src/i18n/locales/en.json";
 
 /** The hour a Chicago visitor reads on the homepage banner. */
 function chicagoHour(instant: number) {
-  return new Intl.DateTimeFormat("en-US", { timeZone: "America/Chicago", hour: "numeric", minute: "2-digit", hour12: true }).format(new Date(instant));
+  return new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit", hour12: true }).format(new Date(instant));
 }
 
 describe("online band phase", () => {
   test("upcoming before 9:00 AM Chicago on 12 Nov", () => expect(eventPhase(Date.parse("2026-11-12T14:59:00Z"), Date.parse("2026-11-12T15:00:00Z"), Date.parse("2026-11-12T19:00:00Z"))).toBe("upcoming"));
   test("live during the event", () => expect(eventPhase(Date.parse("2026-11-12T17:00:00Z"), Date.parse("2026-11-12T15:00:00Z"), Date.parse("2026-11-12T19:00:00Z"))).toBe("live"));
   const v = FEATURED_EVENT.virtual;
-  test("online opens 8:45 AM Chicago", () => { expect(eventPhase(Date.parse("2026-11-12T14:44:00Z"), v.opensAt, v.closesAt)).toBe("upcoming"); expect(eventPhase(Date.parse("2026-11-12T14:45:00Z"), v.opensAt, v.closesAt)).toBe("live"); });
-  test("online closes 1:15 PM Chicago", () => { expect(eventPhase(Date.parse("2026-11-12T19:14:00Z"), v.opensAt, v.closesAt)).toBe("live"); expect(eventPhase(Date.parse("2026-11-12T19:15:00Z"), v.opensAt, v.closesAt)).toBe("past"); });
+  test("Boston online opens 9:15 AM Eastern on 3 Dec", () => { expect(eventPhase(Date.parse("2026-12-03T14:14:00Z"), v.opensAt, v.closesAt)).toBe("upcoming"); expect(eventPhase(Date.parse("2026-12-03T14:15:00Z"), v.opensAt, v.closesAt)).toBe("live"); });
+  test("Boston online closes 12:30 PM Eastern", () => { expect(eventPhase(Date.parse("2026-12-03T17:29:00Z"), v.opensAt, v.closesAt)).toBe("live"); expect(eventPhase(Date.parse("2026-12-03T17:30:00Z"), v.opensAt, v.closesAt)).toBe("past"); });
   test("past after 1:00 PM Chicago", () => expect(eventPhase(Date.parse("2026-11-12T19:00:00Z"), Date.parse("2026-11-12T15:00:00Z"), Date.parse("2026-11-12T19:00:00Z"))).toBe("past"));
 });
 
 describe("online band copy", () => {
-  test("the banner names the hour the online room actually opens, in Chicago time", () => {
+  test("the banner names the hour the online room actually opens, in Eastern time", () => {
     const opens = chicagoHour(FEATURED_EVENT.virtual.opensAt);
-    expect(opens).toBe("8:45 AM");
+    expect(opens).toBe("9:15 AM");
     expect(en.virtual.upcoming).toContain(opens);
     expect(en.virtual.notReady).toContain(opens);
     expect(en.virtual.notOpenYet).toContain(opens);

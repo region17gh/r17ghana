@@ -15,7 +15,7 @@ import { clearLinkError, currentLinkError, type LinkProblem } from "@/lib/auth/l
 export const Route = createFileRoute("/{-$locale}/")({
   head: () => ({
     meta: [
-      { title: "Region 17 Ghana | Ghana-Chicago Business Roundtable, 12 Nov" },
+      { title: "Region 17 Ghana | Boston-Ghana Investment Roundtable, 3 Dec" },
       {
         name: "description",
         content:

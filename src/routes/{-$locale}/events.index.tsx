@@ -47,6 +47,7 @@ function EventsHub() {
         <h1 ref={heading} tabIndex={-1} className="program-h1">Events</h1>
         <section aria-labelledby="up-h"><h2 id="up-h" className="r17-eyebrow program-eyebrow">Upcoming</h2>{upcoming.map((e) => <EventItem key={e.slug} e={e} />)}</section>
         <section aria-labelledby="past-h" className="program-section"><h2 id="past-h" className="r17-eyebrow program-eyebrow">Past</h2>{past.map((e) => <EventItem key={e.slug} e={e} />)}</section>
+        <Link to={localePath(locale, "/press")}>Press coverage of Region 17 events</Link>
         <Link className="program-home-end" to={localePath(locale, "/")}>Back to Region 17 home</Link>
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>
       </main>

@@ -22,7 +22,10 @@
     "signIn": "Sign in",
     "signOut": "Sign out",
     "joinCta": "Join Region 17",
-    "invest": "Invest in Ghana"
+    "invest": "Invest in Ghana",
+    "program": "Program",
+    "events": "Events",
+    "press": "Press"
   },
   "legal": {
     "notAGovernmentDocument": "Region 17 membership is a standing in a community. It is not a government document and confers no citizenship, residence, visa, or right of entry.",
@@ -738,17 +741,17 @@
     "tagline": "One Nation. One Global Diaspora. One Shared Vision."
   },
   "virtual": {
-    "eyebrow": "NOV 12 · IN PERSON AND ONLINE",
-    "title": "Ghana-Chicago Business Roundtable",
-    "upcoming": "mHUB Chicago at 9:00 AM Central. Online from 8:45 AM.",
-    "live": "Live now at mHUB Chicago and online.",
+    "eyebrow": "DEC 3 · IN PERSON AND ONLINE",
+    "title": "Boston-Ghana Investment Roundtable",
+    "upcoming": "Boston 9:30 AM ET. Online 9:15 AM.",
+    "live": "Live now in Boston and online.",
     "past": "Thank you to everyone who joined online.",
     "recording": "Watch the recording",
     "cta": "Watch online",
     "pageTitle": "Watch the roundtable online",
     "howTo": "Choose a display name and select Join. Your browser may ask for permission to use audio. We do not store your name.",
-    "notReady": "The online room is not open yet. Please come back at 8:45 AM Chicago time on 12 November.",
-    "notOpenYet": "The online room is not open yet. It opens at 8:45 AM Chicago time on 12 November. Stay on this page and select Join again.",
+    "notReady": "The online room is not open yet. Please come back at 9:15 AM Eastern time on 3 December.",
+    "notOpenYet": "The online room is not open yet. It opens at 9:15 AM Eastern time on 3 December. Stay on this page and select Join again.",
     "loading": "Opening the online room.",
     "failed": "The online room could not open in this browser.",
     "appLink": "Open in the Zoom app instead",
@@ -756,9 +759,10 @@
     "join": "Join",
     "back": "Back to the homepage",
     "soonTitle": "The online link is coming soon",
-    "soonBody": "We will post the link to watch online here before the online room opens on 12 November at 8:45 AM Chicago time. Please check back.",
+    "soonBody": "We will post the link to watch online here before the online room opens on 3 December at 9:15 AM Eastern time. Please check back.",
     "soonClose": "Close",
     "program": "Program",
-    "rsvp": "RSVP"
+    "rsvp": "RSVP",
+    "events": "Events"
   }
 }

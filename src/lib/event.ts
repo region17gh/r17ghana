@@ -20,13 +20,12 @@ export const FEATURED_EVENT = {
   partners,
   /** Online attendance. Meeting credentials stay server-side; set a recording URL after the event. */
   virtual: {
-    /** Off for Boston until an online room is confirmed. The window below is the Chicago one. */
-    enabled: false,
+    enabled: true,
     recordingUrl: undefined as string | undefined,
-    /** Online viewing window: 8:45 AM to 1:15 PM Central (CST, UTC-6) on 12 Nov,
-     *  matching the Zoom meeting's own time zone. */
-    opensAt: Date.parse("2026-11-12T14:45:00Z"),
-    closesAt: Date.parse("2026-11-12T19:15:00Z"),
+    /** Online viewing window: 9:15 AM to 12:30 PM Eastern (EST, UTC-5) on 3 Dec.
+     *  Must match the Zoom meeting set in ZOOM_MEETING_NUMBER. */
+    opensAt: Date.parse("2026-12-03T14:15:00Z"),
+    closesAt: Date.parse("2026-12-03T17:30:00Z"),
   },
 };
 

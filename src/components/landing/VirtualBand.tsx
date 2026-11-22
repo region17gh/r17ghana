@@ -42,7 +42,8 @@ export function VirtualBand() {
         </div>
         <p role="status" className="virtual-band-note">
           {t(`virtual.${phase}`)}{" "}
-          {phase !== "past" ? <a href={FEATURED_EVENT.rsvpUrl} target="_blank" rel="noopener noreferrer" className="virtual-band-rsvp">{t("virtual.rsvp")}</a> : null}
+          {phase !== "past" ? <a href={FEATURED_EVENT.rsvpUrl} target="_blank" rel="noopener noreferrer" className="virtual-band-rsvp">{t("virtual.rsvp")}</a> : null}{" "}
+          <Link to={localePath(locale, "/events")} className="virtual-band-rsvp">{t("virtual.events")}</Link>
         </p>
         <div className="virtual-band-cta">
           <Link to={localePath(locale, "/program")} className="virtual-band-link">
