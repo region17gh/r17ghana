@@ -43,7 +43,7 @@ export function EventBanner() {
             <div className="landing-row">
               <div className="landing-tile" aria-hidden="true">
                 <span className="landing-tile-month">{t("landing.tileMonth")}</span>
-                <span style={{ font: "var(--type-title)", fontFamily: "var(--font-mono)" }}>12</span>
+                <span style={{ font: "var(--type-title)", fontFamily: "var(--font-mono)" }}>3</span>
               </div>
               <div>
                 <p style={{ ...m0, font: "var(--type-title)" }}>{t("landing.eventDay")}</p>

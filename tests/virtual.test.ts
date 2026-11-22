@@ -12,12 +12,12 @@ function chicagoHour(instant: number) {
 }
 
 describe("online band phase", () => {
-  test("upcoming before 9:00 AM Chicago on 12 Nov", () => expect(eventPhase(Date.parse("2026-11-12T14:59:00Z"))).toBe("upcoming"));
-  test("live during the event", () => expect(eventPhase(Date.parse("2026-11-12T17:00:00Z"))).toBe("live"));
+  test("upcoming before 9:00 AM Chicago on 12 Nov", () => expect(eventPhase(Date.parse("2026-11-12T14:59:00Z"), Date.parse("2026-11-12T15:00:00Z"), Date.parse("2026-11-12T19:00:00Z"))).toBe("upcoming"));
+  test("live during the event", () => expect(eventPhase(Date.parse("2026-11-12T17:00:00Z"), Date.parse("2026-11-12T15:00:00Z"), Date.parse("2026-11-12T19:00:00Z"))).toBe("live"));
   const v = FEATURED_EVENT.virtual;
   test("online opens 8:45 AM Chicago", () => { expect(eventPhase(Date.parse("2026-11-12T14:44:00Z"), v.opensAt, v.closesAt)).toBe("upcoming"); expect(eventPhase(Date.parse("2026-11-12T14:45:00Z"), v.opensAt, v.closesAt)).toBe("live"); });
   test("online closes 1:15 PM Chicago", () => { expect(eventPhase(Date.parse("2026-11-12T19:14:00Z"), v.opensAt, v.closesAt)).toBe("live"); expect(eventPhase(Date.parse("2026-11-12T19:15:00Z"), v.opensAt, v.closesAt)).toBe("past"); });
-  test("past after 1:00 PM Chicago", () => expect(eventPhase(Date.parse("2026-11-12T19:00:00Z"))).toBe("past"));
+  test("past after 1:00 PM Chicago", () => expect(eventPhase(Date.parse("2026-11-12T19:00:00Z"), Date.parse("2026-11-12T15:00:00Z"), Date.parse("2026-11-12T19:00:00Z"))).toBe("past"));
 });
 
 describe("online band copy", () => {

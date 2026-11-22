@@ -1,4 +1,4 @@
-import flyer from "@/assets/ghana-chicago-business-roundtable-flyer.jpg.asset.json";
+import flyer from "@/assets/boston-ghana-investment-roundtable-flyer.jpg.asset.json";
 import { useT } from "@/i18n";
 import { FEATURED_EVENT } from "@/lib/event";
 import { Reveal } from "@/components/charter/Reveal";
@@ -16,8 +16,8 @@ export function EventCover() {
           className="landing-photo"
           src={flyer.url}
           alt={t("landing.flyerAlt")}
-          width={1024}
-          height={1536}
+          width={1920}
+          height={1920}
         />
       </Reveal>
       <Reveal className="landing-reveal landing-partners">

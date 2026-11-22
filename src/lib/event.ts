@@ -4,25 +4,24 @@ export type EventPartner = { name: string; url?: string };
 
 /** Hosts first, then partners, in the order the flyer presents them. */
 const partners: EventPartner[] = [
-  { name: "Embassy of Ghana in the U.S.", url: "https://washington.mfa.gov.gh/?lang=en" },
-  { name: "Region 17 Ghana, Founder & CEO Maabena Webb", url: "https://www.linkedin.com/in/maabena-webb-838523a6/" },
-  { name: "Region 17 Ghana, Co-Founder & COO Rosca Sasu", url: "https://www.linkedin.com/in/rosca-sasu-mba-cdp-caddct-41719139/" },
-  { name: "Greater Englewood Chamber of Commerce", url: "https://www.gechamber.com/" },
-  { name: "mHUB", url: "https://mhub.org" },
-  { name: "Ghana National Council of Metropolitan Chicago", url: "https://www.gnc-chicago.org" },
-  { name: "Chicago Diaspora Chamber" },
+  { name: "Embassy of Ghana to the United States", url: "https://washington.mfa.gov.gh/?lang=en" },
+  { name: "Greater Boston Chamber of Commerce", url: "https://www.bostonchamber.com" },
+  { name: "Massachusetts Business Roundtable", url: "https://www.maroundtable.com" },
+  { name: "Massachusetts Office of International Trade & Investment", url: "https://www.mass.gov/orgs/massachusetts-office-of-international-trade-investment" },
+  { name: "Ghana Association of Greater Boston" },
 ];
 
-/** The event promoted on the homepage. Times are absolute instants (CST is UTC-6). */
+/** The event promoted on the homepage. Times are absolute instants (EST is UTC-5). */
 export const FEATURED_EVENT = {
-  rsvpUrl: "https://luma.com/j9k2s0o3",
-  mapUrl: "https://maps.app.goo.gl/MfpYfeHzbKAf1yFWA",
-  startsAt: Date.parse("2026-11-12T15:00:00Z"),
-  endsAt: Date.parse("2026-11-12T19:00:00Z"),
+  rsvpUrl: "https://luma.com/go9fl4ya",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=265+Franklin+St+Suite+1701+Boston+MA+02110",
+  startsAt: Date.parse("2026-12-03T14:30:00Z"),
+  endsAt: Date.parse("2026-12-03T17:00:00Z"),
   partners,
   /** Online attendance. Meeting credentials stay server-side; set a recording URL after the event. */
   virtual: {
-    enabled: true,
+    /** Off for Boston until an online room is confirmed. The window below is the Chicago one. */
+    enabled: false,
     recordingUrl: undefined as string | undefined,
     /** Online viewing window: 8:45 AM to 1:15 PM Central (CST, UTC-6) on 12 Nov,
      *  matching the Zoom meeting's own time zone. */
