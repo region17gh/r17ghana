@@ -3,8 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { bostonQuestionInput } from "@/lib/boston-question";
 import { publishedBostonQuestions, submitBostonQuestion } from "@/lib/boston-questions.functions";
+import { useLiveBostonQuestions } from "@/hooks/useLiveBostonQuestions";
 
 export function useBostonQuestions() {
+  useLiveBostonQuestions();
   const [question, setQuestion] = useState("");
   const [permission, setPermission] = useState(false);
   const [busy, setBusy] = useState(false);

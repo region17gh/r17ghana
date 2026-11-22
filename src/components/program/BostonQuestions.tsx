@@ -17,6 +17,6 @@ export function BostonQuestions() {
     <div role="status">{f.saved && <p>Your question is saved for review. It will appear here only if approved.</p>}</div>
     <h3 className="program-h2">Questions from guests</h3>
     {f.published.isPending ? <p role="status">Loading questions...</p> : f.published.error ? <p role="alert">Published questions are unavailable. Your submission can still be saved.</p> :
-      f.published.data?.length ? <ul>{f.published.data.map((q) => <li key={q.id}>{q.question}</li>)}</ul> : <p className="program-note">No questions have been published yet.</p>}
+      f.published.data?.length ? <ul aria-live="polite">{f.published.data.map((q) => <li key={q.id}>{q.question}</li>)}</ul> : <p className="program-note">No questions have been published yet.</p>}
   </section>;
 }

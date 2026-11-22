@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/Button";
-import { PRESS_ARTICLES, pressDate, type PressArticle as Article } from "@/lib/press";
+import { pressDate, type PressArticle as Article } from "@/lib/press";
 import { usePressArticleFocus } from "@/hooks/usePressArticleFocus";
 import { PressShell } from "./PressShell";
 import { PressVideo } from "./PressVideo";
 
-export function PressArticle({ article }: { article: Article }) {
+export function PressArticle({ article, catalog }: { article: Article; catalog: Article[] }) {
   const heading = usePressArticleFocus(article.slug);
-  const related = PRESS_ARTICLES.filter((item) => item.slug !== article.slug && item.category === article.category).slice(0, 3);
+  const related = catalog.filter((item) => item.slug !== article.slug && item.category === article.category).slice(0, 3);
   return <PressShell>
     <article className="press-container press-detail">
       <nav aria-label="Breadcrumb" className="press-breadcrumb"><Link to="/{-$locale}/press" params={{ locale: undefined }}>Press archive</Link><span aria-hidden="true">/</span><span>{article.category}</span></nav>

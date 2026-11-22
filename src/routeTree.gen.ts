@@ -17,6 +17,7 @@ import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AuthenticatedBostonQuestionsRouteImport } from './routes/_authenticated/boston-questions'
 import { Route as AuthenticatedInvestorInboxRouteImport } from './routes/_authenticated/investor-inbox'
+import { Route as AuthenticatedPublicationsRouteImport } from './routes/_authenticated/publications'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
 import { Route as Char123LocaleChar125DeclareRouteImport } from './routes/{-$locale}/declare'
 import { Route as Char123LocaleChar125HomeRouteImport } from './routes/{-$locale}/home'
@@ -86,6 +87,12 @@ const AuthenticatedInvestorInboxRoute =
   AuthenticatedInvestorInboxRouteImport.update({
     id: '/investor-inbox',
     path: '/investor-inbox',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedPublicationsRoute =
+  AuthenticatedPublicationsRouteImport.update({
+    id: '/publications',
+    path: '/publications',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const Char123LocaleChar125IndexRoute =
@@ -253,6 +260,7 @@ export interface FileRoutesByFullPath {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
+  '/publications': typeof AuthenticatedPublicationsRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -288,6 +296,7 @@ export interface FileRoutesByTo {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
+  '/publications': typeof AuthenticatedPublicationsRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -324,6 +333,7 @@ export interface FileRoutesById {
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/_authenticated/investor-inbox': typeof AuthenticatedInvestorInboxRoute
+  '/_authenticated/publications': typeof AuthenticatedPublicationsRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -362,6 +372,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/boston-questions'
     | '/investor-inbox'
+    | '/publications'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -397,6 +408,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/boston-questions'
     | '/investor-inbox'
+    | '/publications'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -432,6 +444,7 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/boston-questions'
     | '/_authenticated/investor-inbox'
+    | '/_authenticated/publications'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -530,6 +543,13 @@ declare module '@tanstack/react-router' {
       path: '/investor-inbox'
       fullPath: '/investor-inbox'
       preLoaderRoute: typeof AuthenticatedInvestorInboxRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/publications': {
+      id: '/_authenticated/publications'
+      path: '/publications'
+      fullPath: '/publications'
+      preLoaderRoute: typeof AuthenticatedPublicationsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/{-$locale}/': {
@@ -720,11 +740,13 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedBostonQuestionsRoute: typeof AuthenticatedBostonQuestionsRoute
   AuthenticatedInvestorInboxRoute: typeof AuthenticatedInvestorInboxRoute
+  AuthenticatedPublicationsRoute: typeof AuthenticatedPublicationsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedBostonQuestionsRoute: AuthenticatedBostonQuestionsRoute,
   AuthenticatedInvestorInboxRoute: AuthenticatedInvestorInboxRoute,
+  AuthenticatedPublicationsRoute: AuthenticatedPublicationsRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

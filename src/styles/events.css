@@ -18,8 +18,14 @@
 .events-invitation { display: grid; grid-template-columns: 1fr 2fr; align-items: center; gap: var(--space-8); margin-block: var(--space-12); }
 .events-invitation img { width: 100%; height: auto; border-radius: var(--radius-card); }
 .events-invitation p { margin-block: var(--space-4); }
+.publication-columns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); margin-block-end: var(--space-8); }
+.publication-choice { padding-block: var(--space-4); min-height: var(--control-lg); }
+.publication-row { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); padding-block: var(--space-8); }
+.publication-row h3 { margin-block: var(--space-4); }
 @media (max-width: 48rem) {
  .event-card-layout, .events-invitation { grid-template-columns: 1fr; }
+ .publication-columns { grid-template-columns: 1fr; }
+ .publication-row { flex-direction: column; align-items: flex-start; }
  .event-card-copy { padding: var(--space-6); }
  .events-hub { padding-inline: var(--space-4); }
  .events-invitation { gap: var(--space-5); }

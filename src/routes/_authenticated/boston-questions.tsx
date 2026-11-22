@@ -14,5 +14,5 @@ export const Route = createFileRoute("/_authenticated/boston-questions")({
 });
 function ReviewPage() {
   return <main className="program-page"><Link to="/{-$locale}/program" params={{ locale: undefined }}>Boston program</Link>
-    <h1 className="program-h1">Review Boston questions</h1><BostonQuestionReview /></main>;
+    <Link to="/publications">Question and coverage publication panel</Link><h1 className="program-h1">Review Boston questions</h1><BostonQuestionReview /></main>;
 }

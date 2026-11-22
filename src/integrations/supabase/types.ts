@@ -146,6 +146,27 @@ export type Database = {
         }
         Relationships: []
       }
+      boston_live_questions: {
+        Row: {
+          created_at: string
+          id: string
+          question: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          question: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          question?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       boston_question_consents: {
         Row: {
           granted_at: string
@@ -3614,6 +3635,30 @@ export type Database = {
           },
         ]
       }
+      press_publications: {
+        Row: {
+          created_at: string
+          reviewed_at: string | null
+          slug: string
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          reviewed_at?: string | null
+          slug: string
+          state?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          reviewed_at?: string | null
+          slug?: string
+          state?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       publication_depths: {
         Row: {
           description: string
@@ -4560,6 +4605,10 @@ export type Database = {
       pseudonymize_member: {
         Args: { actor?: string; reason?: string; target: string }
         Returns: string
+      }
+      publish_event_selection: {
+        Args: { p_article_slugs: string[]; p_question_ids: string[] }
+        Returns: undefined
       }
       publish_scheduled_offerings: { Args: never; Returns: number }
       published_boston_questions: {

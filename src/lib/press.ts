@@ -137,9 +137,9 @@ export const PRESS_CATEGORIES: PressCategory[] = ["Media coverage", "Announcemen
 export function pressDate(date: string): string {
   return new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
 }
-export function filterPress(query: string, category: string, year: string): PressArticle[] {
+export function filterPress(query: string, category: string, year: string, catalog: PressArticle[] = PRESS_ARTICLES): PressArticle[] {
   const term = query.trim().toLowerCase();
-  return PRESS_ARTICLES.filter((article) =>
+  return catalog.filter((article) =>
     (!category || article.category === category) && (!year || article.date.startsWith(year)) &&
     (!term || `${article.title} ${article.headline} ${article.publisher} ${article.summary}`.toLowerCase().includes(term)),
   ).sort((a, b) => b.date.localeCompare(a.date));

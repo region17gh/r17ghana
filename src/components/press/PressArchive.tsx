@@ -2,12 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/Button";
 import { Field, Input, Select } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { usePressArchive } from "@/hooks/usePressArchive";
-import { FEATURED_PRESS, PRESS_CATEGORIES, pressDate } from "@/lib/press";
+import { PRESS_CATEGORIES, pressDate, type PressArticle } from "@/lib/press";
 import { PressShell } from "./PressShell";
 
-export function PressArchive() {
-  const state = usePressArchive();
-  const featured = FEATURED_PRESS;
+export function PressArchive({ catalog }: { catalog: PressArticle[] }) {
+  const state = usePressArchive(catalog);
+  const featured = catalog.find((article) => article.slug === "chicago-business-roundtable");
   return <PressShell>
     <section className="press-container press-intro">
       <p className="press-eyebrow">Region 17 Ghana · Newsroom</p>
