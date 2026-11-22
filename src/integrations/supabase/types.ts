@@ -146,6 +146,65 @@ export type Database = {
         }
         Relationships: []
       }
+      boston_question_consents: {
+        Row: {
+          granted_at: string
+          id: string
+          mechanism: string
+          policy_version: string
+          question_id: string
+          revoked_at: string | null
+        }
+        Insert: {
+          granted_at?: string
+          id?: string
+          mechanism: string
+          policy_version: string
+          question_id: string
+          revoked_at?: string | null
+        }
+        Update: {
+          granted_at?: string
+          id?: string
+          mechanism?: string
+          policy_version?: string
+          question_id?: string
+          revoked_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "boston_question_consents_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "boston_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      boston_questions: {
+        Row: {
+          created_at: string
+          id: string
+          question: string
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          question: string
+          state?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          question?: string
+          state?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       chapter_roles: {
         Row: {
           chapter_id: string
@@ -4222,6 +4281,10 @@ export type Database = {
       call_notifier_drain: { Args: never; Returns: number }
       can_message: { Args: { p_from: string; p_to: string }; Returns: boolean }
       can_submit_need: { Args: { p_place_slug: string }; Returns: boolean }
+      capture_boston_question: {
+        Args: { p_publication_permission: boolean; p_question: string }
+        Returns: string
+      }
       capture_investor_question: {
         Args: {
           p_email?: string
@@ -4499,6 +4562,13 @@ export type Database = {
         Returns: string
       }
       publish_scheduled_offerings: { Args: never; Returns: number }
+      published_boston_questions: {
+        Args: never
+        Returns: {
+          id: string
+          question: string
+        }[]
+      }
       purge_inactive_threads: { Args: never; Returns: number }
       region_payload: { Args: { p_slug: string }; Returns: Json }
       register_member: {
