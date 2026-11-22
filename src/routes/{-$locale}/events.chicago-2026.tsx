@@ -10,10 +10,13 @@ import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
 import { eventPhase } from "@/lib/event";
 import { MAIN_VIDEO, MORE_VIDEOS } from "@/lib/program-videos";
+import { RECAP_CLIP, RECAP_PHOTOS } from "@/lib/chicago-recap";
+import { PhotoGallery } from "@/components/events/PhotoGallery";
+import { Press } from "@/components/events/Press";
 import { PROGRAM_MC, PROGRAM_PLACE, PROGRAM_TITLE, RUN_OF_SHOW, SPEAKERS } from "@/lib/program";
 
 const TITLE = "Chicago recap | U.S. and Ghana Business and Investment Roundtable | Region 17";
-const DESC = "Speakers, videos and run of show for the November 12, 2026 roundtable at mHUB, Chicago. In person and online.";
+const DESC = "Photos, press, speakers, videos and run of show for the November 12, 2026 roundtable at mHUB, Chicago. In person and online.";
 
 export const Route = createFileRoute("/{-$locale}/events/chicago-2026")({
   head: () => ({
@@ -47,10 +50,12 @@ function ProgramPage() {
         <nav className="program-links" aria-label="Event links">
           {past ? <Link to={localePath(locale, "/program/thank-you")}>Thank you for attending: videos and downloads</Link> : <Link to={localePath(locale, "/live")}>Watch online</Link>}
         </nav>
+        <PhotoGallery list={RECAP_PHOTOS} />
         <RunOfShow list={RUN_OF_SHOW} />
         <Speakers list={SPEAKERS} />
         <MainVideo video={MAIN_VIDEO} />
-        <MoreVideos list={MORE_VIDEOS} />
+        <MoreVideos list={[RECAP_CLIP, ...MORE_VIDEOS]} />
+        <Press />
         <AskEvent />
         <Link className="program-home-end" to={localePath(locale, "/events")}>All Region 17 events</Link>
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>
