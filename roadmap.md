@@ -40,9 +40,15 @@
 - [ ] Boston question approval UI verification: external Supabase session unavailable; needs a signed-in platform operator
 - [x] Added Diplomatic Times August coverage, owner-supplied Instagram recap and Chicago event record without duplicating Sankofa town hall coverage
 - [ ] Instagram recap content verification: publisher content unavailable to inspection; date and description attributed to Region 17
-- [ ] Summit playback and existing asset visual verification: localhost could not load hosted images or YouTube player; controls and embed destination checked
+- [ ] Summit uninterrupted full-length viewing: recording is 2h46m35s; beginning, middle and ending playback passed, but continuous viewing remains unverified. Hosted image loading remains unavailable in local checks.
 - [x] Events Hub photo-led upcoming/past cards and prominent event-hub invitation; 320/390/1280 layouts and navigation checked
 - [x] MOITI partner URL corrected and Boston links directly to /events/roundtables/boston, still upcoming until its end time
 - [x] Unified operator question/coverage publishing panel at /publications; catalog, detail and Chicago coverage all respect publication state
 - [ ] Signed-in publishing panel end-to-end verification: external Supabase session unavailable; requires signed-in platform operator
 - [x] Approved Boston question live subscription with automatic refresh fallback; actual approval appears and removal disappears without reload; anonymous private reads return no rows
+- [x] Summit coverage already published in catalog; page and archive checked, embedded playback at beginning/middle/end reaches ended state without errors; publisher fallback retained
+- [x] Admin: existing-member magic-link access at /admin and sign-out, reachable from member sign-in; phone and signed-out access checked
+- [x] Jaûne, Maabena and Rosca granted existing Ghana-scoped platform-operator assignments; saved permissions verified
+- [x] Publishing: draft article and selected-question previews, live public question preview and refresh after approval
+- [ ] Admin email delivery, callback and signed-in approval verification: external Supabase session unavailable; owners must test /admin and allow exact /admin callback URLs in Supabase
+- [ ] Deploy changes: fresh scan flags five existing high-severity lookup/reserved-name access rules; awaiting owner choice to review first or proceed

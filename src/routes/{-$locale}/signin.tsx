@@ -8,7 +8,13 @@ import { localePath, useI18n } from "@/i18n";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/{-$locale}/signin")({
-  head: () => ({ meta: [{ title: "Sign in | Region 17" }] }),
+  head: () => ({ meta: [
+    { title: "Member sign in | Region 17 Ghana" },
+    { name: "description", content: "Sign in to your free Region 17 Ghana membership with an email link." },
+    { property: "og:title", content: "Member sign in | Region 17 Ghana" },
+    { property: "og:description", content: "Access your Region 17 Ghana membership." },
+    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" },
+  ] }),
   component: SignInPage,
 });
 
@@ -88,6 +94,7 @@ function SignInPage() {
         <p style={{ marginTop: "var(--space-8)", fontSize: "var(--text-body-sm)" }}>
           {t("signin.notAMember")} <Link to={localePath(locale, "/join/register")}>{t("signin.join")}</Link>
         </p>
+        <p><Link to="/admin">Region 17 team sign in</Link></p>
 
         {/* Safety control, not decoration. Its wording is fixed. */}
         <p

@@ -1,6 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { PublicationReview } from "@/components/features/PublicationReview";
 import { usePressArticleFocus } from "@/hooks/usePressArticleFocus";
+import { useAdminAccess } from "@/hooks/useAdminAccess";
+import { Button } from "@/components/ui/Button";
 
 export const Route = createFileRoute("/_authenticated/publications")({
   head: () => ({ meta: [
@@ -14,6 +16,7 @@ export const Route = createFileRoute("/_authenticated/publications")({
 });
 function PublicationsPage() {
   const heading = usePressArticleFocus("publications");
-  return <main className="events-hub"><Link to="/{-$locale}/events" params={{ locale: undefined }}>Region 17 events</Link>
+  const f = useAdminAccess(false);
+  return <main className="events-hub"><div className="program-links"><Link to="/{-$locale}/events" params={{ locale: undefined }}>Region 17 events</Link><Button size="lg" variant="secondary" onClick={() => void f.signOut()}>Sign out</Button></div>
     <h1 ref={heading} tabIndex={-1} className="program-h1">Publication panel</h1><PublicationReview /></main>;
 }

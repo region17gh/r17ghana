@@ -14,5 +14,6 @@ export function PressVideo({ videoId, title }: { videoId: string; title: string 
       <Button size="lg" icon="play" onClick={play}>Watch summit coverage</Button>
       <p className="press-caption">Playing loads YouTube. Captions are provided by the publisher when available.</p>
     </div>}
+    {playing && <div className="program-links"><Button href={`https://www.youtube.com/watch?v=${videoId}`} size="lg" variant="secondary" iconAfter="external-link">Watch on YouTube</Button></div>}
   </section>;
 }

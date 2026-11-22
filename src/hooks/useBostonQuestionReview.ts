@@ -13,7 +13,7 @@ export function useBostonQuestionReview() {
   async function save(id: string, state: "approved" | "rejected" | "pending") {
     if (busy) return;
     setBusy(id); setMessage("");
-    try { await review({ data: { id, state } }); await cache.invalidateQueries({ queryKey: ["boston-question-review"] }); await cache.invalidateQueries({ queryKey: ["boston-published-questions"] }); setMessage("Review saved."); }
+    try { await review({ data: { id, state } }); await cache.invalidateQueries({ queryKey: ["boston-question-review"] }); await cache.invalidateQueries({ queryKey: ["publication-review"] }); await cache.invalidateQueries({ queryKey: ["boston-published-questions"] }); setMessage("Review saved."); }
     catch (e) { setMessage(e instanceof Error ? e.message : "Review could not be saved."); }
     finally { setBusy(""); }
   }
