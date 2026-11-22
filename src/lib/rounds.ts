@@ -26,5 +26,7 @@ export const ROUNDS: Round[] = [
 /** The round /program shows: the first that has not ended, else the latest one. */
 export function currentRound(now: number, rounds: Round[] = ROUNDS): Round {
   const sorted = [...rounds].sort((a, b) => a.start - b.start);
-  return sorted.find((r) => r.end > now) ?? sorted[sorted.length - 1]!;
+  const round = sorted.find((r) => r.end > now) ?? sorted.at(-1);
+  if (!round) throw new Error("No roundtable has been configured.");
+  return round;
 }

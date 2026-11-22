@@ -12,6 +12,7 @@ export interface PressArticle {
   summary: string;
   paragraphs: string[];
   note?: string;
+  videoId?: string;
   image?: { url: string; alt: string; caption: string };
 }
 
@@ -100,6 +101,7 @@ export const PRESS_ARTICLES: PressArticle[] = [
     slug: "diaspora-summit-joynews", title: "Diaspora Summit 2025: Resetting Ghana - The Diaspora as the 17th Region",
     headline: "Watch: the 2025 Diaspora Summit", publisher: "JoyNews", date: "2025-12-19", category: "Diaspora context",
     url: "https://www.youtube.com/watch?v=ooj5ev3pJQQ",
+    videoId: "ooj5ev3pJQQ",
     summary: "JoyNews video coverage of the summit on Ghana's connection with the global African diaspora.",
     paragraphs: ["JoyNews presents video coverage of the 2025 Diaspora Summit under the theme of resetting Ghana and recognizing the diaspora as the 17th Region.", "Watch the original broadcast on YouTube for the full proceedings. This summit coverage provides background to the diaspora conversation, rather than a recording of a Region 17 Ghana roundtable."],
     note: "Summit date: December 19, 2025. The linked broadcast is published by JoyNews, not Africa News; the archive credits the verified channel.",

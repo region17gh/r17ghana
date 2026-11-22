@@ -29,10 +29,12 @@
 - [x] /program shows whichever round is next; a future round is one new entry
 - [ ] Boston Zoom room: waiting on the new meeting number and passcode (the saved ones are Chicago's)
 - [x] Chicago event kept in full at /events/roundtables/chicago (old address forwards)
-- [ ] Boston moves to /events/roundtables/boston after the event
+- [ ] Boston archive at /events/roundtables/boston and automatic Events Hub transition after December 3 at noon Eastern
 - [ ] Next round page: waiting on its date, venue, RSVP link and details
 - [ ] Testimonial names for 4 guests: waiting on correct spellings
 - [x] Press archive: corporate editorial layout, searchable coverage and individual article pages
 - [x] Press archive: verify supplied sources, preserve Chicago coverage, check mobile navigation
 - [x] Press archive: add the supplied summit video as an individual coverage page (verified publisher: JoyNews)
 - [ ] Press archive: Embassy launch announcement awaiting its original link
+- [ ] Boston public question submissions: waiting for approval of stored questions, publication consent and review status
+- [ ] Additional August and November coverage: verify Diplomatic Times and official Instagram sources, add Chicago event announcement, preserve existing Sankofa town hall article without duplicates

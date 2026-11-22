@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import logo from "@/assets/region17-logo-navy-gold-512.png.asset.json";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
-import { EVENTS, type EventEntry } from "@/lib/boston";
+import { eventEntries, type EventEntry } from "@/lib/boston";
+import { useEventClock } from "@/hooks/useEventClock";
 
 const DESC = "Region 17 roundtables and gatherings: what is coming up, and videos and materials from past events.";
 
@@ -28,7 +29,7 @@ function EventItem({ e }: { e: EventEntry }) {
     <article className="program-section">
       <h3 className="program-h2">{e.title}</h3>
       <p className="program-meta">{e.when}, {e.where}</p>
-      <Link to={localePath(locale, e.href)}>{e.upcoming ? "View the program and RSVP" : "Watch the videos and see the program"}</Link>
+      <Link to={localePath(locale, e.href)}>{e.upcoming ? "View the program and RSVP" : "View the event archive"}</Link>
     </article>
   );
 }
@@ -37,8 +38,9 @@ function EventsHub() {
   const { locale, t } = useI18n();
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => heading.current?.focus(), []);
-  const upcoming = EVENTS.filter((e) => e.upcoming);
-  const past = EVENTS.filter((e) => !e.upcoming);
+  const events = eventEntries(useEventClock());
+  const upcoming = events.filter((e) => e.upcoming);
+  const past = events.filter((e) => !e.upcoming);
   return (
     <>
       <PanBand />

@@ -1,7 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import { currentRound, ROUNDS, type Round } from "@/lib/rounds";
 
-const boston = ROUNDS[0]!;
+const boston = ROUNDS[0];
+if (!boston) throw new Error("Boston round is missing");
 const next: Round = { ...boston, slug: "next", start: Date.parse("2027-02-01T15:00:00Z"), end: Date.parse("2027-02-01T18:00:00Z") };
 
 describe("current round on /program", () => {

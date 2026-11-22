@@ -2,6 +2,13 @@ import { describe, expect, test } from "bun:test";
 import { filterPress, PRESS_ARTICLES } from "../src/lib/press";
 
 describe("press archive", () => {
+  test("the summit video has one dedicated JoyNews coverage entry", () => {
+    const entries = PRESS_ARTICLES.filter((article) => article.videoId === "ooj5ev3pJQQ");
+    expect(entries).toHaveLength(1);
+    expect(entries[0]?.slug).toBe("diaspora-summit-joynews");
+    expect(entries[0]?.publisher).toBe("JoyNews");
+    expect(entries[0]?.url).toBe("https://www.youtube.com/watch?v=ooj5ev3pJQQ");
+  });
   test("every supplied Chicago article remains in the archive", () => {
     expect(filterPress("SankofaOnline", "", "2026")).toHaveLength(4);
   });

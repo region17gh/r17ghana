@@ -55,6 +55,12 @@
 .press-article-header .press-lede { margin-block-start: var(--space-6); }
 .press-article-image { margin: 0 0 var(--space-10); }
 .press-article-image img { display: block; width: 100%; height: auto; }
+.press-video { margin-block-end: var(--space-10); }
+.press-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+.press-video-start { background: var(--navy-700); color: var(--text-on-inverse); padding: var(--space-8); }
+.press-video-start .press-eyebrow { color: var(--gold-300); }
+.press-video-start h2 { font: var(--type-title); margin-block: 0 var(--space-6); }
+.press-video-start .press-caption { color: var(--text-on-inverse); margin-block-start: var(--space-5); }
 .press-article-body { max-width: var(--measure-prose); font: var(--type-body-lg); }
 .press-article-body > p { margin: 0 0 var(--space-6); }
 .press-source-note { font: var(--type-meta); color: var(--ink-700); }

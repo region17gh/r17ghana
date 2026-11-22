@@ -1,6 +1,8 @@
 # Architecture rules
 
 - Press archive and article routes consume `src/lib/press.ts`; add coverage as a catalog entry with stable slug, source attribution and original summary so future additions need no layout changes. Chicago press links use the same catalog.
+- Current and archived roundtables compose `RoundProgram`; the Events Hub derives Boston's status and destination from its end time, so archiving does not depend on a manual switch or a redeployment.
+- Press video embeds load only after an explicit play action using YouTube's privacy-enhanced host, to keep the archive light before playback.
 
 - The join story uses an opaque fixed masthead and one inverse logo, so scrolling content cannot undermine header readability.
 - Buttons come from `@/components/ui/Button`, which composes the design system's Button and adds the rest shadow. The library's Button is vendor code and stays unedited; the shadow rides as a class (`r17-lift`) so `:focus-visible`'s box-shadow focus ring still wins, and its colour derives from `--overlay-modal` because the system's navy-tinted shadows composite invisibly on navy bands.
