@@ -41,7 +41,8 @@
 - [x] Added Diplomatic Times August coverage, owner-supplied Instagram recap and Chicago event record without duplicating Sankofa town hall coverage
 - [ ] Instagram recap content verification: publisher content unavailable to inspection; date and description attributed to Region 17
 - [ ] Summit playback and existing asset visual verification: localhost could not load hosted images or YouTube player; controls and embed destination checked
-- [ ] Redesign Events Hub with photo-led upcoming/past cards and a prominent event-hub invitation
-- [ ] Correct MOITI partner URL and link Boston directly to its permanent roundtable page
-- [ ] Unified signed-in question/coverage publishing panel: awaiting publication record approval
-- [ ] Real-time approved Boston question display without exposing pending submissions
+- [x] Events Hub photo-led upcoming/past cards and prominent event-hub invitation; 320/390/1280 layouts and navigation checked
+- [x] MOITI partner URL corrected and Boston links directly to /events/roundtables/boston, still upcoming until its end time
+- [x] Unified operator question/coverage publishing panel at /publications; catalog, detail and Chicago coverage all respect publication state
+- [ ] Signed-in publishing panel end-to-end verification: external Supabase session unavailable; requires signed-in platform operator
+- [x] Approved Boston question live subscription with automatic refresh fallback; actual approval appears and removal disappears without reload; anonymous private reads return no rows
