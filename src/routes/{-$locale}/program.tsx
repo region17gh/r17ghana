@@ -1,57 +1,77 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import logo from "@/assets/region17-logo-navy-gold-512.png.asset.json";
-import { RunOfShow } from "@/components/program/RunOfShow";
 import { Speakers } from "@/components/program/Speakers";
-import { AskEvent } from "@/components/program/AskEvent";
-import { MainVideo, MoreVideos } from "@/components/program/Videos";
+import { Button } from "@/components/ui/Button";
 import { PanBand } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { localePath, useI18n } from "@/i18n";
-import { eventPhase } from "@/lib/event";
-import { MAIN_VIDEO, MORE_VIDEOS } from "@/lib/program-videos";
-import { PROGRAM_MC, PROGRAM_PLACE, PROGRAM_TITLE, RUN_OF_SHOW, SPEAKERS } from "@/lib/program";
+import { BOSTON } from "@/lib/boston";
+import { SPEAKERS } from "@/lib/program";
 
-const TITLE = "Program | U.S. and Ghana Business and Investment Roundtable | Region 17";
-const DESC = "Speakers, videos and run of show for the November 12, 2026 roundtable at mHUB, Chicago. In person and online.";
+const TITLE = "Program | Boston-Ghana Investment Roundtable | Region 17";
+const DESC = "December 3, 2026 in Boston: a roundtable on Ghana-Massachusetts economic partnerships. RSVP only.";
 
 export const Route = createFileRoute("/{-$locale}/program")({
   head: () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
-      { property: "og:title", content: "Event program: speakers and run of show" },
+      { property: "og:title", content: BOSTON.title },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: ProgramPage,
+  component: BostonProgram,
 });
 
-function ProgramPage() {
+const ambassador = SPEAKERS.filter((s) => s.id === "victor-smith");
+
+function BostonProgram() {
   const { locale, t } = useI18n();
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => heading.current?.focus(), []);
-  const [past, setPast] = useState(false);
-  useEffect(() => setPast(eventPhase(Date.now()) === "past"), []);
   return (
     <>
       <PanBand />
       <main className="program-page">
         <Link className="r17-page-logo" to={localePath(locale, "/")} aria-label="Region 17 home"><img src={logo.url} alt="Region 17" width={512} height={120} /></Link>
-        <p className="r17-eyebrow program-eyebrow">Event program</p>
-        <h1 ref={heading} tabIndex={-1} className="program-h1">{PROGRAM_TITLE}</h1>
-        <p className="program-meta">{PROGRAM_PLACE}</p>
-        <p className="program-meta">{PROGRAM_MC}</p>
-        <nav className="program-links" aria-label="Event links">
-          {past ? <Link to={localePath(locale, "/program/thank-you")}>Thank you for attending: videos and downloads</Link> : <Link to={localePath(locale, "/live")}>Watch online</Link>}
-        </nav>
-        <RunOfShow list={RUN_OF_SHOW} />
-        <Speakers list={SPEAKERS} />
-        <MainVideo video={MAIN_VIDEO} />
-        <MoreVideos list={MORE_VIDEOS} />
-        <AskEvent />
+        <p className="r17-eyebrow program-eyebrow">Upcoming event</p>
+        <h1 ref={heading} tabIndex={-1} className="program-h1">{BOSTON.title}</h1>
+        <p className="program-meta">{BOSTON.theme}</p>
+        <p className="program-meta">{BOSTON.dateLine}</p>
+        <address className="program-meta">{BOSTON.venue.join(", ")}</address>
+        <div className="program-links">
+          <a href={BOSTON.rsvp} target="_blank" rel="noopener noreferrer" onClick={() => window.__lovableEvents?.track?.("project.boston_rsvp_clicked", {})}>
+            <Button variant="primary" size="lg" tabIndex={-1}>RSVP to confirm your seat</Button>
+          </a>
+        </div>
+        <p className="program-note">RSVP only. Seats are confirmed through the registration page.</p>
+
+        <section className="program-section" aria-labelledby="about-h">
+          <h2 id="about-h" className="program-h2">About the roundtable</h2>
+          {BOSTON.about.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
+        </section>
+
+        <section className="program-section" aria-labelledby="partners-h">
+          <h2 id="partners-h" className="program-h2">Presented by</h2>
+          <ul>{BOSTON.partners.map((p) => <li key={p}>{p}</li>)}</ul>
+        </section>
+
+        <Speakers list={ambassador} />
+
+        <section className="program-section" aria-labelledby="ros-h">
+          <h2 id="ros-h" className="program-h2">Run of show</h2>
+          <p className="program-note">The full run of show and speaker list will be posted here before the event.</p>
+        </section>
+
+        <section className="program-section" aria-labelledby="contact-h">
+          <h2 id="contact-h" className="program-h2">Questions</h2>
+          <p>Contact Region 17 at <a href={`mailto:${BOSTON.contact}`}>{BOSTON.contact}</a>.</p>
+          <Link to={localePath(locale, "/events")}>See past events, including the Chicago videos</Link>
+        </section>
+
         <Link className="program-home-end" to={localePath(locale, "/")}>Back to Region 17 home</Link>
         <p className="r17-cite program-note">{t("legal.notAGovernmentDocument")}</p>
       </main>

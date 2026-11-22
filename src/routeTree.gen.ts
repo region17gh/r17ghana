@@ -30,6 +30,8 @@ import { Route as Char91__componentChar93PreviewSplatRouteImport } from './route
 import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[__mockup].preview.$'
 import { Route as Char123LocaleChar125RegionIndexRouteImport } from './routes/{-$locale}/$region/index'
 import { Route as Char123LocaleChar125RegionDistrictRouteImport } from './routes/{-$locale}/$region/$district'
+import { Route as Char123LocaleChar125EventsIndexRouteImport } from './routes/{-$locale}/events.index'
+import { Route as Char123LocaleChar125EventsChicago2026RouteImport } from './routes/{-$locale}/events.chicago-2026'
 import { Route as Char123LocaleChar125JoinIndexRouteImport } from './routes/{-$locale}/join/index'
 import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{-$locale}/join/register'
 import { Route as Char123LocaleChar125ProgramThankYouRouteImport } from './routes/{-$locale}/program_.thank-you'
@@ -157,6 +159,18 @@ const Char123LocaleChar125RegionDistrictRoute =
     path: '/$region/$district',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
+const Char123LocaleChar125EventsIndexRoute =
+  Char123LocaleChar125EventsIndexRouteImport.update({
+    id: '/events/',
+    path: '/events/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125EventsChicago2026Route =
+  Char123LocaleChar125EventsChicago2026RouteImport.update({
+    id: '/events/chicago-2026',
+    path: '/events/chicago-2026',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
 const Char123LocaleChar125JoinIndexRoute =
   Char123LocaleChar125JoinIndexRouteImport.update({
     id: '/join/',
@@ -209,10 +223,12 @@ export interface FileRoutesByFullPath {
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
+  '/{-$locale}/events/chicago-2026': typeof Char123LocaleChar125EventsChicago2026Route
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
   '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
+  '/{-$locale}/events/': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -236,10 +252,12 @@ export interface FileRoutesByTo {
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
+  '/{-$locale}/events/chicago-2026': typeof Char123LocaleChar125EventsChicago2026Route
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
   '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region': typeof Char123LocaleChar125RegionIndexRoute
+  '/{-$locale}/events': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join': typeof Char123LocaleChar125JoinIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -265,10 +283,12 @@ export interface FileRoutesById {
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
+  '/{-$locale}/events/chicago-2026': typeof Char123LocaleChar125EventsChicago2026Route
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
   '/{-$locale}/program_/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
+  '/{-$locale}/events/': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -295,10 +315,12 @@ export interface FileRouteTypes {
     | '/__component/preview/$'
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
+    | '/{-$locale}/events/chicago-2026'
     | '/{-$locale}/join/register'
     | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
+    | '/{-$locale}/events/'
     | '/{-$locale}/join/'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
@@ -322,10 +344,12 @@ export interface FileRouteTypes {
     | '/__component/preview/$'
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
+    | '/{-$locale}/events/chicago-2026'
     | '/{-$locale}/join/register'
     | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region'
+    | '/{-$locale}/events'
     | '/{-$locale}/join'
     | '/lovable/email/transactional/preview'
   id:
@@ -350,10 +374,12 @@ export interface FileRouteTypes {
     | '/__component/preview/$'
     | '/__mockup/preview/$'
     | '/{-$locale}/$region/$district'
+    | '/{-$locale}/events/chicago-2026'
     | '/{-$locale}/join/register'
     | '/{-$locale}/program_/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
+    | '/{-$locale}/events/'
     | '/{-$locale}/join/'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
@@ -521,6 +547,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125RegionDistrictRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/events/': {
+      id: '/{-$locale}/events/'
+      path: '/events'
+      fullPath: '/{-$locale}/events/'
+      preLoaderRoute: typeof Char123LocaleChar125EventsIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
+    '/{-$locale}/events/chicago-2026': {
+      id: '/{-$locale}/events/chicago-2026'
+      path: '/events/chicago-2026'
+      fullPath: '/{-$locale}/events/chicago-2026'
+      preLoaderRoute: typeof Char123LocaleChar125EventsChicago2026RouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
     '/{-$locale}/join/': {
       id: '/{-$locale}/join/'
       path: '/join'
@@ -580,10 +620,12 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125VerifyRoute: typeof Char123LocaleChar125VerifyRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   Char123LocaleChar125RegionDistrictRoute: typeof Char123LocaleChar125RegionDistrictRoute
+  Char123LocaleChar125EventsChicago2026Route: typeof Char123LocaleChar125EventsChicago2026Route
   Char123LocaleChar125JoinRegisterRoute: typeof Char123LocaleChar125JoinRegisterRoute
   Char123LocaleChar125ProgramThankYouRoute: typeof Char123LocaleChar125ProgramThankYouRoute
   Char123LocaleChar125RegionsRegionRoute: typeof Char123LocaleChar125RegionsRegionRoute
   Char123LocaleChar125RegionIndexRoute: typeof Char123LocaleChar125RegionIndexRoute
+  Char123LocaleChar125EventsIndexRoute: typeof Char123LocaleChar125EventsIndexRoute
   Char123LocaleChar125JoinIndexRoute: typeof Char123LocaleChar125JoinIndexRoute
 }
 
@@ -599,6 +641,8 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
     Char123LocaleChar125RegionDistrictRoute:
       Char123LocaleChar125RegionDistrictRoute,
+    Char123LocaleChar125EventsChicago2026Route:
+      Char123LocaleChar125EventsChicago2026Route,
     Char123LocaleChar125JoinRegisterRoute:
       Char123LocaleChar125JoinRegisterRoute,
     Char123LocaleChar125ProgramThankYouRoute:
@@ -606,6 +650,7 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125RegionsRegionRoute:
       Char123LocaleChar125RegionsRegionRoute,
     Char123LocaleChar125RegionIndexRoute: Char123LocaleChar125RegionIndexRoute,
+    Char123LocaleChar125EventsIndexRoute: Char123LocaleChar125EventsIndexRoute,
     Char123LocaleChar125JoinIndexRoute: Char123LocaleChar125JoinIndexRoute,
   }
 

@@ -43,7 +43,7 @@ function ThankYouPage() {
 
         <h2 className="program-h2">Watch</h2>
         <ul className="thanks-list">
-          <li><Link to={localePath(locale, "/program")} hash="main-video-h">Event videos, with captions</Link></li>
+          <li><Link to={localePath(locale, "/events/chicago-2026")} hash="main-video-h">Event videos, with captions</Link></li>
         </ul>
 
         <h2 className="program-h2">Download</h2>
