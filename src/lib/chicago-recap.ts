@@ -1,6 +1,7 @@
 import clip from "@/assets/program/videos/maabena-rosca.mp4.asset.json";
 import clipPoster from "@/assets/program/videos/maabena-rosca.jpg.asset.json";
 import type { ProgramVideo } from "@/lib/program-videos";
+import { PRESS_ARTICLES } from "@/lib/press";
 
 type Pointer = { default: { url: string } };
 const small = import.meta.glob<Pointer>("@/assets/events/chicago-photos/*-640.jpg.asset.json", { eager: true });
@@ -24,10 +25,7 @@ export const RECAP_CLIP: ProgramVideo = { id: "maabena-rosca", title: "Maabena o
 export type PressItem = { title: string; url: string };
 /** Headlines as published by SankofaOnline; figures in them are the publisher's. */
 export const PRESS: PressItem[] = [
-  { title: "Ambassador Victor Smith Mobilizes Chicago's Corporate Powerhouses to Drive Ghana's Industrial Transformation and Unlock Africa's 1.4 Billion-Consumer Market", url: "https://sankofaonline.com/ambassador-victor-smith-mobilizes-chicagos-corporate-powerhouses-to-drive-ghanas-industrial-transformation-and-unlock-africas-1-4-billion-consumer-market/" },
-  { title: "A Seat at the Table: Region 17 Challenges Diaspora Ghanaians to Transform $7.8 Billion in Remittances into Ownership of Ghana's Future", url: "https://sankofaonline.com/a-seat-at-the-table-region-17-challenges-diaspora-ghanaians-to-transform-7-8-billion-in-remittances-into-ownership-of-ghanas-future/" },
-  { title: "Accountability Over Ego: How Chicago's Dialogue with Ambassador Victor Smith Challenges the Culture of Personal Politics in the Diaspora", url: "https://sankofaonline.com/accountability-over-ego-how-chicagos-dialogue-with-ambassador-victor-smith-challenges-the-culture-of-personal-politics-in-the-diaspora/" },
-  { title: "Ambassador Smith Tackles Diaspora Concerns on Investment, Consular Services, Delayed Payments and Student Support", url: "https://sankofaonline.com/ambassador-smith-tackles-diaspora-concerns-on-investment-consular-services-delayed-payments-and-student-support/" },
+  ...PRESS_ARTICLES.filter((article) => article.publisher === "SankofaOnline").map(({ title, url }) => ({ title, url })),
 ];
 
 const tVid = import.meta.glob<Pointer>("@/assets/events/testimonials/*.mp4.asset.json", { eager: true });

@@ -32,3 +32,7 @@
 - [ ] Boston moves to /events/roundtables/boston after the event
 - [ ] Next round page: waiting on its date, venue, RSVP link and details
 - [ ] Testimonial names for 4 guests: waiting on correct spellings
+- [x] Press archive: corporate editorial layout, searchable coverage and individual article pages
+- [x] Press archive: verify supplied sources, preserve Chicago coverage, check mobile navigation
+- [x] Press archive: add the supplied summit video as an individual coverage page (verified publisher: JoyNews)
+- [ ] Press archive: Embassy launch announcement awaiting its original link

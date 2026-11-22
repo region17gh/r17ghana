@@ -35,6 +35,8 @@ import { Route as Char123LocaleChar125EventsIndexRouteImport } from './routes/{-
 import { Route as Char123LocaleChar125EventsChicago2026RouteImport } from './routes/{-$locale}/events.chicago-2026'
 import { Route as Char123LocaleChar125JoinIndexRouteImport } from './routes/{-$locale}/join/index'
 import { Route as Char123LocaleChar125JoinRegisterRouteImport } from './routes/{-$locale}/join/register'
+import { Route as Char123LocaleChar125PressIndexRouteImport } from './routes/{-$locale}/press.index'
+import { Route as Char123LocaleChar125PressSlugRouteImport } from './routes/{-$locale}/press.$slug'
 import { Route as Char123LocaleChar125ProgramThankYouRouteImport } from './routes/{-$locale}/program_.thank-you'
 import { Route as Char123LocaleChar125RegionsRegionRouteImport } from './routes/{-$locale}/regions.$region'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -191,6 +193,18 @@ const Char123LocaleChar125JoinRegisterRoute =
     path: '/join/register',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
+const Char123LocaleChar125PressIndexRoute =
+  Char123LocaleChar125PressIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125PressRoute,
+  } as any)
+const Char123LocaleChar125PressSlugRoute =
+  Char123LocaleChar125PressSlugRouteImport.update({
+    id: '/$slug',
+    path: '/$slug',
+    getParentRoute: () => Char123LocaleChar125PressRoute,
+  } as any)
 const Char123LocaleChar125ProgramThankYouRoute =
   Char123LocaleChar125ProgramThankYouRouteImport.update({
     id: '/program_/thank-you',
@@ -228,7 +242,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
-  '/{-$locale}/press': typeof Char123LocaleChar125PressRoute
+  '/{-$locale}/press': typeof Char123LocaleChar125PressRouteWithChildren
   '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
@@ -240,11 +254,13 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/events/chicago-2026': typeof Char123LocaleChar125EventsChicago2026Route
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/press/$slug': typeof Char123LocaleChar125PressSlugRoute
   '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/events/': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
+  '/{-$locale}/press/': typeof Char123LocaleChar125PressIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/{-$locale}/events/roundtables/chicago': typeof Char123LocaleChar125EventsRoundtablesChicagoRoute
 }
@@ -259,7 +275,6 @@ export interface FileRoutesByTo {
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
-  '/{-$locale}/press': typeof Char123LocaleChar125PressRoute
   '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
@@ -271,11 +286,13 @@ export interface FileRoutesByTo {
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/events/chicago-2026': typeof Char123LocaleChar125EventsChicago2026Route
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/press/$slug': typeof Char123LocaleChar125PressSlugRoute
   '/{-$locale}/program/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/events': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join': typeof Char123LocaleChar125JoinIndexRoute
+  '/{-$locale}/press': typeof Char123LocaleChar125PressIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/{-$locale}/events/roundtables/chicago': typeof Char123LocaleChar125EventsRoundtablesChicagoRoute
 }
@@ -292,7 +309,7 @@ export interface FileRoutesById {
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
   '/{-$locale}/live': typeof Char123LocaleChar125LiveRoute
-  '/{-$locale}/press': typeof Char123LocaleChar125PressRoute
+  '/{-$locale}/press': typeof Char123LocaleChar125PressRouteWithChildren
   '/{-$locale}/program': typeof Char123LocaleChar125ProgramRoute
   '/{-$locale}/signin': typeof Char123LocaleChar125SigninRoute
   '/{-$locale}/verify': typeof Char123LocaleChar125VerifyRoute
@@ -304,11 +321,13 @@ export interface FileRoutesById {
   '/{-$locale}/$region/$district': typeof Char123LocaleChar125RegionDistrictRoute
   '/{-$locale}/events/chicago-2026': typeof Char123LocaleChar125EventsChicago2026Route
   '/{-$locale}/join/register': typeof Char123LocaleChar125JoinRegisterRoute
+  '/{-$locale}/press/$slug': typeof Char123LocaleChar125PressSlugRoute
   '/{-$locale}/program_/thank-you': typeof Char123LocaleChar125ProgramThankYouRoute
   '/{-$locale}/regions/$region': typeof Char123LocaleChar125RegionsRegionRoute
   '/{-$locale}/$region/': typeof Char123LocaleChar125RegionIndexRoute
   '/{-$locale}/events/': typeof Char123LocaleChar125EventsIndexRoute
   '/{-$locale}/join/': typeof Char123LocaleChar125JoinIndexRoute
+  '/{-$locale}/press/': typeof Char123LocaleChar125PressIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/{-$locale}/events/roundtables/chicago': typeof Char123LocaleChar125EventsRoundtablesChicagoRoute
 }
@@ -338,11 +357,13 @@ export interface FileRouteTypes {
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/events/chicago-2026'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/press/$slug'
     | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/events/'
     | '/{-$locale}/join/'
+    | '/{-$locale}/press/'
     | '/lovable/email/transactional/preview'
     | '/{-$locale}/events/roundtables/chicago'
   fileRoutesByTo: FileRoutesByTo
@@ -357,7 +378,6 @@ export interface FileRouteTypes {
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
     | '/{-$locale}/live'
-    | '/{-$locale}/press'
     | '/{-$locale}/program'
     | '/{-$locale}/signin'
     | '/{-$locale}/verify'
@@ -369,11 +389,13 @@ export interface FileRouteTypes {
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/events/chicago-2026'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/press/$slug'
     | '/{-$locale}/program/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region'
     | '/{-$locale}/events'
     | '/{-$locale}/join'
+    | '/{-$locale}/press'
     | '/lovable/email/transactional/preview'
     | '/{-$locale}/events/roundtables/chicago'
   id:
@@ -401,11 +423,13 @@ export interface FileRouteTypes {
     | '/{-$locale}/$region/$district'
     | '/{-$locale}/events/chicago-2026'
     | '/{-$locale}/join/register'
+    | '/{-$locale}/press/$slug'
     | '/{-$locale}/program_/thank-you'
     | '/{-$locale}/regions/$region'
     | '/{-$locale}/$region/'
     | '/{-$locale}/events/'
     | '/{-$locale}/join/'
+    | '/{-$locale}/press/'
     | '/lovable/email/transactional/preview'
     | '/{-$locale}/events/roundtables/chicago'
   fileRoutesById: FileRoutesById
@@ -608,6 +632,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125JoinRegisterRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/press/': {
+      id: '/{-$locale}/press/'
+      path: '/'
+      fullPath: '/{-$locale}/press/'
+      preLoaderRoute: typeof Char123LocaleChar125PressIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125PressRoute
+    }
+    '/{-$locale}/press/$slug': {
+      id: '/{-$locale}/press/$slug'
+      path: '/$slug'
+      fullPath: '/{-$locale}/press/$slug'
+      preLoaderRoute: typeof Char123LocaleChar125PressSlugRouteImport
+      parentRoute: typeof Char123LocaleChar125PressRoute
+    }
     '/{-$locale}/program_/thank-you': {
       id: '/{-$locale}/program_/thank-you'
       path: '/program/thank-you'
@@ -650,12 +688,28 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface Char123LocaleChar125PressRouteChildren {
+  Char123LocaleChar125PressSlugRoute: typeof Char123LocaleChar125PressSlugRoute
+  Char123LocaleChar125PressIndexRoute: typeof Char123LocaleChar125PressIndexRoute
+}
+
+const Char123LocaleChar125PressRouteChildren: Char123LocaleChar125PressRouteChildren =
+  {
+    Char123LocaleChar125PressSlugRoute: Char123LocaleChar125PressSlugRoute,
+    Char123LocaleChar125PressIndexRoute: Char123LocaleChar125PressIndexRoute,
+  }
+
+const Char123LocaleChar125PressRouteWithChildren =
+  Char123LocaleChar125PressRoute._addFileChildren(
+    Char123LocaleChar125PressRouteChildren,
+  )
+
 interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125DeclareRoute: typeof Char123LocaleChar125DeclareRoute
   Char123LocaleChar125HomeRoute: typeof Char123LocaleChar125HomeRoute
   Char123LocaleChar125InvestRoute: typeof Char123LocaleChar125InvestRoute
   Char123LocaleChar125LiveRoute: typeof Char123LocaleChar125LiveRoute
-  Char123LocaleChar125PressRoute: typeof Char123LocaleChar125PressRoute
+  Char123LocaleChar125PressRoute: typeof Char123LocaleChar125PressRouteWithChildren
   Char123LocaleChar125ProgramRoute: typeof Char123LocaleChar125ProgramRoute
   Char123LocaleChar125SigninRoute: typeof Char123LocaleChar125SigninRoute
   Char123LocaleChar125VerifyRoute: typeof Char123LocaleChar125VerifyRoute
@@ -677,7 +731,7 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125HomeRoute: Char123LocaleChar125HomeRoute,
     Char123LocaleChar125InvestRoute: Char123LocaleChar125InvestRoute,
     Char123LocaleChar125LiveRoute: Char123LocaleChar125LiveRoute,
-    Char123LocaleChar125PressRoute: Char123LocaleChar125PressRoute,
+    Char123LocaleChar125PressRoute: Char123LocaleChar125PressRouteWithChildren,
     Char123LocaleChar125ProgramRoute: Char123LocaleChar125ProgramRoute,
     Char123LocaleChar125SigninRoute: Char123LocaleChar125SigninRoute,
     Char123LocaleChar125VerifyRoute: Char123LocaleChar125VerifyRoute,
