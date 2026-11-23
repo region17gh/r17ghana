@@ -24,6 +24,7 @@ export function SiteFooter() {
           <Link to={localePath(locale, "/invest")}>{t("nav.invest")}</Link>
           <Link to={localePath(locale, "/program")}>{t("nav.program")}</Link>
           <Link to={localePath(locale, "/events")}>{t("nav.events")}</Link>
+          <Link to="/{-$locale}/calendar" params={{ locale: undefined }}>Calendar</Link>
           <Link to={localePath(locale, "/press")}>{t("nav.press")}</Link>
           <Link to={localePath(locale, "/signin")}>{t("nav.signIn")}</Link>
         </nav>

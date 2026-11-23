@@ -5,6 +5,7 @@ export const BOSTON = {
   dateLine: "Thursday, December 3, 2026, 9:30 am to 12:00 pm (Eastern)",
   start: Date.parse("2026-12-03T09:30:00-05:00"),
   end: Date.parse("2026-12-03T12:00:00-05:00"),
+  timeZone: "America/New_York",
   venue: ["265 Franklin Street, Suite 1701", "Boston, MA 02110"],
   rsvp: "https://luma.com/go9fl4ya",
   contact: "info@r17gh.com",

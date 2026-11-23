@@ -1,3 +1,4 @@
+- [x] Event calendar: upcoming dates, host/GMT times, venues and RSVP links; Events/footer access, date tests and desktop/phone RSVP navigation checked. Existing hosted assets unavailable in local browser.
 - [x] Watch online: show 'link coming soon' popup until Zoom details are added
 - [x] Keep the Attend online band pinned at top while scrolling
 - [x] Zoom Client ID, secret, meeting number and passcode saved as project secrets; watch page verified

@@ -20,6 +20,7 @@ import { Route as AuthenticatedBostonQuestionsRouteImport } from './routes/_auth
 import { Route as AuthenticatedInvestorInboxRouteImport } from './routes/_authenticated/investor-inbox'
 import { Route as AuthenticatedPublicationsRouteImport } from './routes/_authenticated/publications'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125CalendarRouteImport } from './routes/{-$locale}/calendar'
 import { Route as Char123LocaleChar125DeclareRouteImport } from './routes/{-$locale}/declare'
 import { Route as Char123LocaleChar125HomeRouteImport } from './routes/{-$locale}/home'
 import { Route as Char123LocaleChar125InvestRouteImport } from './routes/{-$locale}/invest'
@@ -105,6 +106,12 @@ const Char123LocaleChar125IndexRoute =
   Char123LocaleChar125IndexRouteImport.update({
     id: '/',
     path: '/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125CalendarRoute =
+  Char123LocaleChar125CalendarRouteImport.update({
+    id: '/calendar',
+    path: '/calendar',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125DeclareRoute =
@@ -268,6 +275,7 @@ export interface FileRoutesByFullPath {
   '/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/publications': typeof AuthenticatedPublicationsRoute
+  '/{-$locale}/calendar': typeof Char123LocaleChar125CalendarRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -305,6 +313,7 @@ export interface FileRoutesByTo {
   '/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/publications': typeof AuthenticatedPublicationsRoute
+  '/{-$locale}/calendar': typeof Char123LocaleChar125CalendarRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -343,6 +352,7 @@ export interface FileRoutesById {
   '/_authenticated/boston-questions': typeof AuthenticatedBostonQuestionsRoute
   '/_authenticated/investor-inbox': typeof AuthenticatedInvestorInboxRoute
   '/_authenticated/publications': typeof AuthenticatedPublicationsRoute
+  '/{-$locale}/calendar': typeof Char123LocaleChar125CalendarRoute
   '/{-$locale}/declare': typeof Char123LocaleChar125DeclareRoute
   '/{-$locale}/home': typeof Char123LocaleChar125HomeRoute
   '/{-$locale}/invest': typeof Char123LocaleChar125InvestRoute
@@ -383,6 +393,7 @@ export interface FileRouteTypes {
     | '/boston-questions'
     | '/investor-inbox'
     | '/publications'
+    | '/{-$locale}/calendar'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -420,6 +431,7 @@ export interface FileRouteTypes {
     | '/boston-questions'
     | '/investor-inbox'
     | '/publications'
+    | '/{-$locale}/calendar'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -457,6 +469,7 @@ export interface FileRouteTypes {
     | '/_authenticated/boston-questions'
     | '/_authenticated/investor-inbox'
     | '/_authenticated/publications'
+    | '/{-$locale}/calendar'
     | '/{-$locale}/declare'
     | '/{-$locale}/home'
     | '/{-$locale}/invest'
@@ -577,6 +590,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/{-$locale}/'
       preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
+    '/{-$locale}/calendar': {
+      id: '/{-$locale}/calendar'
+      path: '/calendar'
+      fullPath: '/{-$locale}/calendar'
+      preLoaderRoute: typeof Char123LocaleChar125CalendarRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/declare': {
@@ -789,6 +809,7 @@ const Char123LocaleChar125PressRouteWithChildren =
   )
 
 interface Char123LocaleChar125RouteRouteChildren {
+  Char123LocaleChar125CalendarRoute: typeof Char123LocaleChar125CalendarRoute
   Char123LocaleChar125DeclareRoute: typeof Char123LocaleChar125DeclareRoute
   Char123LocaleChar125HomeRoute: typeof Char123LocaleChar125HomeRoute
   Char123LocaleChar125InvestRoute: typeof Char123LocaleChar125InvestRoute
@@ -812,6 +833,7 @@ interface Char123LocaleChar125RouteRouteChildren {
 
 const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
   {
+    Char123LocaleChar125CalendarRoute: Char123LocaleChar125CalendarRoute,
     Char123LocaleChar125DeclareRoute: Char123LocaleChar125DeclareRoute,
     Char123LocaleChar125HomeRoute: Char123LocaleChar125HomeRoute,
     Char123LocaleChar125InvestRoute: Char123LocaleChar125InvestRoute,

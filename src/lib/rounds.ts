@@ -9,6 +9,7 @@ export type Round = {
   dateLine: string;
   start: number;
   end: number;
+  timeZone: string;
   venue: readonly string[];
   rsvp: string;
   contact: string;

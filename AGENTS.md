@@ -1,5 +1,7 @@
 # Architecture rules
 
+- The event calendar derives upcoming entries from `ROUNDS`, using each event's IANA time zone and end time, so dates stay consistent and finished events leave the agenda automatically.
+
 - Press archive and article routes consume `src/lib/press.ts`; add coverage as a catalog entry with stable slug, source attribution and original summary so future additions need no layout changes. Chicago press links use the same catalog.
 - Current and archived roundtables compose `RoundProgram`; the Events Hub derives Boston's status and destination from its end time, so archiving does not depend on a manual switch or a redeployment.
 - Press video embeds load only after an explicit play action using YouTube's privacy-enhanced host, to keep the archive light before playback.
