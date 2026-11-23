@@ -22,7 +22,7 @@ describe("program", () => {
     expect(currentSegment(Date.parse("2026-11-12T08:59:00-06:00"))).toBe(-1);
   });
   it("lists two speakers", () => {
-    expect(SPEAKERS).toHaveLength(2);
+    expect(SPEAKERS).toHaveLength(1);
   });
   it("names the viewer's zone for the event date", () => {
     expect(zoneShortName("America/Los_Angeles", RUN_OF_SHOW[0].start)).toBe("PST");

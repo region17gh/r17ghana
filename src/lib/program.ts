@@ -1,4 +1,3 @@
-import makedaPhoto from "@/assets/program/speaker-makeda-smith.jpg.asset.json";
 import victorPhoto from "@/assets/program/speaker-victor-smith.jpg.asset.json";
 
 /** Event program content. Bios are reproduced as supplied by each speaker. */
@@ -23,19 +22,6 @@ export const SPEAKERS: Speaker[] = [
       "Academically grounded with an MBA in International Business from the University of Wales Business School and a BSc. (Hons) in Maritime Studies, Ambassador Smith is a well-rounded professional whose intellectual preparation has underpinned his effective diplomacy and executive leadership.",
       "He is a patron, board member, and mentor committed to grooming the next generation of leaders and professionals. A member of the Professional Forum of the NDC, and affiliated with the Ghanaian Professionals Network UK, he brings not only expertise but also an unwavering dedication to nation-building.",
       "Fluent in English, with working knowledge of French and native Ghanaian dialects, Ambassador Smith is not just a man of titles, but a man of impact, one whose legacy continues to inspire national and continental progress.",
-    ],
-  },
-  {
-    id: "makeda-smith",
-    name: "Dr. Makeda Smith, Hon. D.Phil.",
-    role: "Founder and CEO, Kingdom Citizens in Real Estate™ (KCIRE)",
-    photo: makedaPhoto.url,
-    alt: "Dr. Makeda Smith smiling, in a royal blue top and gold necklace",
-    bio: [
-      "Dr. Makeda Smith, Hon. D.Phil. is an international entrepreneur, real estate strategist, global speaker, author, and Kingdom leader with more than 22 years of experience in the real estate industry. She is the Founder and CEO of Kingdom Citizens in Real Estate™ (KCIRE), a global investment movement connecting diaspora investors to international real estate, business, and economic opportunities.",
-      "Through the Global Marketplace & Economic Summit, she brings together investors, developers, government representatives, and business leaders to advance cross-border investment and economic collaboration.",
-      "As the founder of Makeda Smith Global Ministries, her work also centers on identity, Kingdom leadership, purpose, and nation-building. Her message challenges individuals to move beyond personal success and build structures, opportunities, and legacies that will outlive them.",
-      "Her philosophy: The assignment is bigger than you. The impact should outlive you.",
     ],
   },
 ];
