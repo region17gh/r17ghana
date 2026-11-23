@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Checkbox, Field, Textarea } from "@/design-system/region-17-ghana-design-system-e3e62f";
 import { useBostonQuestions } from "@/hooks/useBostonQuestions";
+import { GuestQuestions } from "@/components/program/GuestQuestions";
 
 export function BostonQuestions() {
   const f = useBostonQuestions();
@@ -15,8 +16,7 @@ export function BostonQuestions() {
       <Button size="lg" type="submit" disabled={f.busy || !f.permission || f.question.trim().length < 3}>{f.busy ? "Submitting" : "Submit question"}</Button>
     </form>
     <div role="status">{f.saved && <p>Your question is saved for review. It will appear here only if approved.</p>}</div>
-    <h3 className="program-h2">Questions from guests</h3>
     {f.published.isPending ? <p role="status">Loading questions...</p> : f.published.error ? <p role="alert">Published questions are unavailable. Your submission can still be saved.</p> :
-      f.published.data?.length ? <ul aria-live="polite">{f.published.data.map((q) => <li key={q.id}>{q.question}</li>)}</ul> : <p className="program-note">No questions have been published yet.</p>}
+      <GuestQuestions questions={f.published.data ?? []} />}
   </section>;
 }

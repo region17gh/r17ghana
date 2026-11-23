@@ -5,7 +5,7 @@ export function PressVideo({ videoId, title }: { videoId: string; title: string 
   const { playing, play } = usePressVideo();
   return <section className="press-video" aria-label="Summit video">
     {playing ? <iframe
-      src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&cc_load_policy=1`}
+      src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&cc_load_policy=1&playsinline=1`}
       title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
       referrerPolicy="strict-origin-when-cross-origin"
     /> : <div className="press-video-start">

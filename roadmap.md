@@ -1,3 +1,5 @@
+- [x] Summit: published-only player added to Boston page; existing live coverage plays (duration 2h46m35s, advancing without errors). Continuous full-length viewing unverified; local preview crashed during new event-page checks.
+- [x] Admin: inline signed-in panel and staged live-page previews using shared public renderers; 232 tests pass. Signed-in verification blocked by unavailable external account sessions.
 - [x] Event calendar: upcoming dates, host/GMT times, venues and RSVP links; Events/footer access, date tests and desktop/phone RSVP navigation checked. Existing hosted assets unavailable in local browser.
 - [x] Watch online: show 'link coming soon' popup until Zoom details are added
 - [x] Keep the Attend online band pinned at top while scrolling

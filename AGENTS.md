@@ -1,5 +1,7 @@
 # Architecture rules
 
+- `/admin` keeps signed-in operator review and staged public-page previews together; previewing never mutates publication state, and the event question preview reuses the public question renderer.
+
 - The event calendar derives upcoming entries from `ROUNDS`, using each event's IANA time zone and end time, so dates stay consistent and finished events leave the agenda automatically.
 
 - Press archive and article routes consume `src/lib/press.ts`; add coverage as a catalog entry with stable slug, source attribution and original summary so future additions need no layout changes. Chicago press links use the same catalog.
